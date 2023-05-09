@@ -1,0 +1,17 @@
+### Forbid access 
+
+Options -Indexes
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.php/$1 [L]
+
+#Interdire l'acces aux dossiers :
+RewriteRule ^(App|Database) - [R=403,L]
+
+#Interdire l'acces au fichier .env :
+<FilesMatch "(.env|.gitignore|composer.json|composer.lock|README.md)">
+  Order allow,deny
+  Deny from all
+</FilesMatch> 

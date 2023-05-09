@@ -1,0 +1,866 @@
+/* Font family*/
+/* roboto-regular - latin */
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../font/roboto-v30-latin-regular.eot');
+    /* IE9 Compat Modes */
+    src: local(''),
+        url('../font/roboto-v30-latin-regular.eot?#iefix') format('embedded-opentype'),
+        /* IE6-IE8 */
+        url('../font/roboto-v30-latin-regular.woff2') format('woff2'),
+        /* Super Modern Browsers */
+        url('../font/roboto-v30-latin-regular.woff') format('woff'),
+        /* Modern Browsers */
+        url('../font/roboto-v30-latin-regular.ttf') format('truetype'),
+        /* Safari, Android, iOS */
+        url('../font/roboto-v30-latin-regular.svg#Roboto') format('svg');
+    /* Legacy iOS */
+}
+
+/* variables */
+:root {
+    --vert: #8DC558;
+    --doree: #b89130;
+    --fond-gris-foncee: #292929;
+    --fond-blanc: #dedddd;
+    --fond-noir: #1c1b1b;
+}
+
+/* Mini reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+a {
+    font-family: 'Roboto', Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+h3 {
+    color: var(--doree);
+}
+
+h4 {
+    color: var(--vert);
+}
+
+a {
+    color: var(--vert);
+}
+
+a:hover {
+    color: var(--doree);
+}
+
+ul li a:hover {
+    color: var(--doree);
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* desktop */
+@media only screen and (min-width : 600px) {
+
+    body {
+        max-width: 1200px;
+        /*si ecran(résolution) supérieur 1200px*/
+        width: 100%;
+        min-height: 1200px;
+        margin: 0 auto;
+        background-color: var(--fond-gris-foncee);
+        background-size: cover;
+        color: var(--doree);
+    }
+
+    /* Logo BrocéLandes */
+    .logo img {
+        width: 50%;
+        margin: 0;
+    }
+
+    /* Menu nav */
+    #menu {
+        width: 100%;
+    }
+
+    #menu ul li a {
+        color: var(--doree);
+        font-size: 1.5rem;
+        padding-right: 3.5rem;
+        padding-left: 0.5rem;
+    }
+
+    /* bandeau navigation */
+    #bandeau {
+        display: flex;
+        background: rgba(184, 145, 48, 9);
+        background: linear-gradient(150deg, rgba(34, 34, 32, 1) 13%, rgba(184, 145, 48, 0.45) 74%);
+        justify-content: space-between;
+        margin: 0;
+        width: 100%;
+    }
+
+    /* image bandeau*/
+    .bandeau {
+        position: relative;
+    }
+
+    .bandeau-img img {
+        display: block;
+        width: 95%;
+        max-height: 50%;
+        opacity: 0.4;
+    }
+
+    /* Texte sur image bandeau */
+    .texte-bandeau {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: var(--doree);
+        text-shadow: 1px 1px 5px rgb(11, 11, 11);
+        text-align: center;
+        top: 15em;
+    }
+
+    .texte-bandeau h1 {
+        font-size: 5rem;
+    }
+
+    .texte-bandeau p {
+        font-size: 2rem;
+    }
+
+    /* Liste contrées */
+    .contrees a,
+    .legendes a {
+        color: var(--doree);
+        font-size: 2em;
+        text-decoration: none;
+        margin: 25px;
+        width: 25%;
+    }
+
+    .grid-contrees {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+    }
+
+    .contrees {
+        text-align: center;
+    }
+
+    .contrees img {
+        max-width: 60%;
+        height: auto;
+    }
+
+    /* Liste legendes */
+    .grid-legendes {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+    }
+
+    .legendes {
+        text-align: center;
+    }
+
+    .legendes img {
+        max-width: 60%;
+        height: auto;
+    }
+
+    /* Détails d'une contree ou légende */
+    .container .detailsContree img,
+    .container .detailsLegende img {
+        max-width: 60%;
+        margin-bottom: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* titre details legende et contree */
+    .container .detailsContree h1,
+    .container .detailsLegende h1 {
+        margin: 40px;
+        color: var(--vert);
+        text-align: center;
+    }
+
+    .container p {
+        color: var(--doree);
+        line-height: 2rem;
+    }
+
+    /* commentaire */
+    .container .detailsContree h2 {
+        color: var(--vert);
+    }
+
+    /* contree correspond legende */
+    .container .detailsLegende h3 {
+        color: var(--vert);
+        text-align: center;
+        font-size: 1.5em;
+        max-width: 75%;
+        margin: auto;
+    }
+
+    .container .detailsLegende h3 span {
+        color: var(--doree);
+    }
+
+    /* Commentaire contree */
+    .formCom label {
+        color: var(--doree);
+        margin-top: 10px;
+    }
+
+    form .btn {
+        background-color: var(--doree);
+        border: 3px solid var(--doree);
+    }
+
+    form .btn:hover {
+        background-color: var(--fond-gris-foncee);
+        color: var(--doree);
+        padding: 7px;
+        border: 3px solid var(--doree);
+        border-radius: 5px;
+    }
+
+    /* Formulaire contact */
+    .contact {
+        display: flex;
+        justify-content: center;
+    }
+
+    .container h2 {
+        margin-top: 50px;
+        text-align: center;
+    }
+
+    .contact form {
+        margin-bottom: 90px;
+        margin-top: 50px;
+        font-size: 1.5em;
+    }
+
+    .contact form p {
+        color: var(--vert);
+        font-size: 1rem;
+    }
+
+    .contact form p input[type=text],
+    .contact form p input[type=email],
+    .contact form p textarea {
+        background-color: var(--fond-blanc);
+        color: black;
+        width: 220px;
+        padding: 5px;
+        border-radius: 3px;
+    }
+
+    .contact form label {
+        width: 97px;
+        display: inline-block;
+        vertical-align: top;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Espace entre champs de saisie */
+    .contact .champsSaisie {
+        margin-bottom: 15px;
+    }
+
+    .contact button {
+        background-color: var(--fond-gris-foncee);
+        color: var(--doree);
+        padding: 7px;
+        border-radius: 5px;
+    }
+
+    .contact button:hover {
+        background-color: var(--doree);
+        color: var(--fond-gris-foncee);
+        padding: 7px;
+        border-radius: 5px;
+    }
+
+    .contact .champsSaisie button {
+        margin-left: 100px;
+    }
+
+    /* Footer */
+    .row {
+        margin-top: 60px;
+        font-size: 1.6rem;
+    }
+
+    /* nous contacter et nos reseaux sociaux footer */
+    .row h3 {
+        font-size: 1.7rem;
+    }
+
+    /* Bouton Administration */
+    .myButton {
+        box-shadow: 0px 1px 0px 0px #b89230;
+        background: linear-gradient(150deg, var(--fond-gris-foncee) 55%, var(--doree) 100%);
+        background-color: var(--fond-gris-foncee);
+        border-radius: 6px;
+        border: 1px solid var(--doree);
+        display: inline-block;
+        cursor: pointer;
+        color: var(--doree);
+        font-family: Arial;
+        font-size: 12px;
+        padding: 6px 24px;
+        text-decoration: none;
+    }
+
+    .myButton:hover {
+        background: linear-gradient(to bottom, #b89230 5%, #b89230 100%);
+        background-color: #b89230;
+        color: var(--fond-gris-foncee);
+    }
+
+    .myButton:active {
+        position: relative;
+        top: 1px;
+    }
+
+    /* connexion admin */
+
+    .accueil .champsSaisie {
+        margin-top: 50px;
+        color: var(--doree);
+    }
+
+    .accueil form button {
+        background-color: var(--fond-gris-foncee);
+        color: var(--doree);
+        padding: 7px;
+        border-color: var(--doree);
+        border-radius: 5px;
+    }
+
+    .accueil form button:hover {
+        background-color: var(--doree);
+        color: var(--fond-gris-foncee);
+        padding: 7px;
+        border-radius: 5px;
+    }
+
+    /* Page admin */
+    .admin {
+        color: var(--vert);
+        text-align: center;
+        border: 3px solid var(--doree);
+        display: block;
+        margin: 0 auto;
+        width: 90%;
+        max-width: 100%;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    /* champs de saisie gestion publication*/
+    .form-gestion input {
+        font-size: 1.3rem;
+        text-align: center;
+        margin: auto;
+    }
+
+}
+
+/* ++++++ RESPONSIVE ++++++++*/
+/*==========version mobile==========*/
+@media only screen and (max-width: 600px) {
+    body {
+        background-color: var(--fond-gris-foncee);
+        font-family: 'roboto', Tahoma, sans-serif;
+        max-width: 700px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    /* Logo BrocéLandes */
+    .logo .img {
+        width: 100%;
+        margin: 0;
+    }
+
+    #bandeau .logo {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    /* Nav */
+    #menu {
+        display: none;
+    }
+
+    #bandeau nav {
+        margin: auto;
+    }
+
+    #bandeau nav li a {
+        font-size: 1.2rem;
+        color: var(--vert);
+    }
+
+    #bandeau nav li a:hover {
+        color: var(--doree);
+    }
+
+    #burger {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #burger ul {
+        display: none;
+        width: 100%;
+        background-color: var(--fond-gris-foncee);
+        position: absolute;
+        top: 5rem;
+        left: 0;
+        padding: 0;
+        margin: 0;
+    }
+
+    #burger ul li a {
+        display: block;
+        color: var(--doree);
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
+
+    #burger:hover ul {
+        display: block;
+    }
+
+    /*bandeau image */
+    #bandeau {
+        max-width: 600px;
+    }
+
+    #bandeau img {
+        margin-top: 3px;
+        margin-left: 3px;
+        width: 50%;
+        height: 50%;
+    }
+
+    .bandeau-img img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        max-height: 50%;
+        opacity: 0.4;
+    }
+
+    .bandeau-img .texte-bandeau {
+        position: relative;
+        text-align: center;
+        font-size: 2rem;
+        color: var(--doree);
+        text-shadow: 3px 3px 3px rgb(11, 11, 11);
+        width: 100%;
+        max-width: 800px;
+        top: -7rem;
+    }
+
+    .bandeau-img .texte-bandeau h2 {
+        font-size: 2rem;
+        color: var(--vert);
+    }
+
+    /* Contrees et legendes*/
+    .contrees,
+    .legendes {
+        margin: 25px, auto;
+        text-align: center;
+    }
+
+    .grid-contrees,
+    .grid-legendes {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-contrees .contrees h2,
+    .grid-legendes .legendes h2 {
+        margin-top: 10px;
+        font-size: 2rem;
+    }
+
+    .contrees img,
+    .legendes img {
+        max-width: 60%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 50px;
+    }
+
+    /* Détails d'une contree ou légende */
+    .container .detailsContree img,
+    .container .detailsLegende img {
+        max-width: 80%;
+        margin-bottom: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .container h1 {
+        color: var(--vert);
+        text-align: center;
+        font-size: 2.5em;
+        line-height: 2em;
+    }
+
+    /* contree correspond legende */
+    .container .detailsLegende h3 {
+        color: var(--vert);
+        text-align: center;
+        font-size: 1.2em;
+        max-width: 75%;
+        margin: auto;
+    }
+
+    .container .detailsLegende h3 span {
+        color: var(--doree);
+    }
+
+    .container p {
+        color: var(--doree);
+        line-height: 1.7em;
+    }
+
+    /* Commentaire contree */
+    .formCom label {
+        color: var(--doree);
+        margin-top: 10px;
+    }
+
+    form .btn {
+        background-color: var(--doree);
+        border: 3px solid var(--doree);
+    }
+
+    form .btn:hover {
+        background-color: var(--fond-gris-foncee);
+        color: var(--doree);
+        padding: 7px;
+        border: 3px solid var(--doree);
+        border-radius: 5px;
+    }
+
+    /* formulaire Contact */
+    .container .contact {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .container h2 {
+        margin-top: 10px;
+        text-align: center;
+        color: var(--vert);
+        line-height: 2em;
+    }
+
+    .contact label {
+        color: var(--doree);
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        margin-top: 0.5rem;
+    }
+
+    .contact form {
+        margin-bottom: 90px;
+        margin-top: 50px;
+        font-size: 1em;
+    }
+
+    .contact form p {
+        color: var(--vert);
+        font-size: 1rem;
+    }
+
+    .contact form p input[type=text],
+    .contact form p input[type=email],
+    .contact form p textarea {
+        background-color: var(--fond-blanc);
+        color: black;
+        width: 220px;
+        padding: 5px;
+        border-radius: 3px;
+    }
+
+    .contact form label {
+        width: 97px;
+        display: inline-block;
+        vertical-align: top;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Espace entre champs de saisie */
+    .contact .champsSaisie {
+        margin-bottom: 15px;
+    }
+
+    .contact button {
+        background-color: var(--fond-gris-foncee);
+        color: var(--doree);
+        padding: 7px;
+        border-radius: 5px;
+    }
+
+    .contact button:hover {
+        background-color: var(--doree);
+        color: var(--fond-gris-foncee);
+        padding: 7px;
+        border-radius: 5px;
+    }
+
+    .contact .champsSaisie button {
+        margin-left: 100px;
+    }
+
+    /* footer */
+
+    /* nous contacter et nos reseaux sociaux footer */
+    .row h3 {
+        font-size: 1.7rem;
+    }
+
+    /* texte adresses footer */
+    .row p {
+        font-size: 1.3rem;
+        color: var(--vert);
+    }
+
+    /* Icons reseaux sociaux */
+    .fa-brands,
+    .fab {
+        font-size: 1.5rem;
+    }
+
+    /* texte bas footer */
+    .row ul a {
+        color: var(--vert);
+        font-size: 1.2rem;
+    }
+}
+
+/* Bouton Administration footer */
+.myButton {
+    box-shadow: 0px 1px 0px 0px #b89230;
+    background: linear-gradient(150deg, var(--fond-gris-foncee) 55%, var(--doree) 100%);
+    background-color: var(--fond-gris-foncee);
+    border-radius: 6px;
+    border: 1px solid var(--doree);
+    display: flex;
+    align-items: center;
+    color: var(--doree);
+    font-size: 0.7rem;
+    padding: 5px 10px;
+    max-height: 80%;
+    text-decoration: none;
+
+}
+
+.myButton:hover {
+    background: linear-gradient(to bottom, #b89230 5%, #b89230 100%);
+    background-color: #b89230;
+    color: var(--fond-gris-foncee);
+}
+
+.myButton:active {
+    position: relative;
+    top: 1px;
+}
+
+/* connexion admin */
+.accueil form {
+    margin: auto;
+    color: var(--doree);
+}
+
+.accueil form button {
+    background-color: var(--fond-gris-foncee);
+    color: var(--doree);
+    padding: 7px;
+    border-color: var(--doree);
+    border-radius: 5px;
+}
+
+.accueil form button:hover {
+    background-color: var(--doree);
+    color: var(--fond-gris-foncee);
+    padding: 7px;
+    border-radius: 5px;
+}
+
+/* Page admin */
+.admin {
+    color: var(--vert);
+    font-size: 2rem;
+    text-align: center;
+    border: 3px solid var(--doree);
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.admin h2 {
+    margin-top: 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* titre de l'action dans gestion */
+.admin .container h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-style: oblique;
+    border: 3px solid var(--doree);
+}
+
+/* sous-titre gestion publication */
+.form-gestion label {
+    color: var(--doree);
+    font-size: 1.3rem;
+}
+
+/* champs de saisie gestion publication*/
+.form-gestion input {
+    font-size: 1.3rem;
+}
+
+
+
+/*===========Version tablets=============*/
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    body {
+        background-color: var(--fond-gris-foncee);
+        font-family: 'roboto', Tahoma, sans-serif;
+        max-width: 750px;
+        width: 100%;
+        max-height: 750px;
+        margin: 0 auto;
+
+    }
+
+    /* Bandeau image*/
+
+    main .bandeau-img {
+
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        margin-top: 3px;
+        margin-left: 3px;
+        width: 100%;
+        max-width: 600px;
+        max-height: 750px;
+    }
+
+    .bandeau-img img {
+        display: block;
+        width: 100%;
+        max-height: 50%;
+        opacity: 0.4;
+    }
+
+    .bandeau-img .texte-bandeau {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: var(--doree);
+        text-shadow: 1px 1px 2px rgb(11, 11, 11);
+        width: 80%;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .bandeau-img .texte-bandeau h1 {
+        font-size: 3rem;
+        margin-bottom: 0rem;
+    }
+
+    .bandeau-img .texte-bandeau p {
+        font-size: 1.5rem;
+    }
+
+    /* Menu nav */
+    #menu {
+        display: none;
+    }
+
+    #burger {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #burger ul {
+        display: none;
+        width: 100%;
+        background-color: var(--fond-gris-foncee);
+        position: absolute;
+        top: 5rem;
+        left: 0;
+        padding: 0;
+        margin: 0;
+    }
+
+    #burger ul li a {
+        display: block;
+        color: var(--doree);
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
+
+    #burger:hover ul {
+        display: block;
+    }
+
+    /* Section contrees et legendes */
+    .grid-contrees,
+    .grid-legendes {
+        grid-template-columns: 1fr;
+    }
+
+    .contrees img,
+    .legendes img {
+        max-width: 100%;
+    }
+}
