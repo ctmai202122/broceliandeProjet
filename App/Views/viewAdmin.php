@@ -15,7 +15,7 @@ include_once(__DIR__ . '/viewHeader.php');
             <a class="nav-link" href="?action=gestionLegende">Gestion légendes</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link active" href="#">Modération commentaires</a>
+            <a class="nav-link active" href="?action=commentaire">Modération commentaires</a>
         </li>
     </ul>
 </div>

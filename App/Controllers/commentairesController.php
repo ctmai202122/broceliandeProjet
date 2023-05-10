@@ -4,8 +4,11 @@ namespace Broceliande\Controllers;
 
 use Broceliande\Models\Commentaire;
 
-// Démarrage de la session
-session_start();
+// Vérification si la session est active
+if (session_status() === PHP_SESSION_NONE) {
+    // Démarrage de la session
+    session_start();
+}
 
 // Vérification que le formulaire a été soumis
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -29,3 +32,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 include_once(__DIR__ . '/../Views/viewCommentaires.php');
+?>

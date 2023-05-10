@@ -1,6 +1,7 @@
 <?php
 
 namespace Broceliande\Views;
+use Broceliande\Models\Commentaire;
 
 include_once(__DIR__ . '/viewHeader.php');
 
@@ -8,6 +9,7 @@ class CommentaireView
 {
     public function modererCommentaires($commentaire)
     {
+        echo ' <a href="?action=administration" class="btn btn-primary">Retour à la page Admin</a>';
 
         // Vérifier si un commentaire a été modéré
         if (isset($_GET['moderated']) && $_GET['moderated'] == 'true') {
@@ -39,7 +41,10 @@ class CommentaireView
 }
 
 $commentaireView = new CommentaireView();
+$commentaireModel = new Commentaire();
+$commentaires = $commentaireModel->getAll();
+
 $commentaireView->modererCommentaires($commentaires);
 
+
 include_once(__DIR__ . '/viewFooter.php');
-?>
