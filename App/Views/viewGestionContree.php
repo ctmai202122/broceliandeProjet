@@ -4,9 +4,11 @@ include_once(__DIR__ . '/viewHeader.php');
 ?>
 <div class="container">
     <section class="container  bg-contact">
+    <a href="viewAdmin.php" class="btn btn-primary">Retour à la page Admin</a>
+
         <h2 class="mt-5 mb-3">Ajouter une contrée</h2>
         <hr>
-        <form method="post" action="viewAdmin.php?action=addContree">
+        <form method="post" action="viewAdmin.php?action=gestionContree">
             <div class="form-group mt-4">
                 <label for="titre">Titre de la contrée:<span class="required">*</span></label>
                 <input type="text" id="titre" name="titre" class="form-control" required>
@@ -47,7 +49,7 @@ include_once(__DIR__ . '/viewHeader.php');
 <section id="deleteContree" class="container bg-contact text-right mt-4">
         <h2>Supprimer une contrée</h2>
         <hr>
-        <form action="viewAdmin.php?action=deleteContree" method="post">
+        <form action="viewAdmin.php?action=gestionContree" method="post">
             <div class="form-group mt-4">
                 <label for="idContree">Id de la contrée<span class="required">*</span></label>
                 <input type="text" id="idContree" name="idContree" class="form-control" required>

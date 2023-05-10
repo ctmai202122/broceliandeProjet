@@ -23,10 +23,10 @@ $commentaires = $commentaireModel->getAll();
 <div class="admin">
     <ul class="nav nav-tabs navbar-dark">
         <li class="nav-item">
-            <a class="nav-link" href="viewGestionContree.php">Gestion contrées</a>
+            <a class="nav-link" href="?action=gestionContree">Gestion contrées</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="viewGestionLegende.php">Gestion légendes</a>
+            <a class="nav-link" href="?action=gestionLegende">Gestion légendes</a>
         </li>  
         <li class="nav-item">
             <a class="nav-link active" href="#">Modération commentaires</a>
