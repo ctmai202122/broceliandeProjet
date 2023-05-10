@@ -4,7 +4,7 @@ include_once(__DIR__ . '/viewHeader.php');
 ?>
 <div class="container">
     <section class="container  bg-contact">
-    <a href="viewAdmin.php" class="btn btn-primary">Retour à la page Admin</a>
+    <a href="?action=administration" class="btn btn-primary">Retour à la page Admin</a>
 
         <h2 class="mt-5 mb-3">Ajouter une contrée</h2>
         <hr>
