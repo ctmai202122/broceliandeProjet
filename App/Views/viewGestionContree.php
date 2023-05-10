@@ -4,7 +4,7 @@ include_once(__DIR__ . '/viewHeader.php');
 ?>
 <div class="container">
     <section class="container  bg-contact">
-    <a href="?action=administration" class="btn btn-primary">Retour à la page Admin</a>
+        <a href="?action=administration" class="btn btn-primary">Retour à la page Admin</a>
 
         <h2 class="mt-5 mb-3">Ajouter une contrée</h2>
         <hr>
@@ -42,11 +42,11 @@ include_once(__DIR__ . '/viewHeader.php');
                 <label for="ouverture">Ouverture: <span class="required">*</span></label>
                 <input type="text" id="ouverture" name="ouverture" class="form-control" required>
             </div>
-          
+
             <button type="submit" name="submit" class="btn btn-primary btn-adm-mov">Ajouter la Contrée</button>
         </form>
     </section>
-<section id="deleteContree" class="container bg-contact text-right mt-4">
+    <section id="deleteContree" class="container bg-contact text-right mt-4">
         <h2>Supprimer une contrée</h2>
         <hr>
         <form action="viewAdmin.php?action=gestionContree" method="post">
