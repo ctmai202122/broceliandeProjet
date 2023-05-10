@@ -391,19 +391,6 @@ ul {
     border: 2px solid var(--fond-gris-foncee);
 }
 
-/* second background sous-menu deroulant gestion*/
-.admin .dropdown-menu.show{
-    background-color: var(--fond-gris-foncee);
-}
-
-/* menu deroulant gestion */
-.admin .nav-tabs .nav-item.show .nav-link{
-    font-size: 1.5rem;
-    color: var(--vert);
-    background-color:var(--fond-gris-foncee);
-    border: 2px solid var(--doree);
-}
-
 }
 
 /* ++++++ RESPONSIVE ++++++++*/
@@ -778,17 +765,6 @@ ul {
     border: 2px solid var(--fond-gris-foncee);
 }
 
-/* second background sous-menu deroulant gestion*/
-.admin .dropdown-menu.show{
-    background-color: var(--fond-gris-foncee);
-}
-
-/* menu deroulant gestion */
-.admin .nav-tabs .nav-item.show .nav-link{
-    color: var(--vert);
-    background-color:var(--fond-gris-foncee);
-    border: 2px solid var(--doree);
-}
 
 /*===========Version tablets=============*/
 @media only screen and (min-width: 600px) and (max-width: 768px) {
