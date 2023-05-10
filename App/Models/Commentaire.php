@@ -8,16 +8,16 @@ use PDOException;
 
 class Commentaire extends DbConnect
 {
-    public static function create($pseudo, $texte, $Id_contree)
+    public static function create($pseudo, $texte, $idContree)
     {
         $cnx = self::dbConnect();
         $req = $cnx->prepare("INSERT INTO `commentaire` ( `pseudo`, `texte`, `Id_contree`) 
-        VALUES (:pseudo, :texte, :Id_contree)");
+        VALUES (:pseudo, :texte, :idContree)");
         $req->execute(
             array(
                 ':pseudo'=> $pseudo,
                 ':texte' => $texte,
-                ':Id_contree' => $Id_contree
+                ':idContree' => $idContree
 
             )
         );

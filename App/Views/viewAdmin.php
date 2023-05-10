@@ -1,72 +1,84 @@
 <?php
-//Formulaire gestion contrées et légendes
-include_once(__DIR__ . '/viewHeader.php');
-?>
+namespace Broceliande\Views;
 
+include_once(__DIR__ . '/viewHeader.php');
+
+// Importation des modèles
+use Broceliande\Models\Contree;
+use Broceliande\Models\Legende;
+use Broceliande\Models\Commentaire;
+
+// Création des modèles
+$contreeModel = new Contree();
+$legendeModel = new Legende();
+$commentaireModel = new Commentaire();
+
+// Récupération des données
+$contrees = $contreeModel->getAll();
+$legendes = $legendeModel->getAll();
+$commentaires = $commentaireModel->getAll();
+
+?>
 
 <div class="admin">
-
-<div class="container">
-    <h2>Gestion d'une légende ou d'une contrée </h2>
-    <section class="containerGestion ">
-        <h3 class="ajouter mt-3">Ajouter une légende ou contrée</h3>
-        <hr>
-        <form method="post" action="?action=administration">
-        <div class="form-gestion mt-5">
-            <label for="type">Choix du thème concerné<span class="required">*</span></label>
-            <select class="form-control" id="type" name="type" required>
-                <option value="legende">Légende</option>
-                <option value="contree">Contrée</option>
-            </select>
-        </div>
-            <div class="form-gestion mt-5">
-                <label for="title">Titre de la légende ou contrée<span class="required">*</span></label>
-                <input type="text" id="titleAdd" name="title" class="form-control" required>
-            </div>
-            <div class="form-gestion mt-5">
-                <label for="contenu">Contenu de la légende ou contrée<span class="required">*</span></label>
-                <textarea id="contenuAdd" name="contenu" rows="9" class="form-control" required></textarea>
-            </div>
-            <div class="form-gestion mt-5">
-                <label for="photo">Photo de la légende ou contrée<span class="required">*</span></label>
-                <input type="file" class="form-control-file mt-3" id="photoAdd" required>
-            </div>
-            <div class="form-gestion mt-5 ">
-                <label for="dateAdded">Date d'ajout<span class="required">*</span></label>
-                <input type="text" id="dateAdd" name="date" class="form-control" required>
-            </div>
-            <button type="submit" name="submit" class="btn btn-primary mt-3 mb-5 ">Ajouter la légende ou contrée</button>
-        </form>
-    </section>
-    <section id="deleteContree" class="container mt-5">
-        <h3>Supprimer la légende ou contrée</h3>
-        <hr>
-        <form action="adminController.php?action=deleteContree" method="post">
-            <div class="form-gestion mt-5">
-                <label for="idContree">Id de la légende ou contrée<span class="required">*</span></label>
-                <input type="text" id="idContree" name="idContree" class="form-control" required>
-            </div>
-            <button type="submit" name="deleteContree" class="btn btn-primary mt-3">Supprimer la légende ou contrée</button>
-        </form>
-    </section>
-
-    <h2>Modération d'un commentaire </h2>
-    <section class="containerModeration ">
-
-    </section>
-</div>
-
-
-
-
+    <ul class="nav nav-tabs navbar-dark">
+        <li class="nav-item">
+            <a class="nav-link" href="viewGestionContree.php">Gestion contrées</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="viewGestionLegende.php">Gestion légendes</a>
+        </li>  
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Modération commentaires</a>
+        </li>
+    </ul>
+  
     <?php
+    // Affichage des commentaires à modérer
+    echo '<div class="commentaire">';
+    echo '<h2> Commentaires à modérer </h2>';
+
     // Inclusion du formulaire de gestion des commentaires
     include_once(__DIR__ . '/viewCommentaires.php');
+
+    echo '</div>';
+
+    // Affichage de la gestion des contrées
+    echo '<div class="contree">';
+    echo '<h2> Gestion des contrées </h2>';
+
+    // Inclusion du formulaire de gestion des contrées
+    include_once(__DIR__ . '/viewGestionContree.php');
+    
+    echo '</div>';
+
+    // Affichage de la gestion des légendes
+    echo '<div class="legende">';
+    echo '<h2> Gestion des légendes </h2>';
+
+    // Inclusion du formulaire de gestion des légendes
+    include_once(__DIR__ . '/viewGestionLegende.php');
+
+    echo '</div>';
+    ?>
+
+    <?php
+    // Traitement des actions de création et de suppression des contrées
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($_GET['action'] === 'addContree') {
+            // Action de création d'une contrée
+            $contreeModel = new Contree();
+            $contreeModel->create($_POST);
+            header('Location: viewAdmin.php');
+            exit;
+        } elseif ($_GET['action'] === 'deleteContree') {
+            // Action de suppression d'une contrée
+            $contreeModel = new Contree();
+            $contreeModel->delete($_POST['idContree']);
+            header('Location: viewAdmin.php');
+            exit;
+        }
+    }
     ?>
 </div>
-
-
-<?php
-include_once(__DIR__ . '/viewFooter.php');
-?>
 

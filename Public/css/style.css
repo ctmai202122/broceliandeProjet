@@ -378,12 +378,31 @@ ul {
         margin-bottom: 50px;
     }
 
-    /* champs de saisie gestion publication*/
-    .form-gestion input {
-        font-size: 1.3rem;
-        text-align: center;
-        margin: auto;
+    .admin .nav{
+        background-color: var(--fond-gris-foncee);
+    border: 2px solid var(--doree);
+
     }
+/* titres menu admin */
+.admin .nav-tabs .nav-link{
+    font-size: 1.5rem;
+    color:  var(--fond-gris-foncee);
+    background-color: var(--doree);
+    border: 2px solid var(--fond-gris-foncee);
+}
+
+/* second background sous-menu deroulant gestion*/
+.admin .dropdown-menu.show{
+    background-color: var(--fond-gris-foncee);
+}
+
+/* menu deroulant gestion */
+.admin .nav-tabs .nav-item.show .nav-link{
+    font-size: 1.5rem;
+    color: var(--vert);
+    background-color:var(--fond-gris-foncee);
+    border: 2px solid var(--doree);
+}
 
 }
 
@@ -742,26 +761,34 @@ ul {
     font-weight: bold;
 }
 
-/* titre de l'action dans gestion */
-.admin .container h3 {
-    font-size: 1.5rem;
-    font-weight: bold;
+/* Menu admin */
+.admin .nav{
+    justify-content: center;
+}
+/* titres menu admin */
+.admin .nav a {
+    font-size: 0.9rem;
     font-style: oblique;
-    border: 3px solid var(--doree);
+    border: 2px solid var(--doree);
 }
 
-/* sous-titre gestion publication */
-.form-gestion label {
-    color: var(--doree);
-    font-size: 1.3rem;
+.admin .nav-tabs .nav-link{
+    color:  var(--fond-gris-foncee);
+    background-color: var(--doree);
+    border: 2px solid var(--fond-gris-foncee);
 }
 
-/* champs de saisie gestion publication*/
-.form-gestion input {
-    font-size: 1.3rem;
+/* second background sous-menu deroulant gestion*/
+.admin .dropdown-menu.show{
+    background-color: var(--fond-gris-foncee);
 }
 
-
+/* menu deroulant gestion */
+.admin .nav-tabs .nav-item.show .nav-link{
+    color: var(--vert);
+    background-color:var(--fond-gris-foncee);
+    border: 2px solid var(--doree);
+}
 
 /*===========Version tablets=============*/
 @media only screen and (min-width: 600px) and (max-width: 768px) {

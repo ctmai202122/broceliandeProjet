@@ -1,9 +1,16 @@
 <?php
 // Inclusion du fichier de vue pour l'en-tête
 include_once(__DIR__ . '/viewHeader.php');
+
+// Vérification si un message de confirmation est présent dans la session
+if (isset($_SESSION['message'])) {
+    // Stockage du message dans une variable et suppression de la session
+    $message = $_SESSION['message'];
+    unset($_SESSION['message']);
+}
 ?>
 
-<!-- // Affichage des informations de la contrée -->
+<!-- Affichage des informations de la contrée -->
 <main class="container">
     <div class="detailsContree">
         <h1><?= $contree['titre'] ?></h1>
@@ -14,32 +21,38 @@ include_once(__DIR__ . '/viewHeader.php');
         <p>Commune : <?= $contree['commune'] ?></p>
         <p>Accessibilité : <?= $contree['accessibilite'] ?></p>
         <p>Ouverture : <?= $contree['ouverture'] ?></p>
-        <h2>Laisser un commentaire</h2>
-        <form method="post" action="?action=commentaire">
-            <div class="formCom">
-                <label for="pseudo">Auteur :</label>
-                <input type="text" class="form-control" id="pseudo" name="pseudo" required>
-            </div>
-            <div class="formCom">
-                <label for="commentaire">Commentaire :</label>
-                <textarea class="form-control" rows="5" id="commentaire" name="commentaire" required></textarea>
-            </div>
-            <input type="hidden" name="id_contree" value= <?= $contree['Id_contree'] ?>> 
-            <button type="submit" class="btn btn-primary my-3">Soumettre</button>
-        </form>
 
-
-        <h2>Commentaires</h2>
+         <h2>Commentaires</h2>
         <?php if (!empty($commentaires)) { ?>
             <?php foreach ($commentaires as $commentaire) { ?>
                 <div class="commentaire">
                     <p><?= $commentaire['pseudo'] ?> a dit :</p>
-                    <p><?= $commentaire['texte'] ?></p>
+                    <p><?= $commentaire['commentaire'] ?></p>
                 </div>
             <?php } ?>
         <?php } else { ?>
             <p>Aucun commentaire pour le moment</p>
         <?php } ?>
+        
+        <h2>Laisser un commentaire</h2>
+        <form method="post" action="?action=commentaire">
+            <div class="form-group">
+                <label for="pseudo">Auteur :</label>
+                <input type="text" class="form-control" id="pseudo" name="pseudo" required>
+            </div>
+            <div class="form-group">
+                <label for="commentaire">Commentaire :</label>
+                <textarea class="form-control" rows="5" id="commentaire" name="commentaire" required></textarea>
+            </div>
+            <input type="hidden" name="idContree" value="<?= $contree['Id_contree'] ?>">
+            <button type="submit" class="btn btn-primary my-3">Soumettre</button>
+        </form>
+
+        <?php if (isset($message)) { ?>
+            <div class="alert alert-primary" role="alert"><?= $message ?></div>
+        <?php } ?>
+
+       
     </div>
 </main>
 

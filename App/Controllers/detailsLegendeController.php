@@ -13,4 +13,5 @@ $contree = Contree::getById($legende['Id_contree']);
 
 // Inclusion de la vue pour les détails de la contree
 include_once('App/Views/viewDetailsLegende.php');
+include_once('App/Views/viewGestionLegende.php');
 ?>
