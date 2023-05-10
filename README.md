@@ -4,10 +4,10 @@ Projet d'examen pour le titre “Développeur intégrateur en réalisation d’a
 
 ## Technologies utilisées pour ce site:
 
-   HTML / CSS
-   JavaScript
-   PHP
-   SQL
+* HTML / CSS
+* JavaScript
+* PHP
+* SQL
 
 ## Fonctionnalités du site
 
