@@ -56,5 +56,5 @@
         </nav>
 
         <!-- Le script jQuery qui permet de faire fonctionner le menu déroulant -->
-        <script src="Public/js/script.js"></script>
+        <script src="Public/js/menuBurger.js"></script>
     </header>

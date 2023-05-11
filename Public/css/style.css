@@ -106,7 +106,7 @@ ul {
         background: rgba(184, 145, 48, 9);
         background: linear-gradient(150deg, rgba(34, 34, 32, 1) 13%, rgba(184, 145, 48, 0.45) 74%);
         justify-content: space-between;
-        margin: 0;
+        margin: auto;
         width: 100%;
     }
 
@@ -378,19 +378,78 @@ ul {
         margin-bottom: 50px;
     }
 
-    .admin .nav{
+    .admin .nav {
         background-color: var(--fond-gris-foncee);
-    border: 2px solid var(--doree);
-
+        border: 2px solid var(--doree);
     }
-/* titres menu admin */
-.admin .nav-tabs .nav-link{
-    font-size: 1.5rem;
-    color:  var(--fond-gris-foncee);
-    background-color: var(--doree);
-    border: 2px solid var(--fond-gris-foncee);
-}
 
+    .admin .nav li {
+        margin: auto;
+    }
+
+    /* titres menu admin */
+    .admin .nav-tabs .nav-link {
+        font-size: 1.5rem;
+        color: var(--fond-gris-foncee);
+        background-color: var(--doree);
+        border: 2px solid var(--fond-gris-foncee);
+        margin: auto;
+    }
+
+    /* boutton retour page admin */
+    .btn {
+        color: var(--fond-noir);
+        background-color: var(--doree);
+        border: 2px solid var(--fond-gris-foncee);
+        margin: 2rem;
+    }
+
+    .btn:hover {
+        background-color: var(--vert);
+        border: 2px solid var(--fond-gris-foncee);
+        color: var(--fond-noir);
+    }
+
+    /* taleau moderation commentaires */
+    .tableModeration {
+        border: 2px solid var(--vert);
+        margin: auto;
+        width: 95%;
+        text-align: center;
+    }
+
+    .tableModeration th {
+        color: var(--vert);
+        padding: 1rem;
+    }
+
+    .tableModeration td {
+        padding: 1rem;
+    }
+
+    td .btn-moderation {
+        margin-left: 2rem;
+    }
+
+    #valider-commentaires-btn {
+        background-color: var(--vert);
+        color: var(--fond-noir);
+    }
+
+    #valider-commentaires-btn:hover {
+        background-color: var(--fond-gris-foncee);
+        color: var(--doree);
+    }
+
+    #supprimer-commentaires-btn {
+        background-color: red;
+        color: var(--fond-gris-foncee);
+    }
+
+    #supprimer-commentaires-btn:hover {
+        background-color: var(--fond-gris-foncee);
+        color: var(--doree);
+    }
 }
 
 /* ++++++ RESPONSIVE ++++++++*/
@@ -677,193 +736,152 @@ ul {
         color: var(--vert);
         font-size: 1.2rem;
     }
-}
-
-/* Bouton Administration footer */
-.myButton {
-    box-shadow: 0px 1px 0px 0px #b89230;
-    background: linear-gradient(150deg, var(--fond-gris-foncee) 55%, var(--doree) 100%);
-    background-color: var(--fond-gris-foncee);
-    border-radius: 6px;
-    border: 1px solid var(--doree);
-    display: flex;
-    align-items: center;
-    color: var(--doree);
-    font-size: 0.7rem;
-    padding: 5px 10px;
-    max-height: 80%;
-    text-decoration: none;
-
-}
-
-.myButton:hover {
-    background: linear-gradient(to bottom, #b89230 5%, #b89230 100%);
-    background-color: #b89230;
-    color: var(--fond-gris-foncee);
-}
-
-.myButton:active {
-    position: relative;
-    top: 1px;
-}
-
-/* connexion admin */
-.accueil form {
-    margin: auto;
-    color: var(--doree);
-}
-
-.accueil form button {
-    background-color: var(--fond-gris-foncee);
-    color: var(--doree);
-    padding: 7px;
-    border-color: var(--doree);
-    border-radius: 5px;
-}
-
-.accueil form button:hover {
-    background-color: var(--doree);
-    color: var(--fond-gris-foncee);
-    padding: 7px;
-    border-radius: 5px;
-}
-
-/* Page admin */
-.admin {
-    color: var(--vert);
-    font-size: 2rem;
-    text-align: center;
-    border: 3px solid var(--doree);
-    display: block;
-    margin: 0 auto;
-    width: 90%;
-    max-width: 100%;
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-
-.admin h2 {
-    margin-top: 30px;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-/* Menu admin */
-.admin .nav{
-    justify-content: center;
-}
-/* titres menu admin */
-.admin .nav a {
-    font-size: 0.9rem;
-    font-style: oblique;
-    border: 2px solid var(--doree);
-}
-
-.admin .nav-tabs .nav-link{
-    color:  var(--fond-gris-foncee);
-    background-color: var(--doree);
-    border: 2px solid var(--fond-gris-foncee);
-}
 
 
-/*===========Version tablets=============*/
-@media only screen and (min-width: 600px) and (max-width: 768px) {
-    body {
+    /* Bouton Administration footer */
+    .myButton {
+        box-shadow: 0px 1px 0px 0px #b89230;
+        background: linear-gradient(150deg, var(--fond-gris-foncee) 55%, var(--doree) 100%);
         background-color: var(--fond-gris-foncee);
-        font-family: 'roboto', Tahoma, sans-serif;
-        max-width: 750px;
-        width: 100%;
-        max-height: 750px;
-        margin: 0 auto;
-
-    }
-
-    /* Bandeau image*/
-
-    main .bandeau-img {
-
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 1rem;
-        margin-top: 3px;
-        margin-left: 3px;
-        width: 100%;
-        max-width: 600px;
-        max-height: 750px;
-    }
-
-    .bandeau-img img {
-        display: block;
-        width: 100%;
-        max-height: 50%;
-        opacity: 0.4;
-    }
-
-    .bandeau-img .texte-bandeau {
-        position: absolute;
-        top: 20%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        color: var(--doree);
-        text-shadow: 1px 1px 2px rgb(11, 11, 11);
-        width: 80%;
-        max-width: 800px;
-        margin: 0 auto;
-    }
-
-    .bandeau-img .texte-bandeau h1 {
-        font-size: 3rem;
-        margin-bottom: 0rem;
-    }
-
-    .bandeau-img .texte-bandeau p {
-        font-size: 1.5rem;
-    }
-
-    /* Menu nav */
-    #menu {
-        display: none;
-    }
-
-    #burger {
-        width: 100%;
+        border-radius: 6px;
+        border: 1px solid var(--doree);
         display: flex;
-        justify-content: space-between;
         align-items: center;
-    }
-
-    #burger ul {
-        display: none;
-        width: 100%;
-        background-color: var(--fond-gris-foncee);
-        position: absolute;
-        top: 5rem;
-        left: 0;
-        padding: 0;
-        margin: 0;
-    }
-
-    #burger ul li a {
-        display: block;
         color: var(--doree);
-        font-size: 1.5rem;
-        padding: 1rem;
+        font-size: 0.7rem;
+        padding: 5px 10px;
+        max-height: 80%;
+        text-decoration: none;
+
     }
 
-    #burger:hover ul {
+    .myButton:hover {
+        background: linear-gradient(to bottom, #b89230 5%, #b89230 100%);
+        background-color: #b89230;
+        color: var(--fond-gris-foncee);
+    }
+
+    .myButton:active {
+        position: relative;
+        top: 1px;
+    }
+
+    /* connexion admin */
+    .accueil form {
+        margin: auto;
+        color: var(--doree);
+    }
+
+    .accueil form button {
+        background-color: var(--fond-gris-foncee);
+        color: var(--doree);
+        padding: 7px;
+        border-color: var(--doree);
+        border-radius: 5px;
+    }
+
+    .accueil form button:hover {
+        background-color: var(--doree);
+        color: var(--fond-gris-foncee);
+        padding: 7px;
+        border-radius: 5px;
+    }
+
+    /* Page admin */
+    .admin {
+        color: var(--vert);
+        font-size: 2rem;
+        text-align: center;
+        border: 3px solid var(--doree);
         display: block;
-    }
-
-    /* Section contrees et legendes */
-    .grid-contrees,
-    .grid-legendes {
-        grid-template-columns: 1fr;
-    }
-
-    .contrees img,
-    .legendes img {
+        margin: 0 auto;
+        width: 90%;
         max-width: 100%;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .admin h2 {
+        margin-top: 30px;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    /* Menu admin */
+    .admin .nav {
+        justify-content: center;
+    }
+
+    /* titres menu admin */
+    .admin .nav a {
+        font-size: 0.9rem;
+        font-style: oblique;
+        border: 2px solid var(--doree);
+    }
+
+    .admin .nav-tabs .nav-link {
+        color: var(--fond-gris-foncee);
+        background-color: var(--doree);
+        border: 2px solid var(--fond-gris-foncee);
+    }
+
+    /* boutton retour page admin */
+    .btn {
+        color: var(--fond-noir);
+        background-color: var(--doree);
+        border: 2px solid var(--fond-gris-foncee);
+        margin: 2rem;
+    }
+
+    .btn:hover {
+        background-color: var(--vert);
+        border: 2px solid var(--fond-gris-foncee);
+        color: var(--fond-noir);
+    }
+
+    /* taleau moderation commentaires */
+    .tableModeration {
+        border: 2px solid var(--vert);
+        margin: auto;
+        width: 95%;
+        text-align: center;
+    }
+
+    .tableModeration th {
+        color: var(--vert);
+        padding: 1rem;
+        border: 2px solid var(--vert);
+    }
+
+    .tableModeration td {
+        padding: 1rem;
+        color: var(--doree);
+        border: 1px solid var(--fond-noir);
+    }
+
+    td .btn-moderation {
+        margin-left: 0.5rem;
+    }
+
+    #valider-commentaires-btn {
+        background-color: var(--vert);
+        color: var(--fond-noir);
+    }
+
+    #valider-commentaires-btn:hover {
+        background-color: var(--fond-gris-foncee);
+        color: var(--doree);
+        border: 2px solid var(--doree);
+    }
+
+    #supprimer-commentaires-btn {
+        background-color: red;
+        color: var(--fond-gris-foncee);
+    }
+
+    #supprimer-commentaires-btn:hover {
+        background-color: var(--fond-gris-foncee);
+        color: var(--doree);
+        border: 2px solid var(--doree);
     }
 }
