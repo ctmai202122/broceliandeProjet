@@ -86,7 +86,7 @@ class Contree extends DbConnect
                 longitude=:longitude,
                 commune=:commune,
                 accessibilite=:accessibilite,
-                ouverture=:ouverture,
+                ouverture=:ouverture
                
                 WHERE Id_contree =:id");
 
