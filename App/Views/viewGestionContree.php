@@ -1,8 +1,4 @@
 <?php
-// Afficher les erreurs PHP
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 // Inclusion du fichier de vue pour l'en-tête
 include_once(__DIR__ . '/viewHeader.php');
