@@ -1,5 +1,4 @@
 <?php
-
 // Inclusion du fichier de vue pour l'en-tête
 include_once(__DIR__ . '/viewHeader.php');
 
@@ -102,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     $contrees = $contreeModel->getAll();
 
                     // Vérifier si $contrees contient des données avant de l'utiliser
-                    if ($contree) {
+                    if ($contrees) {
                         foreach ($contrees as $contree) {
                             $id = $contree['Id_contree']; // ID de la contrée
                             $titre = $contree['titre']; // Titre de la contrée
