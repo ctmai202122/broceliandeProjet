@@ -66,7 +66,12 @@ if ($_GET['action'] === 'supprimerCommentaires') {
     echo json_encode($response);
     exit;
 }
+// Vérifier si un commentaire a été modéré
+if (isset($_GET['moderated']) && $_GET['moderated'] == 'true') {
+?>
+    <p>Le commentaire a été modéré avec succès.</p>
 
+<?php
+}
 include_once(__DIR__ . '/../Views/viewCommentaires.php');
-
 ?>

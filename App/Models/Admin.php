@@ -13,7 +13,7 @@ class Admin extends DbConnect
     public static function create(
         string $email,
         string $pseudo,
-        string $motdepasse,
+        string $motdepasse
        
     ) {
         // Connexion à la base de données en utilisant la méthode héritée dbConnect()

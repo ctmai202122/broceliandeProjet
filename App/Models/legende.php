@@ -23,8 +23,7 @@ class Legende extends DbConnect
             array(
                 ':titre' => $titre,
                 ':contenu' => $contenu,
-                ':photo' => $photo,
-
+                ':photo' => $photo
             )
         );
     }
@@ -108,4 +107,3 @@ class Legende extends DbConnect
         }
     }
 }
-?>

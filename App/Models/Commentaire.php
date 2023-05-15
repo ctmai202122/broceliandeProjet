@@ -15,7 +15,7 @@ class Commentaire extends DbConnect
         VALUES (:pseudo, :texte, :idContree)");
         $req->execute(
             array(
-                ':pseudo'=> $pseudo,
+                ':pseudo' => $pseudo,
                 ':texte' => $texte,
                 ':idContree' => $idContree
 
@@ -41,7 +41,7 @@ class Commentaire extends DbConnect
         $req->execute();
         return $req->fetch();
     }
-    
+
     public static function getByPseudo($pseudo)
     {
         $cnx = self::dbConnect();
@@ -50,7 +50,7 @@ class Commentaire extends DbConnect
         $req->execute();
         return $req->fetchAll();
     }
-    
+
     public static function getByDateCom($dateCom)
     {
         $cnx = self::dbConnect();
@@ -59,7 +59,7 @@ class Commentaire extends DbConnect
         $req->execute();
         return $req->fetchAll();
     }
-    
+
     public static function getByStatut($statut)
     {
         $cnx = self::dbConnect();
@@ -68,7 +68,7 @@ class Commentaire extends DbConnect
         $req->execute();
         return $req->fetchAll();
     }
-    
+
     public static function getByIdContree($id_contree)
     {
         $cnx = self::dbConnect();
@@ -77,7 +77,7 @@ class Commentaire extends DbConnect
         $req->execute();
         return $req->fetchAll();
     }
-    
+
     public static function getById_contree()
     {
         $cnx = self::dbConnect();
@@ -85,20 +85,8 @@ class Commentaire extends DbConnect
         $req->execute();
         return $req->fetch();
     }
-           
 
     /* ====== UPDATE ====== */
-    public static function validate($commentairesIds)
-    {
-        try {
-            $cnx = self::dbConnect();
-            $req = $cnx->prepare("UPDATE commentaire SET statut = 'validé' WHERE Id_commentaire IN (" . implode(",", $commentairesIds) . ")");
-            $req->execute();
-        } catch (PDOException $e) {
-            die('Erreur!:' . $e->getMessage());
-        }
-    }
-    
     public static function update($id_commentaire, $pseudo, $texte, $Id_contree)
     {
         try {
@@ -112,7 +100,7 @@ class Commentaire extends DbConnect
 
             $req->execute(
                 array(
-                    ':pseudo'=> $pseudo,
+                    ':pseudo' => $pseudo,
                     ':texte' => $texte,
                     ':Id_commentaire' => $id_commentaire,
                     ':Id_contree' => $Id_contree
@@ -126,13 +114,25 @@ class Commentaire extends DbConnect
         }
     }
 
-   /* ====== DELETE ====== */
+    /* ====== DELETE ====== */
     public static function delete($idCommentaire)
     {
         try {
             $cnx = self::dbConnect();
             $req = $cnx->prepare("DELETE FROM commentaire WHERE Id_commentaire = :id_commentaire");
             $req->bindValue(':id_commentaire', $idCommentaire, PDO::PARAM_INT);
+            $req->execute();
+        } catch (PDOException $e) {
+            die('Erreur!:' . $e->getMessage());
+        }
+    }
+
+    // commentaire validé
+    public static function validate($commentairesIds)
+    {
+        try {
+            $cnx = self::dbConnect();
+            $req = $cnx->prepare("UPDATE commentaire SET statut = 'validé' WHERE Id_commentaire IN (" . implode(",", $commentairesIds) . ")");
             $req->execute();
         } catch (PDOException $e) {
             die('Erreur!:' . $e->getMessage());

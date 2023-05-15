@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <?php if (!empty($message)) : ?>
             <div class="alert <?php echo ($message === "La contrée a été ajoutée avec succès.") ? "alert-success" : "alert-danger"; ?>"><?php echo $message; ?></div>
         <?php endif; ?>
-        <form method="post" action="?action=gestionContree">
+        <form method="post" action="?action=addContree">
             <div class="form-group mt-4">
                 <label for="titre">Titre de la contrée : <span class="required">*</span></label>
                 <input type="text" id="titre" name="titre" class="form-control" required>
@@ -57,17 +57,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <input type="text" id="contenu" name="contenu" class="form-control" required>
             </div>
             <div class="form-group">
-                <label for="photo">Photo : <span class="required">*</span></label>
-                <input type="file" id="photo" name="photo" class="form-control" required>
+                <label for="photo">Photo : </label>
+                <input type="file" id="photo" name="photo" class="form-control">
             </div>
 
             <div class="form-group">
-                <label for="latitude">Latitude : <span class="required">*</span></label>
-                <input type="float" id="latitude" name="latitude" class="form-control" required>
+                <label for="latitude">Latitude : </label>
+                <input type="float" id="latitude" name="latitude" class="form-control">
             </div>
             <div class="form-group">
-                <label for="longitude">Longitude : <span class="required">*</span></label>
-                <input type="float" id="longitude" name="longitude" class="form-control" required>
+                <label for="longitude">Longitude : </label>
+                <input type="float" id="longitude" name="longitude" class="form-control">
             </div>
             <div class="form-group">
                 <label for="commune">Commune : <span class="required">*</span></label>
@@ -88,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <section id="deleteContree" class="container bg-contact text-right mt-4">
         <h2>Supprimer une contrée</h2>
         <hr>
-        <form action="?action=gestionContree" method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette contrée ?');">
+        <form action="?action=deleteContree" method="post">
             <div class="form-group mt-4">
                 <label for="idContree">Titre de la contrée<span class="required">*</span></label>
                 <select id="idContree" name="idContree" class="form-control" required>
