@@ -51,38 +51,40 @@ include_once(__DIR__ . '/viewHeader.php');
         </form>
     </section>
     <section id="deleteContree" class="container bg-contact text-right mt-4">
-        <h2>Supprimer une contrée</h2>
-        <hr>
-        <form action="?action=deleteContree" method="post">
-            <div class="form-group mt-4">
-                <label for="idContree">Titre de la contrée<span class="required">*</span></label>
-                <select id="idContree" name="idContree" class="form-control" required>
-                    <option value="">Sélectionner une contrée</option>
-                    <?php
+    <h2>Supprimer une contrée</h2>
+    <hr>
+    <form id="deleteForm" action="?action=deleteContree" method="post">
+        <div class="form-group mt-4">
+            <label for="idContree">Titre de la contrée<span class="required">*</span></label>
+            <select id="idContree" name="idContree" class="form-control" required>
+                <option value="">Sélectionner une contrée</option>
+                <?php
 
-                    use Broceliande\Models\Contree;
-                    // Créer une instance du modèle "Contree"
-                    $contreeModel = new Contree();
+                use Broceliande\Models\Contree;
+                // Créer une instance du modèle "Contree"
+                $contreeModel = new Contree();
 
-                    // Récupérer les données des contrées à partir du modèle
-                    $contrees = $contreeModel->getAll();
+                // Récupérer les données des contrées à partir du modèle
+                $contrees = $contreeModel->getAll();
 
-                    // Vérifier si $contrees contient des données avant de l'utiliser
-                    if ($contrees) {
-                        foreach ($contrees as $contree) {
-                            $id = $contree['Id_contree']; // ID de la contrée
-                            $titre = $contree['titre']; // Titre de la contrée
-                            echo "<option value=\"$id\">$titre</option>";
-                        }
-                    } else {
-                        unset($contree); // Supprimer la variable $contree si elle existe
+                // Vérifier si $contrees contient des données avant de l'utiliser
+                if ($contrees) {
+                    foreach ($contrees as $contree) {
+                        $id = $contree['Id_contree']; // ID de la contrée
+                        $titre = $contree['titre']; // Titre de la contrée
+                        echo "<option value=\"$id\">$titre</option>";
                     }
-                    ?>
-                </select>
-            </div>
-            <button type="submit" name="deleteContree" class="btn btn-primary ">Supprimer la contrée</button>
-        </form>
-    </section>
+                } else {
+                    unset($contree); // Supprimer la variable $contree si elle existe
+                }
+                ?>
+            </select>
+        </div>
+        <button id="deleteButton" type="button" class="btn btn-primary">Supprimer la contrée</button>
+    </form>
+</section>
+        <!-- Le script jQuery qui permet de faire fonctionner le menu déroulant -->
+        <script src="Public/js/deleteContree.js"></script>
 </div>
 <?php
 // Inclusion du fichier de vue pour le pied de page
