@@ -17,14 +17,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["idContree"])) {
     $message = "La contrée a été supprimée avec succès.";
 
     // Redirection vers la page de gestion des contrées
-    echo '<script>alert("'.$message.'"); window.location.href = "viewGestionContree.php";</script>';
+    echo '<script>alert("'.$message.'"); location.href = "?action=gestionContree";</script>';
     exit();
 } else {
     // Message d'erreur
     $message = "Une erreur s'est produite lors de la suppression de la contrée.";
 
     // Redirection vers la page de gestion des contrées
-    echo '<script>alert("'.$message.'"); window.location.href = "viewGestionContree.php";</script>';
+    echo '<script>alert("'.$message.'"); location.href = "?action=gestionContree";</script>';
     exit();
 }
 ?>
