@@ -11,14 +11,14 @@ class Contree extends DbConnect
 
     /* ====== CREATE ====== */
     public static function create(
-        string $titre,
-        string $contenu,
-        string $photo,
-        float $latitude,
-        float $longitude,
-        string $commune,
-        string $accessibilite,
-        string $ouverture
+        $titre,
+        $contenu,
+        $photo,
+        $latitude,
+        $longitude,
+        $commune,
+        $accessibilite, 
+        $ouverture
     ) {
         // Connexion à la base de données en utilisant la méthode héritée dbConnect()
         $cnx = self::dbConnect();

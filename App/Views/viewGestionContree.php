@@ -2,41 +2,6 @@
 // Inclusion du fichier de vue pour l'en-tête
 include_once(__DIR__ . '/viewHeader.php');
 
-// Inclure le fichier du modèle "Contree"
-use Broceliande\Models\Contree;
-
-// Définir une variable pour le message
-$message = '';
-
-// Vérifier si le formulaire a été soumis
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Le formulaire a été soumis, traiter les données ici
-
-    // Vérifier si les champs requis sont remplis
-    if (isset($_POST["titre"]) && isset($_POST["contenu"]) && isset($_FILES["photo"]) && isset($_POST["latitude"]) && isset($_POST["longitude"]) && isset($_POST["commune"]) && isset($_POST["accessibilite"]) && isset($_POST["ouverture"])) {
-        // Récupérer les valeurs des champs
-        $titre = $_POST["titre"];
-        $contenu = $_POST["contenu"];
-        $photo = $_FILES["photo"];
-        $latitude = $_POST["latitude"];
-        $longitude = $_POST["longitude"];
-        $commune = $_POST["commune"];
-        $accessibilite = $_POST["accessibilite"];
-        $ouverture = $_POST["ouverture"];
-
-        // Créer une instance du modèle "Contree"
-        $contreeModel = new Contree();
-
-        // Enregistrer les données dans la base de données en utilisant la méthode appropriée du modèle
-        $contreeModel->create($titre, $contenu, $photo, $latitude, $longitude, $commune, $accessibilite, $ouverture);
-
-        // Afficher un message de succès
-        $message = "La contrée a été ajoutée avec succès.";
-    } else {
-        // Afficher un message d'erreur si les champs requis ne sont pas remplis
-        $message = "Veuillez remplir tous les champs obligatoires.";
-    }
-}
 ?>
 <div class="containerGestion">
     <section class="container  bg-contact">
@@ -47,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <?php if (!empty($message)) : ?>
             <div class="alert <?php echo ($message === "La contrée a été ajoutée avec succès.") ? "alert-success" : "alert-danger"; ?>"><?php echo $message; ?></div>
         <?php endif; ?>
-        <form method="post" action="?action=addContree">
+        <form method="post" action="?action=addContree" enctype="multipart/form-data">
             <div class="form-group mt-4">
                 <label for="titre">Titre de la contrée : <span class="required">*</span></label>
                 <input type="text" id="titre" name="titre" class="form-control" required>
@@ -58,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </div>
             <div class="form-group">
                 <label for="photo">Photo : </label>
-                <input type="file" id="photo" name="photo" class="form-control">
+                <input type="file" id="photo" name="photo" class="form-control" accept="image/*">
             </div>
 
             <div class="form-group">
@@ -94,6 +59,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <select id="idContree" name="idContree" class="form-control" required>
                     <option value="">Sélectionner une contrée</option>
                     <?php
+
+                    use Broceliande\Models\Contree;
                     // Créer une instance du modèle "Contree"
                     $contreeModel = new Contree();
 

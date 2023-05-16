@@ -10,12 +10,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Le formulaire a été soumis, traiter les données ici
 
     // Vérifier si les champs requis sont remplis
-    if (isset($_POST["titre"]) && isset($_POST["contenu"]) && isset($_POST["commune"]) && isset($_POST["accessibilite"]) && isset($_POST["ouverture"])) {
+    if (isset($_POST["titre"]) && isset($_POST["contenu"]) && isset($_POST["latitude"]) && isset($_POST["longitude"]) && isset($_POST["commune"]) && isset($_POST["accessibilite"]) && isset($_POST["ouverture"])) {
         // Récupérer les valeurs des champs
         $titre = $_POST["titre"];
         $contenu = $_POST["contenu"];
-        $photo = $_POST["photo"]["tmp_name"]; // Récupérer le chemin du fichier temporaire ou null
-        $latitude = $_POST["latitude"]; // Récupérer en tant que chaîne de caractères
+        $photo = isset($_POST["photo"]) ? $_POST["photo"] : null;
+        $latitude = $_POST["latitude"];
         $longitude = $_POST["longitude"];
         $commune = $_POST["commune"];
         $accessibilite = $_POST["accessibilite"];
@@ -23,24 +23,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         // Créer une instance du modèle "Contree"
         $contreeModel = new Contree();
-
-        // Vérifier si $photo est null et le traiter en conséquence
-        if ($photo === null) {
-            $photo = ""; // Convertir en chaîne vide ou attribuer une valeur par défaut
-        }
-// Vérifier si $latitude est une chaîne vide et le convertir en null
-if ($latitude === "") {
-    $latitude = null;
-}
-
-// Vérifier si $longitude est une chaîne vide et le convertir en null
-if ($longitude === "") {
-    $longitude = null;
-}
-
-
         // Enregistrer les données dans la base de données en utilisant la méthode appropriée du modèle
         $contreeModel->create($titre, $contenu, $photo, $latitude, $longitude, $commune, $accessibilite, $ouverture);
+
+        // Utilisez $photo comme nécessaire dans votre code
 
         // Afficher un message de succès
         $message = "La contrée a été ajoutée avec succès.";
@@ -49,4 +35,6 @@ if ($longitude === "") {
         $message = "Veuillez remplir tous les champs obligatoires.";
     }
 }
+    // Inclusion de la vue pour la gestion des contrées
+    include_once('App/Views/viewGestionContree.php');
 ?>
