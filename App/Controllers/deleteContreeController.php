@@ -21,10 +21,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["idContree"])) {
     exit();
 } else {
     // Message d'erreur
-    $message = "Une erreur s'est produite lors de la suppression de la contrée.";
+    $erreur = "Une erreur s'est produite lors de la suppression de la contrée.";
 
     // Redirection vers la page de gestion des contrées
-    echo '<script>alert("'.$message.'"); location.href = "?action=gestionContree";</script>';
+    echo '<script>alert("'.$erreur.'"); location.href = "?action=gestionContree";</script>';
     exit();
 }
 ?>

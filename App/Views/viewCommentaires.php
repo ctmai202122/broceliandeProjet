@@ -5,16 +5,13 @@ namespace Broceliande\Views;
 use Broceliande\Models\Commentaire;
 
 include_once(__DIR__ . '/viewHeader.php');
+//Inclure la vue de la nav admin
+include_once(__DIR__ . '/viewMenuAdmin.php');
 
 class CommentaireView
 {
     public function modererCommentaires($commentaire)
     {
-?>
-        <a href="?action=administration" class="btn btn-primary">Retour à la page Admin</a>
-        <hr>
-        <?php
-
         // Vérifier si des commentaires sont disponibles
         if (!empty($commentaire)) {
         ?>
@@ -40,7 +37,7 @@ class CommentaireView
                                 <td><?php echo $commentaire['texte']; ?></td>
                                 <td>
                                     <input type="radio" name="moderation[<?php echo $commentaire['Id_commentaire']; ?>]" value="valider" class="btn-moderation"> Valider <br>
-                                    <input type="radio" name="moderation[<?php echo $commentaire['Id_commentaire']; ?>]" value="supprimer" class="btn-moderation"> Supprimer
+                                    <input type="radio" name="moderation[<?php echo $commentaire['Id_commentaire']; ?>]" value="supprimer" class="btn-moderation ml-4"> Supprimer
 
                                 </td>
                             </tr>

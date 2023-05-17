@@ -1,12 +1,12 @@
 <?php
 // Inclusion du fichier de vue pour l'en-tête
 include_once(__DIR__ . '/viewHeader.php');
+    //Inclure la vue de la nav admin
+    include_once(__DIR__ . '/viewMenuAdmin.php');
 
 ?>
 <div class="containerGestion">
     <section class="container  bg-contact">
-        <a href="?action=administration" class="btn btn-primary">Retour à la page Admin</a>
-
         <h2 class="mt-5 mb-3">Ajouter une contrée</h2>
         <hr>
         <?php if (!empty($message)) : ?>
@@ -14,12 +14,12 @@ include_once(__DIR__ . '/viewHeader.php');
         <?php endif; ?>
         <form method="post" action="?action=addContree" enctype="multipart/form-data">
             <div class="form-group mt-4">
-                <label for="titre">Titre de la contrée : <span class="required">*</span></label>
-                <input type="text" id="titre" name="titre" class="form-control" required>
+                <label for="titre">Titre : <span class="required">*</span></label>
+                <input type="text" id="titre" name="titre" placeholder="Titre de la contrée..."  class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="contenu">Contenu : <span class="required">*</span></label>
-                <input type="text" id="contenu" name="contenu" class="form-control" required>
+                <textarea class="col-12"id="contenu" name="contenu" placeholder="Description de la contrée..." rows="9"class="form-control" required></textarea>
             </div>
             <div class="form-group">
                 <label for="photo">Photo : </label>
@@ -28,23 +28,23 @@ include_once(__DIR__ . '/viewHeader.php');
 
             <div class="form-group">
                 <label for="latitude">Latitude : </label>
-                <input type="float" id="latitude" name="latitude" class="form-control">
+                <input type="float" id="latitude" name="latitude" placeholder="Exemple du format attendu: 48.0013" class="form-control">
             </div>
             <div class="form-group">
                 <label for="longitude">Longitude : </label>
-                <input type="float" id="longitude" name="longitude" class="form-control">
+                <input type="float" id="longitude" name="longitude" placeholder="Exemple du format attendu : -2.28627" class="form-control">
             </div>
             <div class="form-group">
                 <label for="commune">Commune : <span class="required">*</span></label>
-                <input type="text" id="commune" name="commune" class="form-control" required>
+                <input type="text" id="commune" name="commune" placeholder="Nom de la commune..."class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="accessibilite">Accessibilité : <span class="required">*</span></label>
-                <input type="text" id="accessibilite" name="accessibilite" class="form-control" required>
+                <textarea class="col-12"id="accessibilite" name="accessibilite" placeholder="Adapté aux personnes à mobilité réduite..." rows="3"class="form-control" required></textarea>
             </div>
             <div class="form-group">
                 <label for="ouverture">Ouverture : <span class="required">*</span></label>
-                <input type="text" id="ouverture" name="ouverture" class="form-control" required>
+                <textarea class="col-12"id="ouverture" name="ouverture" placeholder="Libre d'accès ou infos sur la fermeture..." rows="3"class="form-control" required></textarea>
             </div>
 
             <button type="submit" name="submit" class="btn btn-primary btn-adm-mov">Ajouter la Contrée</button>
@@ -74,8 +74,6 @@ include_once(__DIR__ . '/viewHeader.php');
                         $titre = $contree['titre']; // Titre de la contrée
                         echo "<option value=\"$id\">$titre</option>";
                     }
-                } else {
-                    unset($contree); // Supprimer la variable $contree si elle existe
                 }
                 ?>
             </select>
@@ -83,7 +81,7 @@ include_once(__DIR__ . '/viewHeader.php');
         <button id="deleteButton" type="button" class="btn btn-primary">Supprimer la contrée</button>
     </form>
 </section>
-        <!-- Le script jQuery qui permet de faire fonctionner le menu déroulant -->
+        <!-- Le script qui permet de confirmer la suppression de la contrée  -->
         <script src="Public/js/deleteContree.js"></script>
 </div>
 <?php

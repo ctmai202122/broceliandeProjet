@@ -14,7 +14,7 @@ if (isset($_SESSION['message'])) {
 <main class="container">
     <div class="detailsContree">
         <h1><?= $contree['titre'] ?></h1>
-        <p>Description : <?= $contree['contenu'] ?></p>
+        <p>Description : <?= nl2br($contree['contenu']) ?></p>
         <img src="./Data/images/<?= $contree['photo'] ?>" alt="<?= $contree['titre'] ?>">
         <p>Latitude : <?= $contree['latitude'] ?></p>
         <p>Longitude : <?= $contree['longitude'] ?></p>
@@ -22,7 +22,7 @@ if (isset($_SESSION['message'])) {
         <p>Accessibilité : <?= $contree['accessibilite'] ?></p>
         <p>Ouverture : <?= $contree['ouverture'] ?></p>
 
-         <h2>Commentaires</h2>
+        <h2>Commentaires</h2>
         <?php if (!empty($commentaires)) { ?>
             <?php foreach ($commentaires as $commentaire) { ?>
                 <div class="commentaire">
@@ -33,16 +33,16 @@ if (isset($_SESSION['message'])) {
         <?php } else { ?>
             <p>Aucun commentaire pour le moment</p>
         <?php } ?>
-        
+
         <h2>Laisser un commentaire</h2>
         <form method="post" action="?action=commentaire">
             <div class="form-group">
-                <label for="pseudo">Auteur :</label>
-                <input type="text" class="form-control" id="pseudo" name="pseudo" required>
+                <label for="pseudo" class="required">Auteur : *</label>
+                <input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Votre nom prénom" class="form-control" required>
             </div>
             <div class="form-group">
-                <label for="commentaire">Commentaire :</label>
-                <textarea class="form-control" rows="5" id="commentaire" name="commentaire" required></textarea>
+                <label for="commentaire" class="required">Commentaire : *</label>
+                <textarea class="form-control" rows="5" id="commentaire" name="commentaire" placeholder="Votre message" class="form-control" required></textarea>
             </div>
             <input type="hidden" name="idContree" value="<?= $contree['Id_contree'] ?>">
             <button type="submit" class="btn btn-primary my-3">Soumettre</button>
@@ -52,7 +52,7 @@ if (isset($_SESSION['message'])) {
             <div class="alert alert-primary" role="alert"><?= $message ?></div>
         <?php } ?>
 
-       
+
     </div>
 </main>
 

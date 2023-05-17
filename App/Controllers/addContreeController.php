@@ -26,13 +26,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Enregistrer les données dans la base de données en utilisant la méthode appropriée du modèle
         $contreeModel->create($titre, $contenu, $photo, $latitude, $longitude, $commune, $accessibilite, $ouverture);
 
-        // Utilisez $photo comme nécessaire dans votre code
-
         // Afficher un message de succès
         $message = "La contrée a été ajoutée avec succès.";
     } else {
         // Afficher un message d'erreur si les champs requis ne sont pas remplis
-        $message = "Veuillez remplir tous les champs obligatoires.";
+        $erreur = "Veuillez remplir tous les champs obligatoires.";
     }
 }
     // Inclusion de la vue pour la gestion des contrées

@@ -1,12 +1,12 @@
 
 // Récupération de l'élément du formulaire et du bouton de suppression
-var deleteForm = document.getElementById('deleteForm');
-var deleteButton = document.getElementById('deleteButton');
+let deleteForm = document.getElementById('deleteForm');
+const deleteButton = document.getElementById('deleteButton');
 
 // Ajout d'un écouteur d'événement sur le bouton de suppression
 deleteButton.addEventListener('click', function(event) {
     // Affichage de la boîte de dialogue de confirmation
-    var confirmation = confirm('Êtes-vous sûr de vouloir supprimer cette contrée ?');
+    const confirmation = confirm('Êtes-vous sûr de vouloir supprimer cette contrée ?');
     
     // Soumission du formulaire si l'utilisateur a confirmé
     if (confirmation) {

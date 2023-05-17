@@ -15,12 +15,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["idLegende"])) {
 
     // Message de succès
     $message = "La légende a été supprimée avec succès.";
+
+       // Redirection vers la page de gestion des contrées
+       echo '<script>alert("'.$message.'"); location.href = "?action=gestionContree";</script>';
+       exit();
 } else {
     // Message d'erreur
-    $message = "Une erreur s'est produite lors de la suppression de la légende.";
+    $erreur = "Une erreur s'est produite lors de la suppression de la légende.";
+    
+    // Redirection vers la page de gestion des contrées
+    echo '<script>alert("'.$erreur.'"); location.href = "?action=gestionLegende";</script>';
+    exit();
 }
-
-// Redirection vers la page de gestion des légendes avec le message
-header("Location: ?action=gestionLegende&message=" . urlencode($message));
-exit();
 ?>

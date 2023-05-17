@@ -420,9 +420,11 @@ ul {
         color: var(--doree);
         font-size: 1.5rem;
     }
-    .moderation h2{
+
+    .moderation h2 {
         color: var(--vert);
     }
+
     /* taleau moderation commentaires */
     .tableModeration {
         border: 2px solid var(--vert);
@@ -432,18 +434,18 @@ ul {
     }
 
     .tableModeration th {
-        color: var(--vert);
+        color: var(--doree);
         padding: 1rem;
     }
 
     .tableModeration td {
-        padding: 1rem;
+        padding: 1rem 1rem 1rem 1.5rem;
     }
 
     td .btn-moderation {
-        margin-left: 2rem;
+        vertical-align:middle;
     }
-
+  
     #valider-commentaires-btn {
         background-color: var(--vert);
         color: var(--fond-noir);
@@ -865,8 +867,8 @@ ul {
     .tableModeration {
         border: 2px solid var(--vert);
         margin: auto;
-        width: 95%;
         text-align: center;
+        font-size: 1rem;
     }
 
     .tableModeration th {
@@ -876,13 +878,14 @@ ul {
     }
 
     .tableModeration td {
-        padding: 1rem;
+        padding: 1rem 0.5rem;
         color: var(--doree);
         border: 1px solid var(--fond-noir);
+        text-align: left;
     }
 
     td .btn-moderation {
-        margin-left: 0.5rem;
+        justify-self: center;
     }
 
     #valider-commentaires-btn {
@@ -925,7 +928,7 @@ ul {
         margin: 2rem;
     }
 
-.alert .alert-success {
+    .alert .alert-success {
         color: var(--fond-blanc);
         background-color: var(--vert);
         border-color: #c3e6cb;
