@@ -5,61 +5,54 @@ namespace Broceliande\Views;
 include_once(__DIR__ . '/viewHeader.php');
 // Inclure la vue de la nav admin
 include_once(__DIR__ . '/viewMenuAdmin.php');
+?>
+<div class="moderation">
+    <h2 class="mt-5 mb-3 text-center">Modération des commentaires</h2>
 
-class CommentaireView
-{
-    public function modererCommentaires($commentaires)
-    {
-        ?>
-        <div class="moderation">
-            <h2 class="mt-5 mb-3 text-center">Modération des commentaires</h2>
+    <!-- Ajouter le formulaire de tri -->
+    <form class="gestionTri">
+        <label for="tri">Trier par :</label>
+        <select name="tri" id="tri">
+            <option value="date">Date</option>
+            <option value="auteur">Auteur</option>
+            <option value="contree">Contrée</option>
+        </select>
+        <button type="button" id="tri-commentaires-btn">Trier</button>
+    </form>
 
-            <!-- Ajouter le formulaire de tri -->
-            <form class="gestionTri">
-                <label for="tri">Trier par :</label>
-                <select name="tri" id="tri">
-                    <option value="date">Date</option>
-                    <option value="auteur">Auteur</option>
-                    <option value="contree">Contrée</option>
-                </select>
-                <button type="button" id="tri-commentaires-btn">Trier</button>
-            </form>
+    <table class="tableModeration">
+        <thead>
+            <tr>
+                <th id="col-date">Date</th>
+                <th id="col-auteur">Auteur</th>
+                <th id="col-contree">Contrée</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            // Afficher les commentaires
+            foreach ($commentaires as $commentaire) {
+            ?>
+                <tr>
+                    <td><?php echo $commentaire['dateCom']; ?></td>
+                    <td><?php echo $commentaire['pseudo']; ?></td>
+                    <td><?php echo $commentaire['titre']; ?></td>
+                    <td>
+                        <input type="radio" name="moderation[<?php echo $commentaire['Id_commentaire']; ?>]" value="valider" class="btn-moderation"> Valider <br>
+                        <input type="radio" name="moderation[<?php echo $commentaire['Id_commentaire']; ?>]" value="supprimer" class="btn-moderation ml-4"> Supprimer
+                    </td>
+                </tr>
+            <?php
+            }
+            ?>
+        </tbody>
+    </table>
+    <button type="button" class="btn btn-primary" id="valider-commentaires-btn">Valider</button>
+    <button type="button" class="btn btn-danger" id="supprimer-commentaires-btn">Supprimer</button>
+</div>
 
-            <table class="tableModeration">
-                <thead>
-                    <tr>
-                        <th id="col-date">Date</th>
-                        <th id="col-auteur">Auteur</th>
-                        <th id="col-contree">Contrée</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    // Afficher les commentaires
-                    foreach ($commentaires as $commentaire) {
-                        ?>
-                        <tr>
-                            <td><?php echo $commentaire['dateCom']; ?></td>
-                            <td><?php echo $commentaire['pseudo']; ?></td>
-                            <td><?php echo $commentaire['titre']; ?></td>
-                            <td>
-                                <input type="radio" name="moderation[<?php echo $commentaire['Id_commentaire']; ?>]" value="valider" class="btn-moderation"> Valider <br>
-                                <input type="radio" name="moderation[<?php echo $commentaire['Id_commentaire']; ?>]" value="supprimer" class="btn-moderation ml-4"> Supprimer
-                            </td>
-                        </tr>
-                        <?php
-                    }
-                    ?>
-                </tbody>
-            </table>
-            <button type="button" class="btn btn-primary" id="valider-commentaires-btn">Valider</button>
-            <button type="button" class="btn btn-danger" id="supprimer-commentaires-btn">Supprimer</button>
-        </div>
-
-        <?php
-    }
-}
+<?php
 
 include_once(__DIR__ . '/viewFooter.php');
 ?>
@@ -69,7 +62,7 @@ include_once(__DIR__ . '/viewFooter.php');
 
 <!-- JavaScript gestion commentaires -->
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         // Récupérer les en-têtes de colonnes
         const colDate = document.getElementById('col-date');
         const colAuteur = document.getElementById('col-auteur');
