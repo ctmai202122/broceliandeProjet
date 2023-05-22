@@ -6,6 +6,7 @@ include_once(__DIR__ . '/viewHeader.php');
 // Inclure la vue de la nav admin
 include_once(__DIR__ . '/viewMenuAdmin.php');
 ?>
+
 <div class="moderation">
     <h2 class="mt-5 mb-3 text-center">Modération des commentaires</h2>
 
@@ -33,7 +34,7 @@ include_once(__DIR__ . '/viewMenuAdmin.php');
             <?php
             // Afficher les commentaires
             foreach ($commentaires as $commentaire) {
-            ?>
+                ?>
                 <tr>
                     <td><?php echo $commentaire['dateCom']; ?></td>
                     <td><?php echo $commentaire['pseudo']; ?></td>
@@ -43,7 +44,7 @@ include_once(__DIR__ . '/viewMenuAdmin.php');
                         <input type="radio" name="moderation[<?php echo $commentaire['Id_commentaire']; ?>]" value="supprimer" class="btn-moderation ml-4"> Supprimer
                     </td>
                 </tr>
-            <?php
+                <?php
             }
             ?>
         </tbody>
@@ -53,7 +54,6 @@ include_once(__DIR__ . '/viewMenuAdmin.php');
 </div>
 
 <?php
-
 include_once(__DIR__ . '/viewFooter.php');
 ?>
 
@@ -62,7 +62,7 @@ include_once(__DIR__ . '/viewFooter.php');
 
 <!-- JavaScript gestion commentaires -->
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         // Récupérer les en-têtes de colonnes
         const colDate = document.getElementById('col-date');
         const colAuteur = document.getElementById('col-auteur');
