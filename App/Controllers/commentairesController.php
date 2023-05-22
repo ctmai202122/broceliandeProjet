@@ -16,12 +16,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $pseudo = $_POST['pseudo'];
     $texte = $_POST['commentaire'];
     $idContree = $_POST['idContree'];
+    $titreContree = $_POST['titreContree'];
 
     // Création du commentaire dans la base de données
     $commentaire = new Commentaire();
     // Appel de la méthode "create" du modèle Commentaire avec 
     // les données du formulaire et la date courante.
-    $commentaire->create($pseudo, $texte, $idContree);
+    $commentaire->create($pseudo, $texte, $idContree, $titreContree);
 
     // Stockage d'un message de confirmation dans une variable de session
     $_SESSION['message'] = "Votre commentaire a bien été envoyé, il va être modéré par l'administrateur !";
@@ -66,12 +67,11 @@ if ($_GET['action'] === 'supprimerCommentaires') {
     echo json_encode($response);
     exit;
 }
+
 // Vérifier si un commentaire a été modéré
 if (isset($_GET['moderated']) && $_GET['moderated'] == 'true') {
-?>
-    <p>Le commentaire a été modéré avec succès.</p>
-
-<?php
+    echo "<p>Le commentaire a été modéré avec succès.</p>";
 }
+
 include_once(__DIR__ . '/../Views/viewCommentaires.php');
 ?>

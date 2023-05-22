@@ -35,18 +35,21 @@ if (isset($_SESSION['message'])) {
         <?php } ?>
 
         <h2>Laisser un commentaire</h2>
-        <form method="post" action="?action=commentaire">
-            <div class="form-group">
-                <label for="pseudo" class="required">Auteur : *</label>
-                <input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Votre nom prénom" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="commentaire" class="required">Commentaire : *</label>
-                <textarea class="form-control" rows="5" id="commentaire" name="commentaire" placeholder="Votre message" class="form-control" required></textarea>
-            </div>
-            <input type="hidden" name="idContree" value="<?= $contree['Id_contree'] ?>">
-            <button type="submit" class="btn btn-primary my-3">Soumettre</button>
-        </form>
+<form method="post" action="?action=commentaire">
+    <div class="form-group">
+        <label for="pseudo" class="required">Auteur : *</label>
+        <input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Votre nom prénom" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="commentaire" class="required">Commentaire : *</label>
+        <textarea class="form-control" rows="5" id="commentaire" name="commentaire" placeholder="Votre message" class="form-control" required></textarea>
+    </div>
+    <input type="hidden" name="idContree" value="<?= $contree['Id_contree'] ?>">
+
+<input type="hidden" name="titreContree" value="<?= $contree['titre'] ?>">
+
+    <button type="submit" class="btn btn-primary my-3">Soumettre</button>
+</form>
 
         <?php if (isset($message)) { ?>
             <div class="alert alert-primary" role="alert"><?= $message ?></div>

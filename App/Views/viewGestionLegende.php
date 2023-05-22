@@ -22,8 +22,8 @@ if (isset($_GET['message'])) {
                 <input type="text" id="titre" name="titre" placeholder="Titre de la Légende..." class="form-control" required>
             </div>
             <div class="form-group">
-                <label for="contenu">Contenu :<span class="required">*</span></label>
-                <input type="text" id="contenu" name="contenu" placeholder="Description de la légende..." class="form-control" required>
+                <label for="contenu">Contenu : <span class="required">*</span></label>
+                <textarea class="col-12"id="contenu" name="contenu" placeholder="Description de la contrée..." rows="9"class="form-control" required></textarea>
             </div>
             <div class="form-group">
                 <label for="photo">Photo :</label>

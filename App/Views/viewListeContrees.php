@@ -1,33 +1,19 @@
-<?php
-// Inclusion du fichier de vue pour l'en-tête
-include_once(__DIR__ . '/viewHeader.php');
-?>
+<?php include_once(__DIR__ . '/viewHeader.php'); ?>
 
 <main class="container">
-
-    <?php
-    // Début de la grille des contrees
-    echo "<div class='grid-contrees'>";
-
-    // Boucle pour afficher les contrees
-    foreach ($listeContrees as $contree) {
-
-        // Affichage d'une contree
-        echo "<div class='contrees'>";
-        echo "<a href='./?action=detailsContree&id=" . $contree["Id_contree"] . "' >";
-        // Lien vers la page de la contree
-        echo "<h2>{$contree["titre"]}</h2>"; // Titre de la contree
-        echo "<img src='./Data/images/{$contree["photo"]}' alt='{$contree["titre"]}' >";
-        // Image de la contree
-        echo "</a>";
-        echo "</div>";
-    }
-    // Fin de la grille des contrees
-    echo "</div>";
-    ?>
+    <div class='grid-contrees'>
+        <?php foreach ($listeContrees as $contree) { ?>
+            <div class='contrees'>
+                <a href='./?action=detailsContree&id=<?= $contree["Id_contree"] ?>'>
+                    <!-- div pour englober titre en image zoom au survol -->
+                    <div class="containerZoom">
+                        <h2><?= $contree["titre"]; ?></h2>
+                        <img class="zoomImage" src='./Data/images/<?= $contree["photo"]; ?>' alt='<?= $contree["titre"]; ?>'>
+                    </div>
+                </a>
+            </div>
+        <?php } ?>
+    </div>
 </main>
 
-<?php
-// Inclusion du fichier de vue pour le footer
-include_once(__DIR__ . '/viewFooter.php');
-?>
+<?php include_once(__DIR__ . '/viewFooter.php'); ?>

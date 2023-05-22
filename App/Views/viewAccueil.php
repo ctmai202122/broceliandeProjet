@@ -11,16 +11,17 @@ include_once(__DIR__ . '/viewHeader.php');
         </div>
     </div>
     <div class='grid-contrees'>
-        <!--Permet de récupérer et afficher les quatre premières contrées -->
-        <?php foreach (array_slice($listeContrees, 0, 4) as $contree) { ?>
-            <div class='contrees'>
-                <a href='./?action=detailsContree&id=<?= $contree["Id_contree"] ?>'>
-                    <h2> <?= $contree["titre"]; ?> </h2>
-                    <img src="./Data/images/<?= $contree["photo"]; ?> " alt="<?= $contree["titre"]; ?>">
-                </a>
-            </div>
-        <?php } ?>
-    </div>
+    <!--Permet de récupérer et afficher les quatre premières contrées -->
+    <?php foreach (array_slice($listeContrees, 0, 4) as $contree) { ?>
+        <div class='contrees'>
+            <a href='./?action=detailsContree&id=<?= $contree["Id_contree"] ?>'>
+                <h2> <?= $contree["titre"]; ?> </h2>
+                <img class="zoomImage" src="./Data/images/<?= $contree["photo"]; ?> " alt="<?= $contree["titre"]; ?>">
+            </a>
+        </div>
+    <?php } ?>
+</div>
+
 </main>
 
 <?php
