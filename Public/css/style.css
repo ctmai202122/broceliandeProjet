@@ -470,72 +470,74 @@ ul {
         color: var(--vert);
     }
 
-    .gestionTri{
+    .gestionTri {
         text-align: right;
         margin-right: 30px;
     }
-    #tri-commentaires-btn{
-  
-            color: var(--fond-blanc);
-            font-size: 15px; 
-            font-weight: bold;
-            line-height: 15px; 
-            padding: 5px 10px; 
-            border-radius: 10px;
-            border: 2px solid var(--vert);
-            background: rgb(141,197,88);
-            background: radial-gradient(circle, rgba(141,197,88,0.5942577714679622) 7%, rgba(184,145,48,1) 31%, rgba(178,152,53,1) 69%, rgba(148,189,82,1) 88%);
-    }
-            #tri-commentaires-btn:hover {
-            background-color: var(--doree);
-        }
-            .myButton:active {
-            background: var(--doree); 
-        }
+
+    #tri-commentaires-btn {
+        color: var(--fond-blanc);
+        font-size: 15px;
+        font-weight: bold;
+        line-height: 15px;
+        padding: 5px 10px;
+        border-radius: 10px;
+        border: 2px solid var(--vert);
+        background: rgb(141, 197, 88);
+        background: radial-gradient(circle, rgba(141, 197, 88, 0.5942577714679622) 7%, rgba(184, 145, 48, 1) 31%, rgba(178, 152, 53, 1) 69%, rgba(148, 189, 82, 1) 88%);
     }
 
-    /* taleau moderation commentaires */
-    .tableModeration {
-        border: 2px solid var(--doree);
-        margin: auto;
-        width: 95%;
-        text-align: center;
+    #tri-commentaires-btn:hover {
+        background-color: var(--doree);
     }
 
-    .tableModeration th {
-        color: var(--doree);
-        border: 2px solid var(--doree);
-        padding: 1rem;
+    .myButton:active {
+        background: var(--doree);
     }
+}
 
-    .tableModeration td {
-        padding: 1rem 1rem 1rem 1.5rem;
-        border: 1px solid var(--doree);
-    }
+/* taleau moderation commentaires */
+.tableModeration {
+    border: 2px solid var(--doree);
+    margin: auto;
+    width: 95%;
+    text-align: center;
+}
 
-    td .btn-moderation {
-        vertical-align: middle;
-    }
+.tableModeration th {
+    color: var(--doree);
+    border: 2px solid var(--doree);
+    padding: 1rem;
+}
 
-    #valider-commentaires-btn {
-        background-color: var(--vert);
-        color: var(--fond-noir);
-    }
+.tableModeration td {
+    padding: 1rem 1rem 1rem 1.5rem;
+    border: 1px solid var(--doree);
+}
 
-    #valider-commentaires-btn:hover {
-        background-color: var(--fond-gris-foncee);
-        color: var(--doree);
-    }
+td .btn-moderation {
+    vertical-align: middle;
+}
 
-    #supprimer-commentaires-btn {
-        background-color: red;
-        color: var(--fond-gris-foncee);
-    }
+#valider-commentaires-btn {
+    background-color: var(--vert);
+    color: var(--fond-noir);
+}
 
-    #supprimer-commentaires-btn:hover {
-        background-color: var(--fond-gris-foncee);
-        color: var(--doree);
-    }
+#valider-commentaires-btn:hover {
+    background-color: var(--fond-gris-foncee);
+    color: var(--doree);
+}
+
+#supprimer-commentaires-btn {
+    background-color: red;
+    color: var(--fond-gris-foncee);
+}
+
+#supprimer-commentaires-btn:hover {
+    background-color: var(--fond-gris-foncee);
+    color: var(--doree);
+}
 }
 
 /* ++++++ RESPONSIVE ++++++++*/

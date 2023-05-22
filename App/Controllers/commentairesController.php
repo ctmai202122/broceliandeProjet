@@ -3,75 +3,92 @@
 namespace Broceliande\Controllers;
 
 use Broceliande\Models\Commentaire;
+use Broceliande\Views\CommentaireView;
 
-// Vérification si la session est active
-if (session_status() === PHP_SESSION_NONE) {
-    // Démarrage de la session
-    session_start();
-}
+class CommentairesController
+{
+    public function ajouterCommentaire()
+    {
+        // Vérification que le formulaire a été soumis
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Récupération des données du formulaire
+            $pseudo = $_POST['pseudo'];
+            $texte = $_POST['commentaire'];
+            $idContree = $_POST['idContree'];
+            $titreContree = $_POST['titreContree'];
 
-// Vérification que le formulaire a été soumis
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Récupération des données du formulaire
-    $pseudo = $_POST['pseudo'];
-    $texte = $_POST['commentaire'];
-    $idContree = $_POST['idContree'];
-    $titreContree = $_POST['titreContree'];
+            // Création du commentaire dans la base de données
+            $commentaire = new Commentaire();
+            // Appel de la méthode "create" du modèle Commentaire avec 
+            // les données du formulaire et la date courante.
+            $commentaire->create($pseudo, $texte, $idContree, $titreContree);
 
-    // Création du commentaire dans la base de données
-    $commentaire = new Commentaire();
-    // Appel de la méthode "create" du modèle Commentaire avec 
-    // les données du formulaire et la date courante.
-    $commentaire->create($pseudo, $texte, $idContree, $titreContree);
+            // Stockage d'un message de confirmation dans une variable de session
+            $_SESSION['message'] = "Votre commentaire a bien été envoyé, il va être modéré par l'administrateur !";
 
-    // Stockage d'un message de confirmation dans une variable de session
-    $_SESSION['message'] = "Votre commentaire a bien été envoyé, il va être modéré par l'administrateur !";
+            // Redirection vers la page de détails de la contrée
+            header('Location: ?action=detailsContree&id=' . $idContree);
+            exit;
+        }
+    }
 
-    // Redirection vers la page de détails de la contrée
-    header('Location: ?action=detailsContree&id=' . $idContree);
-    exit;
-}
+    public function validerCommentaires()
+    {
+        // Vérifier si les identifiants des commentaires sont présents dans la requête
+        if (!isset($_POST['commentairesIds'])) {
+            // Redirection vers une autre page ou affichage d'une erreur
+            header('Location: ?action=error');
+            exit;
+        }
 
-// Action de validation des commentaires
-if ($_GET['action'] === 'validerCommentaires') {
-    // Récupérer les données envoyées par la requête AJAX
-    $commentairesIds = json_decode($_POST['commentairesIds'], true);
+        // Récupérer les identifiants des commentaires
+        $commentairesIds = $_POST['commentairesIds'];
 
-    // Opérations de validation des commentaires ici
-    $commentaire = new Commentaire();
-    $commentaire->validate($commentairesIds);
+        // Opérations de validation des commentaires ici
+        $commentaire = new Commentaire();
+        $commentaire->validate($commentairesIds);
 
-    // Envoyer une réponse JSON indiquant que la validation a réussi
-    $response = array(
-        'success' => true,
-        'message' => 'Les commentaires ont été validés avec succès.'
-    );
-    echo json_encode($response);
-    exit;
-}
+        // Redirection vers une autre page ou affichage d'un message de succès
+        header('Location: ?action=success');
+        exit;
+    }
 
-// Action de suppression des commentaires
-if ($_GET['action'] === 'supprimerCommentaires') {
-    // Récupérer les données envoyées par la requête AJAX
-    $commentairesIds = json_decode($_POST['commentairesIds'], true);
+    public function supprimerCommentaires()
+    {
+        // Vérifier si les identifiants des commentaires sont présents dans la requête
+        if (!isset($_POST['commentairesIds'])) {
+            // Redirection vers une autre page ou affichage d'une erreur
+            header('Location: ?action=error');
+            exit;
+        }
 
-    // Opérations de suppression des commentaires ici
-    $commentaire = new Commentaire();
-    $commentaire->delete($commentairesIds);
+        // Récupérer les identifiants des commentaires
+        $commentairesIds = $_POST['commentairesIds'];
 
-    // Envoyer une réponse JSON indiquant que la suppression a réussi
-    $response = array(
-        'success' => true,
-        'message' => 'Les commentaires ont été supprimés avec succès.'
-    );
-    echo json_encode($response);
-    exit;
-}
+        // Opérations de suppression des commentaires ici
+        $commentaire = new Commentaire();
+        $commentaire->delete($commentairesIds);
 
-// Vérifier si un commentaire a été modéré
-if (isset($_GET['moderated']) && $_GET['moderated'] == 'true') {
-    echo "<p>Le commentaire a été modéré avec succès.</p>";
-}
+        // Redirection vers une autre page ou affichage d'un message de succès
+        header('Location: ?action=success');
+        exit;
+    }
 
-include_once(__DIR__ . '/../Views/viewCommentaires.php');
+    public function modererCommentaires()
+    {
+        // Création de l'instance CommentaireView
+        $commentaireView = new CommentaireView();
+
+        // Récupération des commentaires depuis le modèle
+        $commentaireModel = new Commentaire();
+        $commentaires = $commentaireModel->getAll();
+
+        // Appel de la méthode modererCommentaires de CommentaireView
+        $commentaireView->modererCommentaires($commentaires);
+
+   
+       
+    }    
+  
+}   include_once('App/Views/viewCommentaires.php');
 ?>
