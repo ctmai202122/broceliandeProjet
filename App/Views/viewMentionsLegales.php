@@ -1,7 +1,4 @@
 <?php
-
-namespace Broceliande\Views;
-
 include_once(__DIR__ . '/viewHeader.php');
 ?>
 

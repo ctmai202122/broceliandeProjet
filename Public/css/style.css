@@ -494,12 +494,12 @@ ul {
     .myButton:active {
         background: var(--doree);
     }
-}
 
 /* taleau moderation commentaires */
 .tableModeration {
     border: 2px solid var(--doree);
     margin: auto;
+    margin-bottom: 20px;
     width: 95%;
     text-align: center;
 }
@@ -521,21 +521,13 @@ td .btn-moderation {
 
 #valider-commentaires-btn {
     background-color: var(--vert);
+    border: 1px solid var(--vert);
     color: var(--fond-noir);
 }
 
 #valider-commentaires-btn:hover {
     background-color: var(--fond-gris-foncee);
-    color: var(--doree);
-}
-
-#supprimer-commentaires-btn {
-    background-color: red;
-    color: var(--fond-gris-foncee);
-}
-
-#supprimer-commentaires-btn:hover {
-    background-color: var(--fond-gris-foncee);
+    border: 1px solid var(--doree);
     color: var(--doree);
 }
 }
