@@ -37,5 +37,4 @@ $contrees = $contreeModel->getAll();
 
 // Inclusion de la vue pour la gestion des contrées
 include_once('App/Views/viewGestionLegende.php');
-
 ?>

@@ -24,3 +24,4 @@ if (isset($_SESSION['admin'])) {
     header('Location: viewConnexion.php');
     exit;
 }
+?>

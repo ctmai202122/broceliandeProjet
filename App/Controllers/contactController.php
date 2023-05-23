@@ -33,4 +33,4 @@ if(isset($_POST['envoyer'])) {
     }
   }
   include_once (__DIR__ . '/../Views/viewContact.php');
-// ?>  
+?>  

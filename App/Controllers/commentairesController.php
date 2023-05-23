@@ -18,10 +18,10 @@ class CommentairesController
             $titreContree = $_POST['titreContree'];
 
             // Création du commentaire dans la base de données
-            $commentaires = new Commentaire();
+            $commentaire = new Commentaire();
             // Appel de la méthode "create" du modèle Commentaire avec 
             // les données du formulaire et la date courante.
-            $commentaires->create($pseudo, $texte, $idContree, $titreContree);
+            $commentaire->create($pseudo, $texte, $idContree, $titreContree);
 
             // Stockage d'un message de confirmation dans une variable de session
             $_SESSION['message'] = "Votre commentaire a bien été envoyé, il va être modéré par l'administrateur !";
@@ -79,7 +79,7 @@ class CommentairesController
         {
             // Récupération des commentaires depuis le modèle
             $commentaireModel = new Commentaire();
-            $commentaires= $commentaireModel->getAll();
+            $commentaireModel->getAll();
     
             // Affichage des commentaires avec la vue
             include_once('App/Views/viewCommentaires.php');
@@ -91,5 +91,4 @@ class CommentairesController
     
     // Appel de la méthode modererCommentaires
     $commentairesController->modererCommentaires();
-    
 ?>

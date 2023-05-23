@@ -23,4 +23,4 @@ if (isset($_SESSION['admin'])) {
         exit();
     }
 }
-
+?>
