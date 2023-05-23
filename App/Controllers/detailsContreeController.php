@@ -1,7 +1,12 @@
 <?php
 // namespace Broceliande\Controllers;
 use Broceliande\Models\Contree;
-
+// Vérification si un message de confirmation est présent dans la session
+if (isset($_SESSION['message'])) {
+  // Stockage du message dans une variable et suppression de la session
+  $message = $_SESSION['message'];
+  unset($_SESSION['message']);
+}
             // Récupérer l'identifiant de la contree depuis l'URL
             $id = $_GET['id'];
 

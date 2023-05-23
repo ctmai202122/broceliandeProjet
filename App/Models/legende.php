@@ -72,7 +72,6 @@ class Legende extends DbConnect
                  photo=:photo,
                  Id_contree=:Id_contree
              
-                
                  WHERE Id_legende =:id");
 
             $req->execute(
