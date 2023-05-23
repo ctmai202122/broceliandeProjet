@@ -1,14 +1,24 @@
-<div class="navAdmin gestion-nav">
-   <ul class="nav nav-tabs navbar-dark">
-      <li class="nav-item <?= $action === 'commentaire' ? 'active' : ''; ?>">
-         <a class="nav-link <?= $action === 'commentaire' ? 'active' : ''; ?>" href="?action=commentaire">Modération commentaires <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item <?= $action === 'gestionContree' ? 'active' : ''; ?>">
-         <a class="nav-link <?= $action === 'gestionContree' ? 'active' : ''; ?>" href="?action=gestionContree">Gestion contrées</a>
-      </li>
-      <li class="nav-item <?= $action === 'gestionLegende' ? 'active' : ''; ?>">
-         <a class="nav-link <?= $action === 'gestionLegende' ? 'active' : ''; ?>" href="?action=gestionLegende">Gestion légendes</a>
-      </li>
-   </ul>
-</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="navAdmin gestion-nav">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="?action=commentaire">Modération commentaires</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="?action=gestionContree">Gestion contrées</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="?action=gestionLegende">Gestion légendes</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
 

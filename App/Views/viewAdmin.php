@@ -1,7 +1,7 @@
 <?php
 include_once(__DIR__ . '/viewHeader.php');
  //Inclure la vue de la nav admin
-    include_once(__DIR__ . '/viewMenuAdmin.php');
+include_once(__DIR__ . '/viewMenuAdmin.php');
 ?>
 
 <div class="admin">
