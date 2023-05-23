@@ -32,9 +32,13 @@ include_once(__DIR__ . '/viewHeader.php');
         <button type="submit" name="envoyer">Envoyer</button>
       </div>
     </form>
+    <?php if (isset($message)) : ?>
+      <p><?php echo $message; ?></p>
+    <?php endif; ?>
+
   </div>
   <!-- Fin du formulaire de contact -->
 </main>
 <?php
-include_once(__DIR__ . '/viewFooter.php'); 
+include_once(__DIR__ . '/viewFooter.php');
 ?>
