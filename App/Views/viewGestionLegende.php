@@ -64,16 +64,9 @@ if (isset($_GET['message'])) {
         <form id="deleteForm" action="?action=deleteLegende" method="post">
             <div class="form-group mt-4">
                 <label for="idLegende">Titre de la légende<span class="required">*</span></label>
-                <select id="idLegende" name="id" class="form-control" required>
-                    <option value="">Sélectionner une légende</option>
+                <select id="idLegende" name="idLegende" class="form-control" required>
+                    <option value="">--- Sélectionner une légende ---</option>
                     <?php
-
-                    use Broceliande\Models\Legende;
-                    // Créer une instance du modèle "Legende"
-                    $legendeModel = new Legende();
-
-                    // Récupérer les données des légendes à partir du modèle
-                    $legendes = $legendeModel->getAll();
 
                     // Vérifier si $legendes contient des données avant de l'utiliser
                     if ($legendes) {

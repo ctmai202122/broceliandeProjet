@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["idLegende"])) {
     $message = "La légende a été supprimée avec succès.";
 
        // Redirection vers la page de gestion des contrées
-       echo '<script>alert("'.$message.'"); location.href = "?action=gestionContree";</script>';
+       echo '<script>alert("'.$message.'"); location.href = "?action=gestionLegende";</script>';
        exit();
 } else {
     // Message d'erreur

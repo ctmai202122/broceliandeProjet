@@ -60,13 +60,6 @@ include_once(__DIR__ . '/viewHeader.php');
                 <option value="">Sélectionner une contrée</option>
                 <?php
 
-                use Broceliande\Models\Contree;
-                // Créer une instance du modèle "Contree"
-                $contreeModel = new Contree();
-
-                // Récupérer les données des contrées à partir du modèle
-                $contrees = $contreeModel->getAll();
-
                 // Vérifier si $contrees contient des données avant de l'utiliser
                 if ($contrees) {
                     foreach ($contrees as $contree) {

@@ -1,5 +1,5 @@
 // Récupération de l'élément du formulaire et du bouton de suppression
-let deleteForm = document.getElementById('deleteForm');
+const deleteForm = document.getElementById('deleteForm');
 const deleteButton = document.getElementById('deleteButton');
 
 // Ajout d'un écouteur d'événement sur le bouton de suppression
@@ -12,6 +12,6 @@ deleteButton.addEventListener('click', function(event) {
         deleteForm.submit();
     } else {
         // Annulation de l'événement de clic du bouton de suppression
-        event.preventDefault();
+        //event.preventDefault();
     }
 });

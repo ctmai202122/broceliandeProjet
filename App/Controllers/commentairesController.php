@@ -3,7 +3,7 @@
 namespace Broceliande\Controllers;
 
 use Broceliande\Models\Commentaire;
-use Broceliande\Views\CommentaireView;
+
 
 class CommentairesController
 {
@@ -74,21 +74,22 @@ class CommentairesController
         exit;
     }
 
-    public function modererCommentaires()
-    {
-        // Création de l'instance CommentaireView
-        $commentaireView = new CommentaireView();
 
-        // Récupération des commentaires depuis le modèle
-        $commentaireModel = new Commentaire();
-        $commentaires = $commentaireModel->getAll();
-
-        // Appel de la méthode modererCommentaires de CommentaireView
-        $commentaireView->modererCommentaires($commentaires);
-
-   
-       
-    }    
-  
-}   include_once('App/Views/viewCommentaires.php');
+        public function modererCommentaires()
+        {
+            // Récupération des commentaires depuis le modèle
+            $commentaireModel = new Commentaire();
+            $commentaireModel->getAll();
+    
+            // Affichage des commentaires avec la vue
+            include_once('App/Views/viewCommentaires.php');
+        }
+    }
+    
+    // Création d'une instance du contrôleur
+    $commentairesController = new CommentairesController();
+    
+    // Appel de la méthode modererCommentaires
+    $commentairesController->modererCommentaires();
+    
 ?>
