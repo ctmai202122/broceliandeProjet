@@ -1,12 +1,9 @@
 <?php
 // Inclusion du fichier de vue pour l'en-tête
 include_once(__DIR__ . '/viewHeader.php');
-    //Inclure la vue de la nav admin
-    include_once(__DIR__ . '/viewMenuAdmin.php');
-// Vérification de la présence du message dans l'URL
-if (isset($_GET['message'])) {
-    $message = $_GET['message'];
-}
+//Inclure la vue de la nav admin
+include_once(__DIR__ . '/viewMenuAdmin.php');
+
 ?>
 <div class="container">
     <section class="containerGestion  bg-contact">
@@ -23,7 +20,7 @@ if (isset($_GET['message'])) {
             </div>
             <div class="form-group">
                 <label for="contenu">Contenu : <span class="required">*</span></label>
-                <textarea class="col-12"id="contenu" name="contenu" placeholder="Description de la contrée..." rows="9"class="form-control" required></textarea>
+                <textarea class="col-12" id="contenu" name="contenu" placeholder="Description de la contrée..." rows="9" class="form-control" required></textarea>
             </div>
             <div class="form-group">
                 <label for="photo">Photo :</label>
@@ -31,29 +28,21 @@ if (isset($_GET['message'])) {
             </div>
 
             <div class="form-group mt-4">
-            <label for="idContree">Titre de la contrée<span class="required">*</span></label>
-            <select id="idContree" name="idContree" class="form-control" required>
-                <option value="">Sélectionner une contrée</option>
-                <?php
-
-                use Broceliande\Models\Contree;
-                // Créer une instance du modèle "Contree"
-                $contreeModel = new Contree();
-
-                // Récupérer les données des contrées à partir du modèle
-                $contrees = $contreeModel->getAll();
-
-                // Vérifier si $contrees contient des données avant de l'utiliser
-                if ($contrees) {
-                    foreach ($contrees as $contree) {
-                        $id = $contree['Id_contree']; // ID de la contrée
-                        $titre = $contree['titre']; // Titre de la contrée
-                        echo "<option value=\"$id\">$titre</option>";
+                <label for="idContree">Contrée correpondant à cette légende</label>
+                <select id="idContree" name="idContree" class="form-control">
+                    <option value="">Sélectionner une contrée</option>
+                    <?php
+                    // Vérifier si $contrees contient des données avant de l'utiliser
+                    if ($contrees) {
+                        foreach ($contrees as $contree) {
+                            $id = $contree['Id_contree']; // ID de la contrée
+                            $titre = $contree['titre']; // Titre de la contrée
+                            echo "<option value=\"$id\">$titre</option>";
+                        }
                     }
-                }
-                ?>
-            </select>
-        </div>
+                    ?>
+                </select>
+            </div>
 
             <button type="submit" name="submit" class="btn btn-primary btn-adm-mov">Ajouter la légende</button>
         </form>
@@ -75,7 +64,7 @@ if (isset($_GET['message'])) {
                             $titre = $legende['titre']; // Titre de la légende
                             echo "<option value=\"$id\">$titre</option>";
                         }
-                    } 
+                    }
                     ?>
                 </select>
             </div>
