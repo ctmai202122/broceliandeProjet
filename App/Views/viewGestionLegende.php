@@ -43,8 +43,7 @@ include_once(__DIR__ . '/viewMenuAdmin.php');
                     ?>
                 </select>
             </div>
-
-            <button type="submit" name="submit" class="btn btn-primary btn-adm-mov">Ajouter la légende</button>
+            <button id="addButton" type="submit" class="btn">Ajouter la légende</button>
         </form>
     </section>
     <section id="deleteLegende" class="containerGestion bg-contact text-right mt-4">
