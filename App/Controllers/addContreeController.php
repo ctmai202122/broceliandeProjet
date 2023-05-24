@@ -21,10 +21,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $accessibilite = $_POST["accessibilite"];
         $ouverture = $_POST["ouverture"];
 
-        // Créer une instance du modèle "Contree"
-        $contreeModel = new Contree();
         // Enregistrer les données dans la base de données en utilisant la méthode appropriée du modèle
-        $contreeModel->create($titre, $contenu, $photo, $latitude, $longitude, $commune, $accessibilite, $ouverture);
+        Contree::create($titre, $contenu, $photo, $latitude, $longitude, $commune, $accessibilite, $ouverture);
 
         // Afficher un message de succès
         $message = "La contrée a été ajoutée avec succès.";
@@ -33,6 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $erreur = "Veuillez remplir tous les champs obligatoires.";
     }
 }
-    // Inclusion de la vue pour la gestion des contrées
-    include_once('App/Views/viewGestionContree.php');
+// Inclusion de la vue pour la gestion des contrées
+include_once('App/Views/viewGestionContree.php');
 ?>
