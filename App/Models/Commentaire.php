@@ -78,13 +78,18 @@ class Commentaire extends DbConnect
         return $req->fetchAll();
     }
 
-    public static function getById_contree()
+    public static function getExtendedById($idCommentaire)
     {
         $cnx = self::dbConnect();
-        $req = $cnx->prepare("SELECT * FROM commentaire WHERE Id_contree = :id_contree");
+        $req = $cnx->prepare("SELECT commentaire.*, contree.titre AS titre_contree
+            FROM commentaire
+            INNER JOIN contree ON commentaire.Id_contree = contree.Id_contree
+            WHERE commentaire.Id_commentaire = :idCommentaire");
+        $req->bindValue(':idCommentaire', $idCommentaire, PDO::PARAM_INT);
         $req->execute();
         return $req->fetch();
     }
+    
 
     /* ====== UPDATE ====== */
     public static function update($id_commentaire, $pseudo, $texte, $Id_contree)
