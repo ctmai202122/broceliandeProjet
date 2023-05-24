@@ -1,17 +1,18 @@
-// Récupération de l'élément du formulaire et du bouton de suppression
+// Récupération de l'élément du formulaire
 const deleteForm = document.getElementById('deleteForm');
-const deleteButton = document.getElementById('deleteButton');
+   
+// Ajout d'un écouteur d'événement 'submit' sur le formulaire de suppression
+deleteForm.addEventListener('submit', function(event) {
 
-// Ajout d'un écouteur d'événement sur le bouton de suppression
-deleteButton.addEventListener('click', function(event) {
-    // Affichage de la boîte de dialogue de confirmation
-    const confirmation = confirm('Êtes-vous sûr de vouloir supprimer cette légende ?');
-    
-    // Soumission du formulaire si l'utilisateur a confirmé
-    if (confirmation) {
-        deleteForm.submit();
-    } else {
-        // Annulation de l'événement de clic du bouton de suppression
-        //event.preventDefault();
-    }
+ // popup de confirmation (retourne TRUE si confirmé, FALSE si annulé)
+ const confirmation = confirm('Êtes-vous sûr de vouloir supprimer cette légende ?');
+
+ // si non confirmé -> annulation de l'événement
+ if (!confirmation) {
+ event.preventDefault();
+
+ }
+
+ // sinonl'événement se propage comme prévu
+
 });

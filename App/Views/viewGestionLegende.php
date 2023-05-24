@@ -68,7 +68,7 @@ include_once(__DIR__ . '/viewMenuAdmin.php');
                     ?>
                 </select>
             </div>
-            <button id="deleteButton" type="button" class="btn btn-primary">Supprimer la légende</button>
+            <button id="deleteButton" type="submit" class="btn">Supprimer la légende</button>
         </form>
     </section>
     <!-- Le script qui permet de confirmer la suppression légende -->
