@@ -11,17 +11,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Le formulaire a été soumis, traiter les données ici
 
     // Vérifier si les champs requis sont remplis
-    if (isset($_POST["titre"]) && isset($_POST["contenu"])) {
+    if (isset($_POST["titre"]) && isset($_POST["contenu"]) && isset($_POST["idContree"])) {
         // Récupérer les valeurs des champs
         $titre = $_POST["titre"];
         $contenu = $_POST["contenu"];
         $photo = isset($_POST["photo"]) ? $_POST["photo"] : null;
+        $idContree = $_POST["idContree"];
 
         // Créer une instance du modèle "Legende"
         $legendeModel = new Legende();
 
         // Enregistrer les données dans la base de données en utilisant la méthode appropriée du modèle
-        $legendeModel->create($titre, $contenu, $photo);
+        $legendeModel->create($titre, $contenu, $photo, $idContree);
 
         // Afficher un message de succès
         $message = "La légende a été ajoutée avec succès.";
@@ -34,6 +35,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 // Récupérer les données des contrées à afficher dans le menu déroulant
 $contreeModel = new Contree();
 $contrees = $contreeModel->getAll();
+
+// Récupérer les données des légendes à afficher dans le menu déroulant de suppression
+$legendeModel = new Legende();
+$legendes = $legendeModel->getAll();
 
 // Inclusion de la vue pour la gestion des contrées
 include_once('App/Views/viewGestionLegende.php');
