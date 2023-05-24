@@ -31,6 +31,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $erreur = "Veuillez remplir tous les champs obligatoires.";
     }
 }
+
+// Récupérer les données des contrées à afficher dans le menu déroulant
+$contreeModel = new Contree();
+$contrees = $contreeModel->getAll();
+
 // Inclusion de la vue pour la gestion des contrées
 include_once('App/Views/viewGestionContree.php');
 ?>
