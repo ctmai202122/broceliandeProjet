@@ -433,29 +433,25 @@ ul {
     }
 
     /* Nav admin  */
-    .nav-tabs {
-        border-bottom: 2px solid var(--doree);
-        text-align: center;
+    .navAdmin .navbar-nav .nav-item.active .nav-link {
+        /* background-color: #6b1313; */
+        color: #3b0fb5; 
     }
-
-    .nav-tabs .nav-link {
-        background-color: var(--fond-gris-foncee);
-        border: 2px solid var(--doree);
-        margin-top: 10px;
-    }
-
-    .nav-tabs .nav-link:focus,
-    .nav-tabs .nav-link:hover {
-        border: 2px solid var(--doree);
-    }
-
-    .nav-tabs .nav-item.show .nav-link,
-    .nav-tabs .nav-link.active {
+  .navAdmin #navbarNav  a:hover,
+ .navAdmin #navbarNav a.choix {  
         background-color: var(--doree);
-        color: var(--fond-gris-foncee);
-        border: 2px solid var(--fond-gris-foncee);
-        margin: 5px;
+        border-radius: 3px;
+        margin: 5px 20px;
+        color: var(--fond-noir);
     }
+
+    .navbar-expand-lg li a {
+
+        font-size: 1.3rem;
+        font-weight: 400;
+        color: var(--texte-blanc);
+        padding: 10px;
+      }
 
     .containerGestion h2 {
         color: var(--vert);

@@ -30,7 +30,7 @@ include_once(__DIR__ . '/viewMenuAdmin.php');
             <div class="form-group mt-4">
                 <label for="idContree">Contrée correpondant à cette légende</label>
                 <select id="idContree" name="idContree" class="form-control">
-                    <option value="">Sélectionner une contrée</option>
+                    <option value="">--- Sélectionner une contrée ---</option>
                     <?php
                     // Vérifier si $contrees contient des données avant de l'utiliser
                     if ($contrees) {

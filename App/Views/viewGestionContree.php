@@ -57,7 +57,7 @@ include_once(__DIR__ . '/viewHeader.php');
         <div class="form-group mt-4">
             <label for="idContree">Titre de la contrée<span class="required">*</span></label>
             <select id="idContree" name="idContree" class="form-control" required>
-                <option value="">Sélectionner une contrée</option>
+                <option value="">--- Sélectionner une contrée ---</option>
                 <?php
 
                 // Vérifier si $contrees contient des données avant de l'utiliser

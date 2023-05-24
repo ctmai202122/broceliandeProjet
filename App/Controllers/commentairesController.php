@@ -4,7 +4,6 @@ namespace Broceliande\Controllers;
 
 use Broceliande\Models\Commentaire;
 
-
 class CommentairesController
 {
     public function ajouterCommentaire()
@@ -91,4 +90,6 @@ class CommentairesController
     
     // Appel de la méthode modererCommentaires
     $commentairesController->modererCommentaires();
+
+    include_once(__DIR__ . '/../Views/viewCommentaires.php');
 ?>
