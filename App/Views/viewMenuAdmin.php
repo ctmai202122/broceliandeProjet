@@ -1,18 +1,3 @@
-<?php
-// Récupérer l'action de la page active depuis l'URL
-// $action = $_GET['action'] ?? 'commentaire';
-
-// // Fonction pour vérifier si l'onglet est actif
-// function isTabActive($tab) {
-//     global $action;
-//     // Vérifier si l'action correspond à l'onglet
-//     if ($action === $tab) {
-//         return 'active';
-//     } else {
-//         return '';
-//     }
-// }
-?>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="navAdmin">
