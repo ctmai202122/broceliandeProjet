@@ -18,11 +18,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $photo = isset($_POST["photo"]) ? $_POST["photo"] : null;
         $idContree = $_POST["idContree"];
 
-        // Créer une instance du modèle "Legende"
-        $legendeModel = new Legende();
-
         // Enregistrer les données dans la base de données en utilisant la méthode appropriée du modèle
-        $legendeModel->create($titre, $contenu, $photo, $idContree);
+        Legende::create($titre, $contenu, $photo, $idContree);
 
         // Afficher un message de succès
         $message = "La légende a été ajoutée avec succès.";
