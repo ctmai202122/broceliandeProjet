@@ -12,7 +12,4 @@ deleteForm.addEventListener('submit', function(event) {
  event.preventDefault();
 
  }
-
- // sinonl'événement se propage comme prévu
-
 });

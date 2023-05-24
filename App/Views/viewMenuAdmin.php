@@ -22,13 +22,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item  ">
-                    <a class="choix" href="?action=commentaire"  >Modération commentaires</a>
+                <li class="nav-item">
+                    <a href="?action=commentaire" class="active">Modération commentaires </a>
                 </li>
-                <li class="nav-item ">
+                <li class="nav-item">
                     <a href="?action=gestionContree">Gestion contrées</a>
                 </li>
-                <li class="nav-item ">
+                <li class="nav-item">
                     <a href="?action=gestionLegende">Gestion légendes</a>
                 </li>
             </ul>

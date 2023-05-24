@@ -439,17 +439,13 @@ ul {
     }
 
     /* Nav admin  */
-    .navAdmin .navbar-nav .nav-item.active .nav-link {
-        /* background-color: #6b1313; */
-        color: #3b0fb5;
-    }
-
-    .navAdmin #navbarNav a:hover,
-    .navAdmin #navbarNav a.choix {
+    .navAdmin #navbarNav a:active,
+    .navAdmin #navbarNav a:hover {
         background-color: var(--doree);
         border-radius: 3px;
         margin: 5px 20px;
         color: var(--fond-noir);
+        text-decoration: none;
     }
 
     .navbar-expand-lg li a {
