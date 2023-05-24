@@ -56,7 +56,7 @@ include_once(__DIR__ . '/viewMenuAdmin.php');
             ?>
         </tbody>
     </table>
-    <button type="button" class="btn btn-primary" id="valider-commentaires-btn">Valider</button>
+    <button type="button" class="btn" id="validerCom-btn">Valider</button>
 </div>
 
 <?php
