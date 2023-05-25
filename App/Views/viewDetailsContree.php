@@ -29,6 +29,8 @@ include_once(__DIR__ . '/viewHeader.php');
 
         <h2>Laisser un commentaire</h2>
         <form method="post" action="?action=commentaire">
+
+
             <div class="form-group">
                 <label for="pseudo" class="required">Auteur : *</label>
                 <input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Votre nom prénom" class="form-control" required>

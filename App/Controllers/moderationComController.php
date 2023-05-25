@@ -39,4 +39,6 @@ class ModerationCommentairesController
         exit;
     }
 }
+include_once(__DIR__ . '/../Views/viewCommentaires.php');
+
 ?>

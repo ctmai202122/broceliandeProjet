@@ -12,12 +12,12 @@ class CommentairesController
             // Récupération des données du formulaire
             $pseudo = $_POST['pseudo'];
             $texte = $_POST['texte']; 
-            $idContree = $_POST['idContree'];
+            $idContree = $_POST['Id_contree'];
             $titreContree = $_POST['titreContree'];
 
             // Création du commentaire dans la base de données
-            $commentaire = new Commentaire();
-            $commentaire->create($pseudo, $texte, $idContree, $titreContree);
+           Commentaire::create($pseudo, $texte, $idContree, $titreContree);
+
 
             // Stockage d'un message de confirmation dans une variable de session
             $_SESSION['message'] = "Votre commentaire a bien été envoyé, il va être modéré par l'administrateur !";
@@ -28,11 +28,19 @@ class CommentairesController
         }
     }
 
+    public function afficherCommentaires($id_contree)
+    {
+        // Utilisez l'identifiant de la contrée pour récupérer les commentaires correspondants depuis la base de données
+        Commentaire::getByIdContree($id_contree);
+
+        // Inclure la vue pour afficher les commentaires
+        include('App/Views/viewCommentaires.php');
+    }
+
     public function validerCommentaires($commentairesIds)
     {
         // Opérations de validation des commentaires ici
-        $commentaire = new Commentaire();
-        $commentaire->validate($commentairesIds);
+        Commentaire::validate($commentairesIds);
 
         // Redirection vers une autre page ou affichage d'un message de succès
         header('Location: ?action=success');
@@ -42,8 +50,7 @@ class CommentairesController
     public function supprimerCommentaires($commentairesIds)
     {
         // Opérations de suppression des commentaires ici
-        $commentaire = new Commentaire();
-        $commentaire->delete($commentairesIds);
+        Commentaire::delete($commentairesIds);
 
         // Redirection vers une autre page ou affichage d'un message de succès
         header('Location: ?action=success');
