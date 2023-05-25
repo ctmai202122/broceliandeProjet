@@ -1,4 +1,5 @@
 <?php
+
 namespace Broceliande\Controllers;
 
 use Broceliande\Models\Commentaire;
@@ -11,12 +12,12 @@ class CommentairesController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Récupération des données du formulaire
             $pseudo = $_POST['pseudo'];
-            $texte = $_POST['texte']; 
+            $texte = $_POST['texte'];
             $idContree = $_POST['Id_contree'];
             $titreContree = $_POST['titreContree'];
 
             // Création du commentaire dans la base de données
-           Commentaire::create($pseudo, $texte, $idContree, $titreContree);
+            Commentaire::create($pseudo, $texte, $idContree, $titreContree);
 
 
             // Stockage d'un message de confirmation dans une variable de session
@@ -31,7 +32,7 @@ class CommentairesController
     public function afficherCommentaires($id_contree)
     {
         // Utilisez l'identifiant de la contrée pour récupérer les commentaires correspondants depuis la base de données
-        Commentaire::getByIdContree($id_contree);
+        $commentaires = Commentaire::getByIdContree($id_contree);
 
         // Inclure la vue pour afficher les commentaires
         include('App/Views/viewCommentaires.php');
@@ -60,9 +61,10 @@ class CommentairesController
     public function modererCommentaires()
     {
         // Récupération des commentaires avec leurs titres de contrée
-        $commentaires = Commentaire::getAllExtended();
+        Commentaire::getAllExtended();
 
         // Affichage des commentaires avec la vue
         include_once('App/Views/viewCommentaires.php');
     }
 }
+?>
