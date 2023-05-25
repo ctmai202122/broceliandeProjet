@@ -20,7 +20,7 @@ include_once(__DIR__ . '/viewHeader.php');
             <?php foreach ($commentaires as $commentaire) { ?>
                 <div class="commentaire">
                     <p><?= $commentaire['pseudo'] ?> a dit :</p>
-                    <p><?= $commentaire['commentaire'] ?></p>
+                    <p><?= $commentaire['texte'] ?></p>
                 </div>
             <?php } ?>
         <?php } else { ?>
@@ -28,7 +28,7 @@ include_once(__DIR__ . '/viewHeader.php');
         <?php } ?>
 
         <h2>Laisser un commentaire</h2>
-        <form method="post" action="?action=commentaire">
+        <form method="post" action="?action=detailsContree">
 
 
             <div class="form-group">

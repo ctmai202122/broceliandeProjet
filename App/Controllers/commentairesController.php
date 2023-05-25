@@ -14,16 +14,14 @@ class CommentairesController
             $pseudo = $_POST['pseudo'];
             $texte = $_POST['texte'];
             $idContree = $_POST['Id_contree'];
-            $titreContree = $_POST['titreContree'];
-
+           
             // Création du commentaire dans la base de données
-            Commentaire::create($pseudo, $texte, $idContree, $titreContree);
-
+            Commentaire::create($pseudo, $texte, $idContree);
 
             // Stockage d'un message de confirmation dans une variable de session
             $_SESSION['message'] = "Votre commentaire a bien été envoyé, il va être modéré par l'administrateur !";
 
-            // Redirection vers la page de détails de la contrée
+            // Redirection vers la page de détails de la contrée avec l'identifiant de la contrée
             header('Location: ?action=detailsContree&id=' . $idContree);
             exit;
         }
@@ -61,10 +59,10 @@ class CommentairesController
     public function modererCommentaires()
     {
         // Récupération des commentaires avec leurs titres de contrée
-        Commentaire::getAllExtended();
-
-        // Affichage des commentaires avec la vue
+        $commentaires = Commentaire::getAllExtended();
+    
+        // Affichage des commentaires avec la vue en passant la variable $commentaires
         include_once('App/Views/viewCommentaires.php');
     }
+    
 }
-?>

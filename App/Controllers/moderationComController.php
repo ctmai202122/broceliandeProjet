@@ -1,5 +1,4 @@
 <?php
-
 namespace Broceliande\Controllers;
 
 class ModerationCommentairesController
@@ -10,7 +9,10 @@ class ModerationCommentairesController
         $commentairesController = new CommentairesController();
 
         // Appel de la méthode modererCommentaires du CommentairesController
-        $commentairesController->modererCommentaires();
+        $commentaires = $commentairesController->modererCommentaires();
+
+        // Inclusion de la vue pour afficher les commentaires
+        include(__DIR__ . '/../Views/viewCommentaires.php');
     }
 
     public function validerCommentaires($commentairesIds)
@@ -39,6 +41,5 @@ class ModerationCommentairesController
         exit;
     }
 }
-include_once(__DIR__ . '/../Views/viewCommentaires.php');
 
 ?>
