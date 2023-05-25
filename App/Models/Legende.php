@@ -11,19 +11,20 @@ class Legende extends DbConnect
 {
 
     /* ====== CREATE ====== */
-    public static function create($titre, $contenu, $photo)
+    public static function create($titre, $contenu, $photo, $idContree)
     {
         // Connexion à la base de données en utilisant la méthode héritée dbConnect()
         $cnx = self::dbConnect();
         // Préparation de la requête SQL pour insérer une nouvelle entrée dans la table "legende"
-        $req = $cnx->prepare("INSERT INTO `legende` (`titre`, `contenu`, `photo`) 
-        VALUES (:titre, :contenu, :photo) ");
+        $req = $cnx->prepare("INSERT INTO `legende` (`titre`, `contenu`, `photo`, `idContree`) 
+        VALUES (:titre, :contenu, :photo, :idContree) ");
         // Exécution de la requête en passant les valeurs avec un tableau associatif
         $req->execute(
             array(
                 ':titre' => $titre,
                 ':contenu' => $contenu,
-                ':photo' => $photo
+                ':photo' => $photo,
+                ':idContree' => $idContree
             )
         );
     }

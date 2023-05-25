@@ -1,5 +1,4 @@
 <?php
-
 namespace Broceliande\Controllers;
 
 use Broceliande\Models\Commentaire;
@@ -12,14 +11,12 @@ class CommentairesController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Récupération des données du formulaire
             $pseudo = $_POST['pseudo'];
-            $texte = $_POST['commentaire'];
+            $texte = $_POST['texte']; 
             $idContree = $_POST['idContree'];
             $titreContree = $_POST['titreContree'];
 
             // Création du commentaire dans la base de données
             $commentaire = new Commentaire();
-            // Appel de la méthode "create" du modèle Commentaire avec 
-            // les données du formulaire et la date courante.
             $commentaire->create($pseudo, $texte, $idContree, $titreContree);
 
             // Stockage d'un message de confirmation dans une variable de session
@@ -31,18 +28,8 @@ class CommentairesController
         }
     }
 
-    public function validerCommentaires()
+    public function validerCommentaires($commentairesIds)
     {
-        // Vérifier si les identifiants des commentaires sont présents dans la requête
-        if (!isset($_POST['commentairesIds'])) {
-            // Redirection vers une autre page ou affichage d'une erreur
-            header('Location: ?action=error');
-            exit;
-        }
-
-        // Récupérer les identifiants des commentaires
-        $commentairesIds = $_POST['commentairesIds'];
-
         // Opérations de validation des commentaires ici
         $commentaire = new Commentaire();
         $commentaire->validate($commentairesIds);
@@ -52,18 +39,8 @@ class CommentairesController
         exit;
     }
 
-    public function supprimerCommentaires()
+    public function supprimerCommentaires($commentairesIds)
     {
-        // Vérifier si les identifiants des commentaires sont présents dans la requête
-        if (!isset($_POST['commentairesIds'])) {
-            // Redirection vers une autre page ou affichage d'une erreur
-            header('Location: ?action=error');
-            exit;
-        }
-
-        // Récupérer les identifiants des commentaires
-        $commentairesIds = $_POST['commentairesIds'];
-
         // Opérations de suppression des commentaires ici
         $commentaire = new Commentaire();
         $commentaire->delete($commentairesIds);
@@ -73,23 +50,12 @@ class CommentairesController
         exit;
     }
 
+    public function modererCommentaires()
+    {
+        // Récupération des commentaires avec leurs titres de contrée
+        $commentaires = Commentaire::getAllExtended();
 
-        public function modererCommentaires()
-        {
-            // Récupération des commentaires depuis le modèle
-            $commentaireModel = new Commentaire();
-            $commentaireModel->getAll();
-    
-            // Affichage des commentaires avec la vue
-            include_once('App/Views/viewCommentaires.php');
-        }
+        // Affichage des commentaires avec la vue
+        include_once('App/Views/viewCommentaires.php');
     }
-    
-    // Création d'une instance du contrôleur
-    $commentairesController = new CommentairesController();
-    
-    // Appel de la méthode modererCommentaires
-    $commentairesController->modererCommentaires();
-
-    include_once(__DIR__ . '/../Views/viewCommentaires.php');
-?>
+}

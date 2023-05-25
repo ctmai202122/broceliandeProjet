@@ -1,10 +1,9 @@
 <?php
-
 include_once(__DIR__ . '/viewHeader.php');
 // Inclure la vue de la nav admin
 include_once(__DIR__ . '/viewMenuAdmin.php');
-
 ?>
+
 <div class="moderation">
     <h2 class="mt-5 mb-3 text-center">Modération des commentaires</h2>
 
@@ -37,7 +36,7 @@ include_once(__DIR__ . '/viewMenuAdmin.php');
                     <tr>
                         <td><?php echo $commentaire['dateCom']; ?></td>
                         <td><?php echo $commentaire['pseudo']; ?></td>
-                        <td><?php echo $commentaire['titre']; ?></td>
+                        <td><?php echo $commentaire['titre_contree']; ?></td>
                         <td>
                             <input type="radio" name="moderation[<?php echo $commentaire['Id_commentaire']; ?>]" value="valider" class="btn-moderation"> Valider <br>
                             <input type="radio" name="moderation[<?php echo $commentaire['Id_commentaire']; ?>]" value="supprimer" class="btn-moderation ml-4"> Supprimer

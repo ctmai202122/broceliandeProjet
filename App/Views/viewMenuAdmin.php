@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="?action=commentaire" class="active">Modération commentaires </a>
+                    <a href="?action=moderationCommentaire" class="active">Modération commentaires </a>
                 </li>
                 <li class="nav-item">
                     <a href="?action=gestionContree">Gestion contrées</a>
