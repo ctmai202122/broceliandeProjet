@@ -1,45 +1,33 @@
 <?php
+
 namespace Broceliande\Controllers;
+use Broceliande\Models\Commentaire;
 
-class ModerationCommentairesController
-{
-    public function modererCommentaires()
-    {
-        // Création d'une instance du contrôleur CommentairesController
-        $commentairesController = new CommentairesController();
+// Inclusion du fichier CommentairesController
+require_once 'CommentairesController.php';
 
-        // Appel de la méthode modererCommentaires du CommentairesController
-        $commentaires = $commentairesController->modererCommentaires();
+// Récupération des commentaires avec leurs titres de contrée
+$commentaires = Commentaire::getAllExtended();
 
-        // Inclusion de la vue pour afficher les commentaires
-        include(__DIR__ . '/../Views/viewCommentaires.php');
+include_once(__DIR__ . '/../Views/viewCommentaires.php');
+
+// Vérification que le formulaire a été soumis
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Récupération des données du formulaire
+    $commentairesIds = $_POST['commentairesIds'];
+    $action = $_POST['action'];
+
+    // Opérations en fonction de l'action
+    if ($action === 'valider') {
+        // Opérations de validation des commentaires ici
+        Commentaire::validate($commentairesIds);
+    } elseif ($action === 'supprimer') {
+        // Opérations de suppression des commentaires ici
+        Commentaire::delete($commentairesIds);
     }
 
-    public function validerCommentaires($commentairesIds)
-    {
-        // Création d'une instance du contrôleur CommentairesController
-        $commentairesController = new CommentairesController();
-
-        // Appel de la méthode validerCommentaires du CommentairesController
-        $commentairesController->validerCommentaires($commentairesIds);
-
-        // Redirection vers la vue de succès
-        header('Location: ?action=success');
-        exit;
-    }
-
-    public function supprimerCommentaires($commentairesIds)
-    {
-        // Création d'une instance du contrôleur CommentairesController
-        $commentairesController = new CommentairesController();
-
-        // Appel de la méthode supprimerCommentaires du CommentairesController
-        $commentairesController->supprimerCommentaires($commentairesIds);
-
-        // Redirection vers la vue de succès
-        header('Location: ?action=success');
-        exit;
-    }
+    // Redirection vers une autre page ou affichage d'un message de succès
+    header('Location: ?action=success');
+    exit;
 }
-
 ?>

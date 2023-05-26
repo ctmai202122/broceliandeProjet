@@ -19,6 +19,7 @@ function redirectsTo($action = "defaut")
     $lesActions["listeLegendes"] = "listeLegendesController.php";
     $lesActions["detailsContree"] = "detailsContreeController.php";
     $lesActions["detailsLegende"] = "detailsLegendeController.php";
+    $lesActions["addCommentaire"] = "addCommentaireController.php";
     $lesActions["commentaire"] = "commentairesController.php";
     $lesActions["moderationCommentaire"] = "moderationComController.php";
     $lesActions["contact"] = "contactController.php";

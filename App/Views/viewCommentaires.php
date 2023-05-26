@@ -33,15 +33,19 @@ include_once(__DIR__ . '/viewMenuAdmin.php');
             if (!empty($commentaires)) {
                 foreach ($commentaires as $commentaire) {
             ?>
-                    <tr>
-                        <td><?php echo $commentaire['dateCom']; ?></td>
-                        <td><?php echo $commentaire['pseudo']; ?></td>
-                        <td><?php echo $commentaire['titre_contree']; ?></td>
-                        <td>
-                            <input type="radio" name="moderation[<?php echo $commentaire['Id_commentaire']; ?>]" value="valider" class="btn-moderation"> Valider <br>
-                            <input type="radio" name="moderation[<?php echo $commentaire['Id_commentaire']; ?>]" value="supprimer" class="btn-moderation ml-4"> Supprimer
-                        </td>
-                    </tr>
+                    <form method="post" action="?action=moderationCommentaire">
+                        <tr>
+                            <td><?php echo $commentaire['dateCom']; ?></td>
+                            <td><?php echo $commentaire['pseudo']; ?></td>
+                            <td><?php echo $commentaire['titre_contree']; ?></td>
+                            <td>
+                                <input type="radio" name="moderation[<?php echo $commentaire['Id_commentaire']; ?>]" value="valider" class="btn-moderation"> Valider <br>
+                                <input type="radio" name="moderation[<?php echo $commentaire['Id_commentaire']; ?>]" value="supprimer" class="btn-moderation ml-4"> Supprimer
+                            </td>
+                        </tr>
+                        <input type="submit" value="Soumettre">
+                    </form>
+
                 <?php
                 }
             } else {
@@ -65,44 +69,5 @@ include_once(__DIR__ . '/viewFooter.php');
 <!-- JavaScript gestion commentaires -->
 <script src="Public/js/moderation.js"></script>
 
-<!-- JavaScript gestion commentaires -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Récupérer les en-têtes de colonnes
-        const colDate = document.getElementById('col-date');
-        const colAuteur = document.getElementById('col-auteur');
-        const colContree = document.getElementById('col-contree');
-
-        // Ajouter des gestionnaires d'événements pour le clic sur les en-têtes de colonnes
-        colDate.addEventListener('click', () => {
-            sortTable('date');
-        });
-
-        colAuteur.addEventListener('click', () => {
-            sortTable('auteur');
-        });
-
-        colContree.addEventListener('click', () => {
-            sortTable('contree');
-        });
-
-        // Fonction pour trier le tableau en fonction de la colonne sélectionnée
-        function sortTable(column) {
-            // Récupérer le tableau et les lignes du corps du tableau
-            const table = document.querySelector('.tableModeration');
-            const tbody = table.getElementsByTagName('tbody')[0];
-            const rows = Array.from(tbody.getElementsByTagName('tr'));
-
-            // Trier les lignes en fonction de la colonne sélectionnée
-            rows.sort((a, b) => {
-                const aCellValue = a.getElementsByTagName('td')[column].textContent.trim().toLowerCase();
-                const bCellValue = b.getElementsByTagName('td')[column].textContent.trim().toLowerCase();
-
-                return aCellValue.localeCompare(bCellValue);
-            });
-
-            // Réinsérer les lignes triées dans le tableau
-            rows.forEach(row => tbody.appendChild(row));
-        }
-    });
-</script>
+<!-- JavaScript tri commentaires -->
+<script src="Public/js/triCommentaire.js"></script>
