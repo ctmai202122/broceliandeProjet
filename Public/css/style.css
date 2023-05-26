@@ -439,7 +439,7 @@ ul {
     }
 
     /* Nav admin  */
-    .navAdmin #navbarNav a:active,
+    .navAdmin #navbarNav li.active,
     .navAdmin #navbarNav a:hover {
         background-color: var(--doree);
         border-radius: 3px;

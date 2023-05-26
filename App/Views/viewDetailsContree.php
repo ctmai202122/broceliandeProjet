@@ -28,9 +28,7 @@ include_once(__DIR__ . '/viewHeader.php');
         <?php } ?>
 
         <h2>Laisser un commentaire</h2>
-        <form method="post" action="?action=detailsContree">
-
-
+        <form method="post" action="?action=commentaire">
             <div class="form-group">
                 <label for="pseudo" class="required">Auteur : *</label>
                 <input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Votre nom prénom" class="form-control" required>
@@ -49,8 +47,6 @@ include_once(__DIR__ . '/viewHeader.php');
         <?php if (isset($message)) { ?>
             <div class="alert alert-primary" role="alert"><?= $message ?></div>
         <?php } ?>
-
-
     </div>
 </main>
 
