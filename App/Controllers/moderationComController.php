@@ -1,10 +1,7 @@
 <?php
-
 namespace Broceliande\Controllers;
-use Broceliande\Models\Commentaire;
 
-// Inclusion du fichier CommentairesController
-require_once 'CommentairesController.php';
+use Broceliande\Models\Commentaire;
 
 // Récupération des commentaires avec leurs titres de contrée
 $commentaires = Commentaire::getAllExtended();

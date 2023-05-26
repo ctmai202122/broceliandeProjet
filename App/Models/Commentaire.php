@@ -186,11 +186,11 @@ class Commentaire extends DbConnect
     }
 
     // commentaire validé
-    public static function validate($commentairesIds)
+    public static function validate($idCommentaire)
     {
         try {
             $cnx = self::dbConnect();
-            $req = $cnx->prepare("UPDATE commentaire SET statut = 'validé' WHERE Id_commentaire IN (" . implode(",", $commentairesIds) . ")");
+            $req = $cnx->prepare("UPDATE commentaire SET statut = 'validé' WHERE Id_commentaire IN (" . implode(",", $idCommentaire) . ")");
             $req->execute();
         } catch (PDOException $e) {
             die("Erreur lors de la suppression des données : " . $e->getMessage());

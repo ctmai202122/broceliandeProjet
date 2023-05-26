@@ -41,7 +41,7 @@ include_once(__DIR__ . '/viewHeader.php');
 
             <input type="hidden" name="titreContree" value="<?= $contree['titre'] ?>">
 
-            <button type="submit" class="btn btn-primary my-3">Soumettre</button>
+            <button type="submit" class="btn">Soumettre</button>
         </form>
 
         <?php if (isset($message)) { ?>

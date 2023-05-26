@@ -18,48 +18,48 @@ include_once(__DIR__ . '/viewMenuAdmin.php');
         <button type="button" id="tri-commentaires-btn">Trier</button>
     </form>
 
-    <table class="tableModeration">
-        <thead>
-            <tr>
-                <th id="col-date">Date</th>
-                <th id="col-auteur">Auteur</th>
-                <th id="col-contree">Contrée</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            // Vérifier si des commentaires sont disponibles
-            if (!empty($commentaires)) {
-                foreach ($commentaires as $commentaire) {
-            ?>
-                    <form method="post" action="?action=moderationCommentaire">
+    <form method="post" action="?action=moderationCommentaire">
+        <table class="tableModeration">
+            <thead>
+                <tr>
+                    <th id="col-date">Date</th>
+                    <th id="col-auteur">Auteur</th>
+                    <th id="col-contree">Contrée</th>
+                    <th>Commentaire</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                // Vérifier si des commentaires sont disponibles
+                if (!empty($commentaires)) {
+                    foreach ($commentaires as $commentaire) {
+                        ?>
                         <tr>
                             <td><?php echo $commentaire['dateCom']; ?></td>
                             <td><?php echo $commentaire['pseudo']; ?></td>
                             <td><?php echo $commentaire['titre_contree']; ?></td>
+                            <td><?php echo $commentaire['texte']; ?></td>
                             <td>
                                 <input type="radio" name="moderation[<?php echo $commentaire['Id_commentaire']; ?>]" value="valider" class="btn-moderation"> Valider <br>
                                 <input type="radio" name="moderation[<?php echo $commentaire['Id_commentaire']; ?>]" value="supprimer" class="btn-moderation ml-4"> Supprimer
                             </td>
                         </tr>
-                        <input type="submit" value="Soumettre">
-                    </form>
-
-                <?php
+                        <?php
+                    }
+                } else {
+                    // Aucun commentaire disponible
+                    ?>
+                    <tr>
+                        <td colspan="5">Aucun commentaire disponible.</td>
+                    </tr>
+                    <?php
                 }
-            } else {
-                // Aucun commentaire disponible
                 ?>
-                <tr>
-                    <td colspan="4">Aucun commentaire disponible.</td>
-                </tr>
-            <?php
-            }
-            ?>
-        </tbody>
-    </table>
-    <button type="button" class="btn" id="validerCom-btn">Valider</button>
+            </tbody>
+        </table>
+        <input type="submit" class="btn" value="Valider">
+    </form>
 </div>
 
 <?php
