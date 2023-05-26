@@ -16,7 +16,7 @@ class Legende extends DbConnect
         // Connexion à la base de données en utilisant la méthode héritée dbConnect()
         $cnx = self::dbConnect();
         // Préparation de la requête SQL pour insérer une nouvelle entrée dans la table "legende"
-        $req = $cnx->prepare("INSERT INTO `legende` (`titre`, `contenu`, `photo`, `idContree`) 
+        $req = $cnx->prepare("INSERT INTO `legende` (`titre`, `contenu`, `photo`, `Id_contree`)
         VALUES (:titre, :contenu, :photo, :idContree) ");
         // Exécution de la requête en passant les valeurs avec un tableau associatif
         $req->execute(
