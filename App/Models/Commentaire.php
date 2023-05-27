@@ -8,20 +8,21 @@ use PDOException;
 
 class Commentaire extends DbConnect
 {
-    public static function create($pseudo, $texte, $idContree)
-    { {
+    public static function create($pseudo, $texte, $dateCom, $statut, $idContree)
+    {
             $cnx = self::dbConnect();
-            $req = $cnx->prepare("INSERT INTO `commentaire` ( `pseudo`, `texte`, `Id_contree`)  
-        VALUES (:pseudo, :texte, :idContree)");
+            $req = $cnx->prepare("INSERT INTO `commentaire` ( `pseudo`, `texte`, `dateCom`, `statut`, `Id_contree`)  
+        VALUES (:pseudo, :texte, :dateCom, :statut, :idContree)");
             $req->execute(
                 array(
                     ':pseudo' => $pseudo,
                     ':texte' => $texte,
+                    ':dateCom'=> $dateCom,
+                    ':statut' => $statut,
                     ':idContree' => $idContree
                 )
             );
         }
-    }
     /* ====== READ ====== */
     //Récupère toutes les entrées de la table "commentaire"
     //Et les retournent dans un tableau associatif
