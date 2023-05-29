@@ -96,12 +96,14 @@ class Commentaire extends DbConnect
         }
     }
 
-    public static function getByIdContree($id_contree)
+    public static function getByIdContreeAndStatut($id_contree, $statut)
     {
         try {
             $cnx = self::dbConnect();
-            $req = $cnx->prepare("SELECT * FROM commentaire WHERE Id_contree = :id_contree");
+            $req = $cnx->prepare("SELECT * FROM commentaire 
+                WHERE Id_contree = :id_contree AND statut = :statut");
             $req->bindValue(':id_contree', $id_contree, PDO::PARAM_INT);
+            $req->bindValue(':statut', $statut, PDO::PARAM_INT);
             $req->execute();
             return $req->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
@@ -111,13 +113,19 @@ class Commentaire extends DbConnect
     }
 
     // récupère les commentaires avec leurs titres de contrée correspondants
-    public static function getAllExtended()
+    // @param: statut : 
+    //      0 pour récupérer uniquement les commentaires à modérer,
+    //      1 pour récupérer uniquement les commentaires validés,
+    //      NULL pour récupérer tous les commentaires (cas par défaut)
+    public static function getAllExtended($statut=NULL)
     {
         try {
             $cnx = self::dbConnect();
-            $req = $cnx->prepare("SELECT commentaire.*, contree.titre AS titre_contree
-        FROM commentaire
-        INNER JOIN contree ON commentaire.Id_contree = contree.Id_contree");
+            $sqlRequest = "SELECT commentaire.*, contree.titre AS titre_contree
+                FROM commentaire
+                INNER JOIN contree ON commentaire.Id_contree = contree.Id_contree";
+            if ($statut !== NULL) $sqlRequest .= " WHERE commentaire.statut = " . $statut;
+            $req = $cnx->prepare($sqlRequest);
             $req->execute();
             return $req->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
@@ -177,12 +185,11 @@ class Commentaire extends DbConnect
     {
         try {
             $cnx = self::dbConnect();
-            $req = $cnx->prepare("DELETE FROM commentaire WHERE Id_commentaire = :id_commentaire");
-            $req->bindValue(':id_commentaire', $idCommentaire, PDO::PARAM_INT);
+            $req = $cnx->prepare("DELETE FROM commentaire WHERE Id_commentaire = :idCommentaire");
+            $req->bindValue(':idCommentaire', $idCommentaire, PDO::PARAM_INT);
             $req->execute();
         } catch (PDOException $e) {
             die("Erreur lors de la suppression des données : " . $e->getMessage());
-            return false;
         }
     }
 
@@ -191,11 +198,11 @@ class Commentaire extends DbConnect
     {
         try {
             $cnx = self::dbConnect();
-            $req = $cnx->prepare("UPDATE commentaire SET statut = 'validé' WHERE Id_commentaire IN (" . implode(",", $idCommentaire) . ")");
+            $req = $cnx->prepare("UPDATE commentaire SET statut = 1 WHERE Id_commentaire = :idCommentaire");
+            $req->bindValue(':idCommentaire', $idCommentaire, PDO::PARAM_INT);
             $req->execute();
         } catch (PDOException $e) {
-            die("Erreur lors de la suppression des données : " . $e->getMessage());
-            return false;
+            die("Erreur lors de la modification des données : " . $e->getMessage());
         }
     }
 }

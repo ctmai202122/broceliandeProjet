@@ -1,5 +1,6 @@
 <?php
 use Broceliande\Models\Contree;
+use Broceliande\Models\Commentaire;
 
 // Vérification si un message de confirmation est présent dans la session
 if (isset($_SESSION['message'])) {
@@ -15,6 +16,8 @@ if (isset($_GET['id'])) {
 
     // Récupérer toutes les informations de la contrée correspondante depuis la base de données
     $contree = Contree::getById($id);
+    // Récupérer toutes les commentaires validés (statut=1) relatifs à la contrée affichée
+    $commentaires = Commentaire::getByIdContreeAndStatut($contree['Id_contree'], 1);
 
     // Inclusion de la vue pour les détails de la contrée
     include_once('App/Views/viewDetailsContree.php');

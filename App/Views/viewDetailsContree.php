@@ -20,7 +20,7 @@ include_once(__DIR__ . '/viewHeader.php');
             <?php foreach ($commentaires as $commentaire) { ?>
                 <div class="commentaire">
                     <p><?= $commentaire['pseudo'] ?> a dit :</p>
-                    <p><?= $commentaire['texte'] ?></p>
+                    <p><?= nl2br($commentaire['texte']) ?></p>
                 </div>
             <?php } ?>
         <?php } else { ?>
@@ -39,7 +39,7 @@ include_once(__DIR__ . '/viewHeader.php');
             </div>
             <input type="hidden" name="idContree" value="<?= $contree['Id_contree'] ?>">
 
-            <input type="hidden" name="titreContree" value="<?= $contree['titre'] ?>">
+            <!-- input type="hidden" name="titreContree" value="<?= $contree['titre'] ?>" -->
 
             <button type="submit" class="btn">Soumettre</button>
         </form>
