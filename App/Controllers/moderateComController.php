@@ -1,6 +1,4 @@
 <?php
-
-// ====ATTETION DOUBLE AVEC COMMENTAIRECONTROLLER ==============
 namespace Broceliande\Controllers;
 
 use Broceliande\Models\Commentaire;
