@@ -35,7 +35,7 @@ include_once(__DIR__ . '/viewHeader.php');
             </div>
             <div class="form-group">
                 <label for="commentaire" class="required">Commentaire : *</label>
-                <textarea class="form-control" rows="5" id="commentaire" name="commentaire" placeholder="Votre message" class="form-control" required></textarea>
+                <textarea class="form-control" rows="5" id="commentaire" name="texte" placeholder="Votre message" class="form-control" required></textarea>
             </div>
             <input type="hidden" name="idContree" value="<?= $contree['Id_contree'] ?>">
 
