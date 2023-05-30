@@ -25,10 +25,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         Contree::create($titre, $contenu, $photo, $latitude, $longitude, $commune, $accessibilite, $ouverture);
 
     // Stockage d'un message de confirmation dans une variable de session
-    $_SESSION['message'] = "La contrée a été supprimée avec succès.";
+    $_SESSION['message'] = "La contrée a été ajoutée avec succès.";
     } else {
     // Stockage d'un message de confirmation dans une variable de session
-    $_SESSION['erreur'] = "La contrée n'a pas été supprimée.";
+    $_SESSION['erreur'] = "La contrée n'a pas été ajoutée.";
     }
 }
 

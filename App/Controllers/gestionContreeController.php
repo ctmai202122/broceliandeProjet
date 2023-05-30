@@ -10,7 +10,7 @@ if (isset($_SESSION['admin'])) {
     $contrees = Contree::getAll();
 
     // Inclusion de la vue pour la gestion des contrées
-    include_once('App/Views/viewGestionContree.php');
+    include_once(__DIR__ . '/../Views/viewGestionContree.php');
    unset($_SESSION['message']);
 } else {
     // Redirection vers la page de connexion

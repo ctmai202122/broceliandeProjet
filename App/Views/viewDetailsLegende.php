@@ -12,7 +12,7 @@ include_once(__DIR__ . '/viewHeader.php');
 
         <?php if (isset($contree)) { ?>
             <h3>La contrée qui correspond à cette légende :
-                <!-- Lien de la contree sur le titre -->
+                <!-- Lien sur le titre de la contree -->
                 <a href = "?action=detailsContree&id=<?= $contree['Id_contree'] ?>"> 
                     <span><?= $contree['titre'] ?></span>
                 </a>

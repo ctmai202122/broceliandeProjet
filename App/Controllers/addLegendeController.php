@@ -22,10 +22,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         Legende::create($titre, $contenu, $photo, $idContree);
 
     // Stockage d'un message de confirmation dans une variable de session
-    $_SESSION['message'] = "La légende a été supprimée avec succès.";
+    $_SESSION['message'] = "La légende a été ajoutée avec succès.";
     } else {
     // Stockage d'un message de confirmation dans une variable de session
-    $_SESSION['erreur'] = "La légende n'a pas été supprimée.";
+    $_SESSION['erreur'] = "La légende n'a pas été ajoutée.";
     }
 }
 
@@ -37,6 +37,6 @@ $contrees = $contreeModel->getAll();
 $legendeModel = new Legende();
 $legendes = $legendeModel->getAll();
 
-// Inclusion de la vue pour la gestion des contrées
+// Inclusion de la vue pour la gestion des légendes
 include_once('App/Views/viewGestionLegende.php');
 ?>
