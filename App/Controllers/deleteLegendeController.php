@@ -9,7 +9,7 @@ $erreur = "";
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["idLegende"])) {
     // Récupérer l'ID de la légende à supprimer
     $idLegende = $_POST["idLegende"];
-    
+
     // Créer une instance du modèle "Legende"
     $legendeModel = new Legende();
 
@@ -18,10 +18,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["idLegende"])) {
 
     // Stockage d'un message de confirmation dans une variable de session
     $_SESSION['message'] = "La légende a été supprimée avec succès.";
-    } else {
-            // Stockage d'un message de confirmation dans une variable de session
+} else {
+    // Stockage d'un message de confirmation dans une variable de session
     $_SESSION['erreur'] = "La légende n'a pas été supprimée.";
-    }
-        // Redirection vers la page de gestion des légendes
-        header('Location: ?action=gestionLegende');
+}
+// Redirection vers la page de gestion des légendes
+header('Location: ?action=gestionLegende');
 ?>
