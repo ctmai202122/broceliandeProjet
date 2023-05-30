@@ -24,5 +24,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["idLegende"])) {
 }
 // Redirection vers la page de gestion des contrées
 header("Location: ?action=gestionLegende&message=" . urlencode($message) . "&erreur=" . urlencode($erreur));
-exit();
+
 ?>

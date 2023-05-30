@@ -24,11 +24,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Enregistrer les données dans la base de données en utilisant la méthode appropriée du modèle
         Contree::create($titre, $contenu, $photo, $latitude, $longitude, $commune, $accessibilite, $ouverture);
 
-        // Afficher un message de succès
-        $message = "La contrée a été ajoutée avec succès.";
+    // Stockage d'un message de confirmation dans une variable de session
+    $_SESSION['message'] = "Les commentaires ont été modérés avec succès.";
     } else {
-        // Afficher un message d'erreur si les champs requis ne sont pas remplis
-        $erreur = "Veuillez remplir tous les champs obligatoires.";
+    // Stockage d'un message de confirmation dans une variable de session
+    $_SESSION['erreur'] = "Les commentaires n'ont pas été modérés.";
     }
 }
 

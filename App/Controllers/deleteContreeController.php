@@ -16,13 +16,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["idContree"])) {
     // Supprimer la contrée en utilisant la méthode appropriée du modèle
     $contreeModel->delete($idContree);
 
-    // Message de succès
-    $message = "La contrée a été supprimée avec succès.";
-} else {
-    // Message d'erreur
-    $erreur = "Une erreur s'est produite lors de la suppression de la contrée.";
-}
-// Redirection vers la page de gestion des contrées
-header("Location: ?action=gestionContree&message=" . urlencode($message) . "&erreur=" . urlencode($erreur));
-exit();
+    // Stockage d'un message de confirmation dans une variable de session
+    $_SESSION['message'] = "Les commentaires ont été modérés avec succès.";
+
+    } else {
+            // Stockage d'un message de confirmation dans une variable de session
+    $_SESSION['erreur'] = "Les commentaires n'ont pas été modérés.";
+
+    }
+// Inclusion de la vue pour la gestion des contrées
+include_once('App/Views/viewGestionContree.php');
 ?>

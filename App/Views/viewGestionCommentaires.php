@@ -73,9 +73,5 @@ include_once(__DIR__ . '/viewMenuAdmin.php');
 <?php
 include_once(__DIR__ . '/viewFooter.php');
 ?>
-
-<!-- JavaScript gestion commentaires -->
-<script src="Public/js/moderation.js"></script>
-
 <!-- JavaScript tri commentaires -->
 <script src="Public/js/triCommentaire.js"></script>

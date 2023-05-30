@@ -9,8 +9,11 @@ include_once(__DIR__ . '/viewMenuAdmin.php');
     <section class="container  bg-contact">
         <h2 class="mt-5 mb-3">Ajouter une contrée</h2>
         <hr>
-        <?php if (!empty($message)) : ?>
-            <div class="alert <?php echo ($message === "La contrée a été ajoutée avec succès.") ? "alert-success" : "alert-danger"; ?>"><?php echo $message; ?></div>
+        <?php if (isset($_SESSION['message'])) : ?>
+            <div class="alert alert-success"><?php echo $_SESSION['message']; ?></div>
+        <?php endif; ?>
+        <?php if (isset($_SESSION['erreur'])) : ?>
+            <div class="alert alert-danger"><?php echo $_SESSION['erreur']; ?></div>
         <?php endif; ?>
         <form method="post" action="?action=addContree" enctype="multipart/form-data">
             <div class="form-group mt-4">

@@ -11,9 +11,10 @@ if (isset($_SESSION['admin'])) {
 
     // Inclusion de la vue pour la gestion des contrées
     include_once('App/Views/viewGestionContree.php');
+   unset($_SESSION['message']);
 } else {
     // Redirection vers la page de connexion
-    header('Location: viewConnexion.php');
-    exit;
+    $erreur = "Vous devez être connecté pour accéder à la page d'administration.";
+    include_once(__DIR__ . '/../Views/viewConnexion.php');
 }
 ?>
