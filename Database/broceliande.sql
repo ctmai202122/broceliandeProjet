@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 29 mai 2023 à 10:45
+-- Généré le : mar. 30 mai 2023 à 16:12
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -51,7 +51,7 @@ CREATE TABLE `commentaire` (
   `pseudo` varchar(50) NOT NULL,
   `texte` text DEFAULT NULL,
   `dateCom` datetime NOT NULL DEFAULT current_timestamp(),
-  `statut` tinyint(1) DEFAULT NULL,
+  `statut` tinyint(1) DEFAULT 0,
   `Id_contree` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
@@ -61,16 +61,21 @@ CREATE TABLE `commentaire` (
 
 INSERT INTO `commentaire` (`Id_commentaire`, `pseudo`, `texte`, `dateCom`, `statut`, `Id_contree`) VALUES
 (1, 'test', 'Bonjour\r\nça c\'est l\'été', '2023-05-09 00:00:00', 0, 2),
-(3, 'jo', 'ça c\'est l\'été', '2023-05-09 00:00:00', 0, 2),
-(7, 'ja', 'salut ', '2023-05-09 00:00:00', 0, 1),
-(8, 'elo', 'test envoi', '2023-05-09 00:00:00', 0, 1),
 (10, 'elodie', 'bonjour', '2023-05-09 00:00:00', 0, 1),
-(11, 'el', 'bonjour', '2023-05-09 00:00:00', 0, 1),
 (13, 'lo', 'bonjou, ça va?', '2023-05-09 00:00:00', 0, 1),
 (14, 'james', 'Un beau paysage', '2023-05-11 00:00:00', 0, 1),
-(15, 'theo', 'Une belle decouverte', '2023-05-11 00:00:00', 0, 1),
-(16, 'Jason', 'Ce château est vraiment magnifique je ne regrette pas cette visite.', '2023-05-22 00:00:00', 0, 3),
-(17, 'Dol James', 'Ce lieu est vraiment apaisant', '2023-05-29 07:26:05', 0, 2);
+(15, 'theo', 'Une belle decouverte', '2023-05-11 00:00:00', 1, 1),
+(16, 'Jason', 'Ce château est vraiment magnifique je ne regrette pas cette visite.', '2023-05-22 00:00:00', 1, 3),
+(17, 'Dol James', 'Ce lieu est vraiment apaisant', '2023-05-29 07:26:05', 0, 2),
+(18, 'Andy carse', 'Cet arbre d\'or est vraiment impressionnant et le cadre est vraiment agréable.', '2023-05-29 22:26:29', 1, 1),
+(19, 'claire', 'Ces rochers qui représentent un tombeau sont immense. Bel endroit. ', '2023-05-29 23:26:14', 1, 4),
+(20, 'Mewen', 'Nous avons beaucoup aimé ce château et son jardin.', '2023-05-29 23:37:34', 1, 3),
+(21, 'Alain Lero', 'Cet étang permet une balade calme, c\'est agréable. ', '2023-05-29 23:54:13', 1, 2),
+(22, 'Lionel', 'Vraiment sympa', '2023-05-30 00:00:39', 1, 2),
+(23, 'Malo', 'C\'était cool', '2023-05-30 00:17:35', 0, 2),
+(24, 'test', 'cool', '2023-05-30 00:18:31', 1, 2),
+(28, 'Lila', 'C\'était beau', '2023-05-30 00:21:49', 0, 2),
+(29, 'Leo L\'historé', 'Belle visite\r\nJe conseille.', '2023-05-30 09:59:19', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -116,8 +121,17 @@ INSERT INTO `contree` (`Id_contree`, `titre`, `contenu`, `photo`, `latitude`, `l
 (4, 'Tombeau du géant', 'C’est un coffre mégalithique dont les parois sont constituées de deux grands blocs de schiste rouge faisant chacun plus de 4 mètres de long et d’un bloc isolé situé à huit mètres. \r\nAutrefois entouré d’un tumulus, le caveau fait partie d’un type de sépulture connu pour les petits princes d’Armorique entre 2000 et 1500 avant J.-C.\r\nTombé dans l’oubli entre le 19ème et le 20ème siècle, le Tombeau des Géants est redécouvert à la fin des années 1970 et des fouilles sont entreprises en 1982. \r\n', 'tombeauGeant.jpg', 47.9912, -2.26889, 'Campénéac', 'Accessible tout public.', 'En période de chasse (12 septembre au 31 mars), la vallée du Val Sans Retour est interdite au public.'),
 (26, 'Les Nouveaux Chevaliers de la Table Ronde', 'La Table ronde accueille aux côtés du roi Arthur, Keu et Gauvain deux des onze chevaliers prévues prochainement .', NULL, 0, 0, 'Néant-sur-Yvel', 'Tout public', 'Ouvert toute l\'année'),
 (27, ' La fontaine de Barenton', 'La Fontaine de Barenton est un lieu emblématique situé dans la forêt de Brocéliande, en France. Considérée comme l\'une des fontaines les plus mystérieuses de la région, elle est entourée de légendes et de contes anciens.  Cette fontaine est réputée pour son eau claire et sa source inépuisable. ', NULL, 0, 0, 'Paimpont', 'Le site est non accessible aux personnes à mobilité réduite.', 'Ouvert toute l\'année mais se rensigner sur les dates de chasse'),
-(32, 'Test', 'test', NULL, 0, 0, 'Paimpont', 'Tout public', 'libre'),
-(34, 'Test2', 'testt', NULL, 0, 0, 'paimpont', 'Tout public', 'Libre');
+(34, 'Test2', 'testt', NULL, 0, 0, 'paimpont', 'Tout public', 'Libre'),
+(35, 'Test Lundi', 'test', NULL, 0, 0, 'Paimpont', 'Acces libre', 'Ouvert toute l\'année'),
+(41, 'Hôtel de la fée Viviane', 'Un alignement de pierre en rond.', NULL, 0, 0, 'Paimpont', 'Tout public', 'Libre d\'accès hors période de chasse'),
+(42, 'Hôtel de la fée Viviane', 'Un alignement de pierre en rond.', NULL, 0, 0, 'Paimpont', 'Tout public', 'Libre d\'accès hors période de chasse'),
+(43, 'Test à supprimer', 'test', NULL, 0, 0, 'Paimpont', 'libre', 'oui'),
+(44, 'Roi Arthur', 'L\'épée du roi Arthur .', NULL, 0, 0, 'Paimpont', 'Accessible tout public', 'Libre d\'accès'),
+(46, 'TestMardi', 'Mardi', NULL, 0, 0, 'Test', 'TEST', 'OK'),
+(48, 'Test à supprimer', 'test', NULL, 0, 0, 'test', 'test', 'test'),
+(49, 'TestMardii', 'MArdi ', NULL, 0, 0, 'test', 'test', 'test'),
+(52, 'Test', 'test', NULL, 0, 0, 'test', 'test', 'test'),
+(62, 'Le chemin de merlin', 'Parcours dans la forêt de Brocéliande.', NULL, 0, 0, 'Paimpont', 'Accès en dehors des jours de chasse ( se renseigner à l\'office de tourisme pour plus d\'information)', 'Accès libre');
 
 -- --------------------------------------------------------
 
@@ -144,15 +158,11 @@ INSERT INTO `legende` (`Id_legende`, `titre`, `contenu`, `photo`, `Id_contree`) 
 (4, 'La partie de cartes fantôme', 'À Trécesson encore, voici bientôt trois siècles, des jurons, des cris, des coups ébranlaient pendant des nuits entières les murailles d’une des chambres. Au château, personne n’osait s’y risquer. Chacun claquait des dents dans sa chambre, et les domestiques se terraient autour des cheminées : quelle meilleure arme qu’un tisonnier rougi contre ceux qui sortent de l’enfer pour tourmenter les pauvres vivants ? Un invité téméraire s’engagea enfin à y dormir du soir au matin. Tout semblait normal. Mais au milieu de la nuit, réveillé par des cris, il vit devant lui deux joueurs de cartes qui se disputaient violemment un énorme tas de pièces d’or, enjeu de leur partie. Le visiteur, d’un coup de pistolet mit fin à la dispute des deux adversaires qui rejouaient chaque nuit la partie de cartes qui leur avait été fatale. Tout disparut, sauf les pièces d’or. Le calme revint ; enfin, presque car le courageux visiteur s’avisa de réclamer l’or qu’il estimait avoir mérité. Le seigneur de Trécesson refusa, l’or était sien, puisque trouvé entre ses murs. La querelle se termina en un procès auquel les fantômes se gardèrent bien de venir témoigner.', 'chateauNb.jpg', 3),
 (7, 'Incroyables pouvoirs', 'La fontaine de Barenton porte bien son nom. En effet, elle bouillonne malgré une eau froide comme le marbre ! Il faut parfois se montrer patient pour apercevoir ce prodige.  Le village de folle Pensée tirerait son nom des vertus curatives de la fontaine, pouvant guérir la folie.  Enfin, Mesdames, si vous êtes en mal d’amour, rendez visite à la fontaine, offrez-lui une épingle et dites à voix haute : « Ris, ris fontaine, je vais te donner une belle épingle », si la fontaine vous gratifie de bulles, alors vous serez mariée avant Pâques !', NULL, NULL),
 (9, 'Incroyables pouvoirs', 'La fontaine de Barenton porte bien son nom. En effet, elle bouillonne malgré une eau froide comme le marbre ! Il faut parfois se montrer patient pour apercevoir ce prodige.  Le village de folle Pensée tirerait son nom des vertus curatives de la fontaine, pouvant guérir la folie.  Enfin, Mesdames, si vous êtes en mal d’amour, rendez visite à la fontaine, offrez-lui une épingle et dites à voix haute : « Ris, ris fontaine, je vais te donner une belle épingle », si la fontaine vous gratifie de bulles, alors vous serez mariée avant Pâques !', NULL, NULL),
-(10, 'Test à supprimer', 'La Table ronde accueille aux côtés du roi Arthur, Keu et Gauvain deux des onze chevaliers prévues prochainement .', NULL, NULL),
-(11, 'Test à supprimer', 'La Table ronde accueille aux côtés du roi Arthur, Keu et Gauvain deux des onze chevaliers prévues prochainement .', NULL, NULL),
 (12, 'Test à supprimer', 'La Table ronde accueille aux côtés du roi Arthur, Keu et Gauvain deux des onze chevaliers prévues prochainement .', NULL, NULL),
 (13, 'Test à supprimer', 'La Table ronde accueille aux côtés du roi Arthur, Keu et Gauvain deux des onze chevaliers prévues prochainement .', NULL, NULL),
-(14, 'Test à supprimer', 'La Table ronde accueille aux côtés du roi Arthur, Keu et Gauvain deux des onze chevaliers prévues prochainement .', NULL, NULL),
 (17, 'Test', 'test', NULL, NULL),
-(18, 'Test', 'test', NULL, NULL),
-(19, 'Testtest3', 'test', NULL, NULL),
-(20, 'Test jeudi', 'test', NULL, NULL);
+(21, 'TestLundi', 'Test', NULL, 34),
+(25, 'Test à supprimer3', 'test', NULL, 49);
 
 --
 -- Index pour les tables déchargées
@@ -198,7 +208,7 @@ ALTER TABLE `legende`
 -- AUTO_INCREMENT pour la table `commentaire`
 --
 ALTER TABLE `commentaire`
-  MODIFY `Id_commentaire` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `Id_commentaire` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT pour la table `contact`
@@ -210,13 +220,13 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT pour la table `contree`
 --
 ALTER TABLE `contree`
-  MODIFY `Id_contree` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `Id_contree` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT pour la table `legende`
 --
 ALTER TABLE `legende`
-  MODIFY `Id_legende` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `Id_legende` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Contraintes pour les tables déchargées
