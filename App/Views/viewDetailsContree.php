@@ -6,6 +6,11 @@ include_once(__DIR__ . '/viewHeader.php');
 <!-- Affichage des informations de la contrée -->
 <main class="container">
     <div class="detailsContree">
+
+        <?php if (isset($message)) { ?>
+            <div class="alert alert-primary" role="alert"><?= $message ?></div>
+        <?php } ?>
+        
         <h1><?= $contree['titre'] ?></h1>
         <p>Description : <?= nl2br($contree['contenu']) ?></p>
         <img src="./Data/images/<?= $contree['photo'] ?>" alt="<?= $contree['titre'] ?>">
@@ -43,10 +48,6 @@ include_once(__DIR__ . '/viewHeader.php');
 
             <button type="submit" class="btn">Soumettre</button>
         </form>
-
-        <?php if (isset($message)) { ?>
-            <div class="alert alert-primary" role="alert"><?= $message ?></div>
-        <?php } ?>
     </div>
 </main>
 

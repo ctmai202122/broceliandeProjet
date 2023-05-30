@@ -11,7 +11,12 @@ include_once(__DIR__ . '/viewHeader.php');
         <img src="Data/images/<?= $legende['photo'] ?>" alt="<?= $legende['titre'] ?>">
 
         <?php if (isset($contree)) { ?>
-            <h3>La contrée qui correspond à cette légende: <span><?= $contree['titre'] ?></span></h3>
+            <h3>La contrée qui correspond à cette légende :
+                <!-- Lien de la contree sur le titre -->
+                <a href = "?action=detailsContree&id=<?= $contree['Id_contree'] ?>"> 
+                    <span><?= $contree['titre'] ?></span>
+                </a>
+            </h3>
         <?php } ?>
     </div>
 </main>

@@ -20,11 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Stockage d'un message de confirmation dans une variable de session
     $_SESSION['message'] = "Les commentaires ont été modérés avec succès.";
+    //$message = "Les commentaires ont été modérés avec succès.";
     // Redirection vers la page de moderation des commentaires
     header('Location: ?action=gestionCommentaire');
-    exit;
-    
-
+    //include_once (__DIR__ . '/../Views/viewGestionCommentaires.php');
+    // unset ($_SESSION['message']);
+    //$message ="";
 }
 
 /* ---
