@@ -21,11 +21,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Enregistrer les données dans la base de données en utilisant la méthode appropriée du modèle
         Legende::create($titre, $contenu, $photo, $idContree);
 
-        // Afficher un message de succès
-        $message = "La légende a été ajoutée avec succès.";
+    // Stockage d'un message de confirmation dans une variable de session
+    $_SESSION['message'] = "La légende a été supprimée avec succès.";
     } else {
-        // Afficher un message d'erreur si les champs requis ne sont pas remplis
-        $erreur = "Veuillez remplir tous les champs obligatoires.";
+    // Stockage d'un message de confirmation dans une variable de session
+    $_SESSION['erreur'] = "La légende n'a pas été supprimée.";
     }
 }
 

@@ -17,12 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["idContree"])) {
     $contreeModel->delete($idContree);
 
     // Stockage d'un message de confirmation dans une variable de session
-    $_SESSION['message'] = "Les commentaires ont été modérés avec succès.";
-
+    $_SESSION['message'] = "La contrée a été supprimée avec succès.";
     } else {
             // Stockage d'un message de confirmation dans une variable de session
-    $_SESSION['erreur'] = "Les commentaires n'ont pas été modérés.";
-
+    $_SESSION['erreur'] = "La contrée n'a pas été supprimée.";
     }
 // Inclusion de la vue pour la gestion des contrées
 include_once('App/Views/viewGestionContree.php');

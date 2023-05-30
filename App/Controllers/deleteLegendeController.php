@@ -16,13 +16,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["idLegende"])) {
     // Supprimer la légende en utilisant la méthode appropriée du modèle
     $legendeModel->delete($idLegende);
 
-    // Message de succès
-    $message = "La légende a été supprimée avec succès.";
-} else {
-    // Message d'erreur
-    $erreur = "Une erreur s'est produite lors de la suppression de la légende.";
-}
-// Redirection vers la page de gestion des contrées
-header("Location: ?action=gestionLegende&message=" . urlencode($message) . "&erreur=" . urlencode($erreur));
-
+    // Stockage d'un message de confirmation dans une variable de session
+    $_SESSION['message'] = "La légende a été supprimée avec succès.";
+    } else {
+            // Stockage d'un message de confirmation dans une variable de session
+    $_SESSION['erreur'] = "La légende n'a pas été supprimée.";
+    }
+        // Redirection vers la page de gestion des légendes
+        header('Location: ?action=gestionLegende');
 ?>
