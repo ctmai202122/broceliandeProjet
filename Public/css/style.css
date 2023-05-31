@@ -509,18 +509,15 @@ ul {
         align-items: center;
     }
 
-    /* .radio-buttons input[type="radio"] {
-        margin-right: 0.5rem;
-    } */
-
     td .btn-moderation {
         display: flex;
         align-items: center;
         flex-direction: row;
     }
-input.btn-moderation{
-    margin: 7px 23px 0;
-}    
+
+    input.btn-moderation {
+        margin: 7px 23px 0;
+    }
 
     #validerCom-btn {
         background-color: var(--vert);
@@ -1013,7 +1010,7 @@ input.btn-moderation{
         margin: 0.3rem;
     }
 
-/* validation moderation */
+    /* validation moderation */
     #valider-commentaires-btn {
         background-color: var(--vert);
         color: var(--fond-noir);
