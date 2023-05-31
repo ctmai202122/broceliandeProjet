@@ -4,9 +4,9 @@
     <div class='grid-contrees'>
         <?php foreach ($listeContrees as $contree) { ?>
             <div class='contrees'>
+                <!-- div pour englober titre en image zoom au survol -->
+                <div class="containerZoom">
                 <a href='./?action=detailsContree&id=<?= $contree["Id_contree"] ?>'>
-                    <!-- div pour englober titre en image zoom au survol -->
-                    <div class="containerZoom">
                         <h2><?= $contree["titre"]; ?></h2>
                         <img class="zoomImage" src='./Data/images/<?= $contree["photo"]; ?>' alt='<?= $contree["titre"]; ?>'>
                     </div>
