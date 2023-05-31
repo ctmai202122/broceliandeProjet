@@ -14,28 +14,30 @@ include_once(__DIR__ . '/viewMenuAdmin.php');
         <?php if (isset($_SESSION['erreur'])) : ?>
             <div class="alert alert-danger"><?php echo $_SESSION['erreur']; ?></div>
         <?php endif; ?>
-        <!-- Ajouter le formulaire de tri -->
-        <form class="gestionTri">
-            <label for="tri">Trier par :</label>
-            <select name="tri" id="tri">
-                <option value="date">Date</option>
-                <option value="auteur">Auteur</option>
-                <option value="contree">Contrée</option>
-            </select>
-            <button type="button" id="tri-commentaires-btn">Trier</button>
-        </form>
-
         <form method="post" action="?action=moderateCommentaire">
             <table class="tableModeration">
-                <thead>
-                    <tr>
-                        <th id="col-date">Date</th>
-                        <th id="col-auteur">Auteur</th>
-                        <th id="col-contree">Contrée</th>
-                        <th>Commentaire</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
+            <thead>
+    <tr>
+    <th id="col-date">
+    Date
+    <i class="fa-solid fa-sort sort-icon"></i>
+</th>
+<th id="col-auteur">
+    Auteur
+    <i class="fa-solid fa-sort sort-icon"></i>
+</th>
+<th id="col-contree">
+    Contrée
+    <i class="fa-solid fa-sort sort-icon"></i>
+</th>
+
+
+
+        <th>Commentaire</th>
+        <th>Action</th>
+    </tr>
+</thead>
+
                 <tbody>
                     <?php
                     // Vérifier si des commentaires sont disponibles

@@ -1,38 +1,46 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Récupérer les en-têtes de colonnes
     const colDate = document.getElementById('col-date');
     const colAuteur = document.getElementById('col-auteur');
     const colContree = document.getElementById('col-contree');
 
-    // Ajouter des gestionnaires d'événements pour le clic sur les en-têtes de colonnes
-    colDate.addEventListener('click', () => {
-        sortTable('date');
-    });
+    if (colDate) {
+        colDate.addEventListener('click', () => {
+            sortTable(0);
+        });
+    }
 
-    colAuteur.addEventListener('click', () => {
-        sortTable('auteur');
-    });
+    if (colAuteur) {
+        colAuteur.addEventListener('click', () => {
+            sortTable(1);
+        });
+    }
 
-    colContree.addEventListener('click', () => {
-        sortTable('contree');
-    });
+    if (colContree) {
+        colContree.addEventListener('click', () => {
+            sortTable(2);
+        });
+    }
 
-    // Fonction pour trier le tableau en fonction de la colonne sélectionnée
     function sortTable(column) {
-        // Récupérer le tableau et les lignes du corps du tableau
         const table = document.querySelector('.tableModeration');
-        const tbody = table.getElementsByTagName('tbody')[0];
+        const tbody = table.querySelector('tbody');
         const rows = Array.from(tbody.getElementsByTagName('tr'));
 
-        // Trier les lignes en fonction de la colonne sélectionnée
-        rows.sort((a, b) => {
-            const aCellValue = a.getElementsByTagName('td')[column].textContent.trim().toLowerCase();
-            const bCellValue = b.getElementsByTagName('td')[column].textContent.trim().toLowerCase();
+        const currentSort = {
+            column: column,
+            direction: 'asc'
+        };
 
-            return aCellValue.localeCompare(bCellValue);
+        rows.sort((a, b) => {
+            const aCellValue = a.cells[column].textContent.trim().toLowerCase();
+            const bCellValue = b.cells[column].textContent.trim().toLowerCase();
+
+            const comparison = aCellValue.localeCompare(bCellValue);
+            return currentSort.direction === 'asc' ? comparison : -comparison;
         });
 
-        // Réinsérer les lignes triées dans le tableau
         rows.forEach(row => tbody.appendChild(row));
+
+        currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
     }
 });

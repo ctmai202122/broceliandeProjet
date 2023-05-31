@@ -469,32 +469,21 @@ ul {
         color: var(--vert);
     }
 
-    .gestionTri {
-        text-align: right;
-        margin-right: 30px;
-    }
-
-    #tri-commentaires-btn {
-        color: var(--fond-blanc);
-        font-size: 15px;
-        font-weight: bold;
-        line-height: 15px;
-        padding: 5px 10px;
-        border-radius: 10px;
-        border: 2px solid var(--vert);
-        background: rgb(141, 197, 88);
-        background: radial-gradient(circle, rgba(141, 197, 88, 0.5942577714679622) 7%, rgba(184, 145, 48, 1) 31%, rgba(178, 152, 53, 1) 69%, rgba(148, 189, 82, 1) 88%);
-    }
-
-    #tri-commentaires-btn:hover {
-        background-color: var(--doree);
-    }
-
-    .myButton:active {
-        background: var(--doree);
-    }
-
     /* taleau moderation commentaires */
+   /* CSS pour les icônes de tri */
+.sort-icon {
+    margin-left: 5px;
+  }
+  
+  .fa-solid fa-sort:before {
+    content: "\f0d8";
+  }
+  
+  .fa-solid fa-sort:before {
+    content: "\f0d7";
+  }
+  
+    
     .tableModeration {
         border: 2px solid var(--doree);
         margin: auto;
