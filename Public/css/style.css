@@ -40,7 +40,8 @@ h3,
 h4,
 p,
 a,
-tr, td {
+tr,
+td {
     font-family: 'Roboto', Helvetica, sans-serif;
     text-decoration: none;
 }
@@ -490,7 +491,6 @@ ul {
         margin: auto;
         margin-bottom: 20px;
         width: 100%;
-        text-align: center;
     }
 
     .tableModeration th {
@@ -503,7 +503,15 @@ ul {
         padding: 1rem 1rem 1rem 1.5rem;
         border: 1px solid var(--doree);
     }
-
+    .radio-buttons {
+        display: flex;
+        align-items: center;
+      }
+      
+      .radio-buttons input[type="radio"] {
+        margin-right: 0.5rem;
+      }
+      
     td .btn-moderation {
         vertical-align: middle;
     }
@@ -523,11 +531,11 @@ ul {
 
 /* ++++++ RESPONSIVE ++++++++*/
 /*==========version mobile==========*/
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
     body {
         background-color: var(--fond-gris-foncee);
         font-family: 'roboto', Tahoma, sans-serif;
-        max-width: 700px;
+        max-width: 750px;
         width: 100%;
         margin: 0 auto;
     }
@@ -550,7 +558,7 @@ ul {
     }
 
     #bandeau nav {
-        margin: auto;
+        text-align: center;
     }
 
     #bandeau nav li a {
@@ -561,12 +569,21 @@ ul {
     #bandeau nav li a:hover {
         color: var(--doree);
     }
-
+    .navbar{
+        max-width: 750px;
+        margin: 30px 50px;
+    }
+    .navbar-toggler-icon {
+      background-color:  var(--fond-gris-foncee);
+      
+    }
     #burger {
         width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        max-width: 750px;
+        border-color: var(--doree);
     }
 
     #burger ul {
@@ -593,7 +610,7 @@ ul {
 
     /*bandeau image */
     #bandeau {
-        max-width: 600px;
+        max-width: 750px;
     }
 
     #bandeau img {
@@ -880,6 +897,9 @@ ul {
     .admin .nav {
         justify-content: center;
     }
+    .navAdmin #burger{
+        border-color: #8DC558;
+    }
 
     /* titres menu admin */
     .admin .nav a {
@@ -918,11 +938,17 @@ ul {
     }
 
     /* taleau moderation commentaires */
+
     .tableModeration {
         border: 2px solid var(--vert);
         margin: auto;
         text-align: center;
         font-size: 1rem;
+    }
+
+    .tableModeration tbody td:before {
+        font-weight: bold;
+        display: block;
     }
 
     .tableModeration th {
@@ -938,9 +964,27 @@ ul {
         text-align: left;
     }
 
-    td .btn-moderation {
-        justify-self: center;
+    table {
+        width: 100%;
+      }
+    
+      th, td {
+        display: block;
+        width: 100%;
+      }
+    
+      td:last-child {
+        white-space: normal;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    
+      .btn-moderation {
+        margin: 0.5rem 0;
+      }
     }
+      
 
     #valider-commentaires-btn {
         background-color: var(--vert);
@@ -948,17 +992,6 @@ ul {
     }
 
     #valider-commentaires-btn:hover {
-        background-color: var(--fond-gris-foncee);
-        color: var(--doree);
-        border: 2px solid var(--doree);
-    }
-
-    #supprimer-commentaires-btn {
-        background-color: red;
-        color: var(--fond-gris-foncee);
-    }
-
-    #supprimer-commentaires-btn:hover {
         background-color: var(--fond-gris-foncee);
         color: var(--doree);
         border: 2px solid var(--doree);

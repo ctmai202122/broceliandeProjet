@@ -26,34 +26,34 @@
 <body>
     <!-- Entête avec le logo et le menu principal -->
     <header id="bandeau" class="container">
-        <nav class="navbar navbar-expand-md navbar-dark justify-content-center">
-            <div class="logo">
-                <a title="renvoi à l'accueil" href="?action=accueil">
-                    <img src="./Public/images/logo.png" alt="logo Broc&amp;Landes" class="img-fluid">
-                </a>
-                <!-- Le bouton burger qui permettra de déclencher le menu déroulant -->
-                <button id="burger" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-            <!-- La liste de liens du menu déroulant -->
-            <div id="menu" class="collapse navbar-collapse">
-                <ul class="navbar-nav justify-content-center">
-                    <li class="nav-item d-flex justify-content-center active">
-                        <a class="nav-link" href="?action=accueil">Accueil</a>
-                    </li>
-                    <li class="nav-item d-flex justify-content-center">
-                        <a class="nav-link " href="?action=listeContrees">Contrées</a>
-                    </li>
-                    <li class="nav-item d-flex justify-content-center">
-                        <a class="nav-link " href="?action=listeLegendes">Légendes</a>
-                    </li>
-                    <li class="nav-item d-flex justify-content-center">
-                        <a class="nav-link " href="?action=contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+    <nav class="navbar navbar-expand-md navbar-dark justify-content-center">
+    <div class="logo">
+        <a title="renvoi à l'accueil" href="?action=accueil">
+            <img src="./Public/images/logo.png" alt="logo Broc&amp;Landes" class="img-fluid">
+        </a>
+        <!-- Le bouton burger principal qui permettra de déclencher le menu déroulant -->
+        <button id="burger" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <!-- La liste de liens du menu déroulant -->
+    <div id="menu" class="collapse navbar-collapse">
+        <ul class="navbar-nav justify-content-center">
+            <li class="nav-item d-flex justify-content-center active">
+                <a class="nav-link" href="?action=accueil">Accueil</a>
+            </li>
+            <li class="nav-item d-flex justify-content-center">
+                <a class="nav-link" href="?action=listeContrees">Contrées</a>
+            </li>
+            <li class="nav-item d-flex justify-content-center">
+                <a class="nav-link" href="?action=listeLegendes">Légendes</a>
+            </li>
+            <li class="nav-item d-flex justify-content-center">
+                <a class="nav-link" href="?action=contact">Contact</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
         <!-- Le script jQuery qui permet de faire fonctionner le menu déroulant -->
         <script src="Public/js/menuBurger.js"></script>
