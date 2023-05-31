@@ -509,13 +509,18 @@ ul {
         align-items: center;
     }
 
-    .radio-buttons input[type="radio"] {
+    /* .radio-buttons input[type="radio"] {
         margin-right: 0.5rem;
-    }
+    } */
 
     td .btn-moderation {
-        vertical-align: middle;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
     }
+input.btn-moderation{
+    margin: 7px 23px 0;
+}    
 
     #validerCom-btn {
         background-color: var(--vert);
@@ -971,7 +976,7 @@ ul {
     .tableModeration th {
         color: var(--vert);
         padding: 1rem;
-        border: 2px solid var(--vert);
+        border: 1px solid var(--vert);
     }
 
     .tableModeration tr {
@@ -984,7 +989,7 @@ ul {
         color: var(--doree);
         border: 1px solid var(--fond-noir);
         text-align: left;
-        padding-left: 180px;
+        padding-left: 170px;
     }
 
     table {
@@ -997,6 +1002,7 @@ ul {
         width: 100%;
     }
 
+    /* bouton radio */
     td:last-child {
         white-space: normal;
         display: flex;
@@ -1007,6 +1013,7 @@ ul {
         margin: 0.3rem;
     }
 
+/* validation moderation */
     #valider-commentaires-btn {
         background-color: var(--vert);
         color: var(--fond-noir);
@@ -1029,11 +1036,10 @@ ul {
     }
 
     .containerGestion .btn:hover {
-
         background-color: var(--vert);
         border: 2px solid var(--fond-gris-foncee);
         color: var(--fond-noir);
-        margin: 2rem;
+        margin: auto;
     }
 
     .alert .alert-success {

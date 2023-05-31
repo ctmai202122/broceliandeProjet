@@ -39,10 +39,10 @@ include_once(__DIR__ . '/viewMenuAdmin.php');
                             <td><?php echo $commentaire['dateCom']; ?></td>
                             <td><?php echo $commentaire['pseudo']; ?></td>
                             <td><?php echo $commentaire['titre_contree']; ?></td>
-                            <td><?php echo $commentaire['texte']; ?></td>
+                            <td><?php echo nl2br($commentaire['texte']); ?></td>
                             <td>
-                                <input type="radio" name="moderation[<?php echo $commentaire['Id_commentaire']; ?>]" value="valider" class="btn-moderation"> Valider <br>
-                                <input type="radio" name="moderation[<?php echo $commentaire['Id_commentaire']; ?>]" value="supprimer" class="btn-moderation ml-4"> Supprimer
+                                <input type="radio" name="moderation[<?php echo nl2br($commentaire['Id_commentaire']); ?>]" value="valider" class="btn-moderation"> Valider <br>
+                                <input type="radio" name="moderation[<?php echo nl2br($commentaire['Id_commentaire']); ?>]" value="supprimer" class="btn-moderation ml-4"> Supprimer
                             </td>
                         </tr>
                         <?php
