@@ -77,8 +77,10 @@ document.addEventListener('DOMContentLoaded', function () {
             icon.classList.remove('fa-sort-up', 'fa-sort-down');
         });
 
-        // Ajoutez l'icône de tri à la colonne en cours
+        // Ajoutez l'icône de tri à la colonne en cours si elle existe
         const currentSortIcon = table.querySelector(`#col-${column} .sort-icon`);
-        currentSortIcon.classList.add(currentSort.direction === 'asc' ? 'fa-sort-up' : 'fa-sort-down');
+        if (currentSortIcon) {
+            currentSortIcon.classList.add(currentSort.direction === 'asc' ? 'fa-sort-up' : 'fa-sort-down');
+        }
     }
 });
