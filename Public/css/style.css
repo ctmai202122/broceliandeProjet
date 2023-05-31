@@ -470,20 +470,20 @@ ul {
     }
 
     /* taleau moderation commentaires */
-   /* CSS pour les icônes de tri */
-.sort-icon {
-    margin-left: 5px;
-  }
-  
-  .fa-solid fa-sort:before {
-    content: "\f0d8";
-  }
-  
-  .fa-solid fa-sort:before {
-    content: "\f0d7";
-  }
-  
-    
+
+    /* CSS pour les icônes de tri */
+    .sort-icon {
+        margin-left: 5px;
+    }
+
+    .fa-solid fa-sort:before {
+        content: "\f0d8";
+    }
+
+    .fa-solid fa-sort:before {
+        content: "\f0d7";
+    }
+
     .tableModeration {
         border: 2px solid var(--doree);
         margin: auto;

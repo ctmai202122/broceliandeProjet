@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const colDate = document.getElementById('col-date');
     const colAuteur = document.getElementById('col-auteur');
     const colContree = document.getElementById('col-contree');

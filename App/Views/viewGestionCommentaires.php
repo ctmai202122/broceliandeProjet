@@ -16,27 +16,27 @@ include_once(__DIR__ . '/viewMenuAdmin.php');
         <?php endif; ?>
         <form method="post" action="?action=moderateCommentaire">
             <table class="tableModeration">
-            <thead>
-    <tr>
-    <th id="col-date">
-    Date
-    <i class="fa-solid fa-sort sort-icon"></i>
-</th>
-<th id="col-auteur">
-    Auteur
-    <i class="fa-solid fa-sort sort-icon"></i>
-</th>
-<th id="col-contree">
-    Contrée
-    <i class="fa-solid fa-sort sort-icon"></i>
-</th>
+                <thead>
+                    <tr>
+                        <th id="col-date">
+                            Date
+                            <i class="fa-solid fa-sort sort-icon"></i>
+                        </th>
+                        <th id="col-auteur">
+                            Auteur
+                            <i class="fa-solid fa-sort sort-icon"></i>
+                        </th>
+                        <th id="col-contree">
+                            Contrée
+                            <i class="fa-solid fa-sort sort-icon"></i>
+                        </th>
 
 
 
-        <th>Commentaire</th>
-        <th>Action</th>
-    </tr>
-</thead>
+                        <th>Commentaire</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
 
                 <tbody>
                     <?php
