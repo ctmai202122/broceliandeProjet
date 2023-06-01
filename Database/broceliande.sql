@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 30 mai 2023 à 16:12
+-- Généré le : jeu. 01 juin 2023 à 14:51
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -75,7 +75,11 @@ INSERT INTO `commentaire` (`Id_commentaire`, `pseudo`, `texte`, `dateCom`, `stat
 (23, 'Malo', 'C\'était cool', '2023-05-30 00:17:35', 0, 2),
 (24, 'test', 'cool', '2023-05-30 00:18:31', 1, 2),
 (28, 'Lila', 'C\'était beau', '2023-05-30 00:21:49', 0, 2),
-(29, 'Leo L\'historé', 'Belle visite\r\nJe conseille.', '2023-05-30 09:59:19', 1, 1);
+(29, 'Leo L\'historé', 'Belle visite\r\nJe conseille.', '2023-05-30 09:59:19', 1, 1),
+(30, 'Mela peri', 'Vrai joli cet arbre \r\net le contexte est agréable pour se promener.', '2023-06-01 09:50:27', 0, 1),
+(31, 'Denis', 'Ce lieu est agréable j\'ai pu me promener dans le calme.', '2023-06-01 09:54:25', 0, 4),
+(32, 'Elisad', 'Ce château est beau mais on a été déçu de ne pas pouvoir visiter l\'intérieur.', '2023-06-01 09:57:55', 0, 3),
+(33, 'Élio', 'Sympa cet arbre en or', '2023-06-01 10:51:49', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -121,7 +125,6 @@ INSERT INTO `contree` (`Id_contree`, `titre`, `contenu`, `photo`, `latitude`, `l
 (4, 'Tombeau du géant', 'C’est un coffre mégalithique dont les parois sont constituées de deux grands blocs de schiste rouge faisant chacun plus de 4 mètres de long et d’un bloc isolé situé à huit mètres. \r\nAutrefois entouré d’un tumulus, le caveau fait partie d’un type de sépulture connu pour les petits princes d’Armorique entre 2000 et 1500 avant J.-C.\r\nTombé dans l’oubli entre le 19ème et le 20ème siècle, le Tombeau des Géants est redécouvert à la fin des années 1970 et des fouilles sont entreprises en 1982. \r\n', 'tombeauGeant.jpg', 47.9912, -2.26889, 'Campénéac', 'Accessible tout public.', 'En période de chasse (12 septembre au 31 mars), la vallée du Val Sans Retour est interdite au public.'),
 (26, 'Les Nouveaux Chevaliers de la Table Ronde', 'La Table ronde accueille aux côtés du roi Arthur, Keu et Gauvain deux des onze chevaliers prévues prochainement .', NULL, 0, 0, 'Néant-sur-Yvel', 'Tout public', 'Ouvert toute l\'année'),
 (27, ' La fontaine de Barenton', 'La Fontaine de Barenton est un lieu emblématique situé dans la forêt de Brocéliande, en France. Considérée comme l\'une des fontaines les plus mystérieuses de la région, elle est entourée de légendes et de contes anciens.  Cette fontaine est réputée pour son eau claire et sa source inépuisable. ', NULL, 0, 0, 'Paimpont', 'Le site est non accessible aux personnes à mobilité réduite.', 'Ouvert toute l\'année mais se rensigner sur les dates de chasse'),
-(34, 'Test2', 'testt', NULL, 0, 0, 'paimpont', 'Tout public', 'Libre'),
 (35, 'Test Lundi', 'test', NULL, 0, 0, 'Paimpont', 'Acces libre', 'Ouvert toute l\'année'),
 (41, 'Hôtel de la fée Viviane', 'Un alignement de pierre en rond.', NULL, 0, 0, 'Paimpont', 'Tout public', 'Libre d\'accès hors période de chasse'),
 (42, 'Hôtel de la fée Viviane', 'Un alignement de pierre en rond.', NULL, 0, 0, 'Paimpont', 'Tout public', 'Libre d\'accès hors période de chasse'),
@@ -160,8 +163,7 @@ INSERT INTO `legende` (`Id_legende`, `titre`, `contenu`, `photo`, `Id_contree`) 
 (9, 'Incroyables pouvoirs', 'La fontaine de Barenton porte bien son nom. En effet, elle bouillonne malgré une eau froide comme le marbre ! Il faut parfois se montrer patient pour apercevoir ce prodige.  Le village de folle Pensée tirerait son nom des vertus curatives de la fontaine, pouvant guérir la folie.  Enfin, Mesdames, si vous êtes en mal d’amour, rendez visite à la fontaine, offrez-lui une épingle et dites à voix haute : « Ris, ris fontaine, je vais te donner une belle épingle », si la fontaine vous gratifie de bulles, alors vous serez mariée avant Pâques !', NULL, NULL),
 (12, 'Test à supprimer', 'La Table ronde accueille aux côtés du roi Arthur, Keu et Gauvain deux des onze chevaliers prévues prochainement .', NULL, NULL),
 (13, 'Test à supprimer', 'La Table ronde accueille aux côtés du roi Arthur, Keu et Gauvain deux des onze chevaliers prévues prochainement .', NULL, NULL),
-(17, 'Test', 'test', NULL, NULL),
-(21, 'TestLundi', 'Test', NULL, 34),
+(21, 'TestLundi', 'Test', NULL, NULL),
 (25, 'Test à supprimer3', 'test', NULL, 49);
 
 --
@@ -208,7 +210,7 @@ ALTER TABLE `legende`
 -- AUTO_INCREMENT pour la table `commentaire`
 --
 ALTER TABLE `commentaire`
-  MODIFY `Id_commentaire` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `Id_commentaire` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT pour la table `contact`
@@ -236,13 +238,13 @@ ALTER TABLE `legende`
 -- Contraintes pour la table `commentaire`
 --
 ALTER TABLE `commentaire`
-  ADD CONSTRAINT `commentaire_ibfk_1` FOREIGN KEY (`Id_contree`) REFERENCES `contree` (`Id_contree`);
+  ADD CONSTRAINT `commentaire_ibfk_1` FOREIGN KEY (`Id_contree`) REFERENCES `contree` (`Id_contree`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `legende`
 --
 ALTER TABLE `legende`
-  ADD CONSTRAINT `legende_ibfk_1` FOREIGN KEY (`Id_contree`) REFERENCES `contree` (`Id_contree`);
+  ADD CONSTRAINT `legende_ibfk_1` FOREIGN KEY (`Id_contree`) REFERENCES `contree` (`Id_contree`) ON DELETE SET NULL;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
