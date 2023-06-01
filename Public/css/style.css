@@ -280,8 +280,6 @@ ul {
     form .btn:hover {
         background-color: var(--fond-gris-foncee);
         color: var(--doree);
-        /* padding: 7px; */
-        /* border: 3px solid var(--doree); */
     }
 
     form .btn:focus {
@@ -740,15 +738,15 @@ ul {
 
     form .btn {
         background-color: var(--doree);
+        color: var(--fond-gris-foncee);
         border: 3px solid var(--doree);
+        padding: 7px;
+        border-radius: 5px;
     }
 
     form .btn:hover {
         background-color: var(--fond-gris-foncee);
         color: var(--doree);
-        padding: 7px;
-        border: 3px solid var(--doree);
-        border-radius: 5px;
     }
 
     /* formulaire Contact */
@@ -951,20 +949,6 @@ ul {
         border: 2px solid var(--fond-gris-foncee);
     }
 
-    /* boutton retour page admin */
-    .btn {
-        color: var(--fond-noir);
-        background-color: var(--doree);
-        border: 2px solid var(--fond-gris-foncee);
-        margin: 2rem;
-    }
-
-    .btn:hover {
-        background-color: var(--vert);
-        border: 2px solid var(--fond-gris-foncee);
-        color: var(--fond-noir);
-    }
-
     /* boutton cliqué, actif */
     .btn-primary.focus,
     .btn-primary:focus,
@@ -1047,7 +1031,7 @@ ul {
         color: var(--doree);
         border: 2px solid var(--doree);
     }
-
+    
     /* Gestion  */
     .containerGestion h2 {
         color: var(--vert);
@@ -1057,12 +1041,18 @@ ul {
         color: var(--doree);
         font-size: 1.5rem;
     }
+    form .btn {
+        background-color: var(--doree);
+        color: var(--fond-gris-foncee);
+        border: 3px solid var(--doree);
+        padding: 7px;
+        margin-top: 20px;
+        border-radius: 5px;
+    }
 
     .containerGestion .btn:hover {
-        background-color: var(--vert);
-        border: 2px solid var(--fond-gris-foncee);
-        color: var(--fond-noir);
-        margin: auto;
+        background-color: var(--fond-gris-foncee);
+        color: var(--doree);
     }
 
     .alert .alert-success {
