@@ -13,7 +13,7 @@ include_once(__DIR__ . '/viewHeader.php');
     <form method="post" action="?action=connexion">
         <div class="champsSaisie text-center mb-3 ml-3">
             <h2> Connexion administrateur </h2>
-            <label for="email">Email admin : </label>
+            <label for="email">Identifiant : </label>
             <input type="email" name="email" id="email" required>
         </div>
         <div class="champsSaisie text-center mb-3">
