@@ -159,10 +159,11 @@ ul {
     .containerZoom:hover .zoomImage {
         transform: scale(1.3);
         opacity: 0.9;
+        margin-top: 50px;
     }
 
     .containerZoom:hover h2 {
-        font-size: 1em;
+        font-size: 0.6em;
         text-align: center;
         position: relative;
         z-index: 2;
@@ -173,10 +174,6 @@ ul {
     }
 
     /* Liste contrées */
-    .grid-contrees {
-        margin-top: 50px;
-    }
-
     .contrees a,
     .legendes a {
         color: var(--doree);
@@ -190,6 +187,7 @@ ul {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 10px;
+        margin-top: 50px;
     }
 
     .contrees {
@@ -206,6 +204,7 @@ ul {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 10px;
+        margin-top: 50px;
     }
 
     .legendes {
@@ -241,6 +240,12 @@ ul {
     }
 
     /* commentaire */
+    .alert-primary {
+        color: #4b8157;
+        background-color: #d4edda;
+        border-color: #4b8157;
+    }
+
     .container .detailsContree h2 {
         color: var(--vert);
     }
@@ -667,6 +672,16 @@ ul {
         font-size: 2rem;
     }
 
+    .containerZoom a:hover,
+    .containerZoom a:hover {
+        text-decoration: none;
+    }
+
+    .containerZoom a:hover h2,
+    .containerZoom a:hover h2 {
+        color: var(--doree);
+    }
+
     .contrees img,
     .legendes img {
         max-width: 60%;
@@ -712,6 +727,12 @@ ul {
     }
 
     /* Commentaire contree */
+    .alert-primary {
+        color: #4b8157;
+        background-color: #d4edda;
+        border-color: #4b8157;
+    }
+
     .formCom label {
         color: var(--doree);
         margin-top: 10px;
@@ -960,6 +981,7 @@ ul {
         margin: auto;
         text-align: center;
         font-size: 1rem;
+        width: 100%;
     }
 
     .tableModeration tbody td:before {
@@ -984,7 +1006,7 @@ ul {
         color: var(--doree);
         border: 1px solid var(--fond-noir);
         text-align: left;
-        padding-left: 170px;
+        padding-left: 30%;
     }
 
     table {
@@ -1001,11 +1023,17 @@ ul {
     td:last-child {
         white-space: normal;
         display: flex;
+        flex-wrap: wrap;
         align-items: flex-start;
+        width: 100%;
+    }
+
+    td.btn-moderation {
+        text-align: left;
     }
 
     .btn-moderation {
-        margin: 0.3rem;
+        margin: 0.2rem;
     }
 
     /* validation moderation */

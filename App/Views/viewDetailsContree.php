@@ -12,7 +12,7 @@ include_once(__DIR__ . '/viewHeader.php');
         <?php } ?>
         
         <h1><?= $contree['titre'] ?></h1>
-        <p>Description : <?= nl2br($contree['contenu']) ?></p>
+        <p><?= nl2br($contree['contenu']) ?></p>
         <img src="./Data/images/<?= $contree['photo'] ?>" alt="<?= $contree['titre'] ?>">
         <p>Latitude : <?= $contree['latitude'] ?></p>
         <p>Longitude : <?= $contree['longitude'] ?></p>
