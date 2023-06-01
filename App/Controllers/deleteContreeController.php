@@ -10,12 +10,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["idContree"])) {
     // Récupérer l'ID de la contrée à supprimer
     $idContree = $_POST["idContree"];
 
-    // Créer une instance du modèle "Contree"
-    $contreeModel = new Contree();
+    try {
+        $contree = Contree::getById($idContree);
+        unlink(__DIR__ . "/../../Data/images/" . $contree['photo']);
 
-    // Supprimer la contrée en utilisant la méthode appropriée du modèle
-    $contreeModel->delete($idContree);
-
+        // Supprimer la contrée en utilisant la méthode appropriée du modèle
+        Contree::delete($idContree);
+        $contrees = Contree::getAll();
+    } catch (Exception $e) {
+        $message = $e->getMessage();
+        exit;
+    }
     // Stockage d'un message de confirmation dans une variable de session
     $_SESSION['message'] = "La contrée a été supprimée avec succès.";
 } else {

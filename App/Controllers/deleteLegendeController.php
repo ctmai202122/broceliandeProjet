@@ -10,12 +10,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["idLegende"])) {
     // Récupérer l'ID de la légende à supprimer
     $idLegende = $_POST["idLegende"];
 
-    // Créer une instance du modèle "Legende"
-    $legendeModel = new Legende();
+    try {
+        $legende = Legende::getById($idLegende);
+        unlink(__DIR__ . "/../../Data/images/" . $legende['photo']);
 
-    // Supprimer la légende en utilisant la méthode appropriée du modèle
-    $legendeModel->delete($idLegende);
-
+        // Supprimer la légende en utilisant la méthode appropriée du modèle
+        Legende::delete($idLegende);
+        $legendes = Legende::getAll();
+    } catch (Exception $e) {
+        $message = $e->getMessage();
+        exit;
+    }
     // Stockage d'un message de confirmation dans une variable de session
     $_SESSION['message'] = "La légende a été supprimée avec succès.";
 } else {
