@@ -15,15 +15,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Récupérer les valeurs des champs
         $titre = $_POST["titre"];
         $contenu = $_POST["contenu"];
-        // Vérifier si le champ de fichier "photo" existe dans la requête POST
-        if (isset($_FILES["photo"])) {
-            // Le champ de fichier existe, continuer à traiter l'image
-            $photo = $_FILES["photo"];
-        } else {
-            // Le champ de fichier n'existe pas, attribuer la valeur NULL à $photo
-            $photo = null;
-        }
-
         $idContree = $_POST["idContree"];
 
         $name = NULL; // en cas d'erreur 
