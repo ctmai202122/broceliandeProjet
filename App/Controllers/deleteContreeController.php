@@ -12,7 +12,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["idContree"])) {
 
     try {
         $contree = Contree::getById($idContree);
-        unlink(__DIR__ . "/../../Data/images/" . $contree['photo']);
+        if($contree ['photo'] != NULL)
+            unlink(__DIR__ . "/../../Data/images/" . $contree['photo']);
 
         // Supprimer la contrée en utilisant la méthode appropriée du modèle
         Contree::delete($idContree);

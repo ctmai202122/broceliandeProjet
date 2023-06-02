@@ -12,7 +12,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["idLegende"])) {
 
     try {
         $legende = Legende::getById($idLegende);
-        unlink(__DIR__ . "/../../Data/images/" . $legende['photo']);
+        if($contree ['photo'] != NULL)
+            unlink(__DIR__ . "/../../Data/images/" . $legende['photo']);
 
         // Supprimer la légende en utilisant la méthode appropriée du modèle
         Legende::delete($idLegende);
