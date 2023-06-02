@@ -6,7 +6,7 @@ include_once(__DIR__ . '/viewHeader.php');
     <div class="bandeau-img">
         <img src="./Data/images/vueBroceliande.jpg" alt="Paysage forêt Brocéliande">
         <div class="texte-bandeau">
-            <h2>Broc&amp;Landes</h2>
+            <h1>Broc&amp;Landes</h1>
             <p> Venez visiter Brocéliande</p>
         </div>
     </div>

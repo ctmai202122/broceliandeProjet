@@ -15,26 +15,34 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Récupérer les valeurs des champs
         $titre = $_POST["titre"];
         $contenu = $_POST["contenu"];
-        $photo = isset($_FILES["photo"]) ? $_FILES["photo"] : null;
+        // Vérifier si le champ de fichier "photo" existe dans la requête POST
+        if (isset($_FILES["photo"])) {
+            // Le champ de fichier existe, continuer à traiter l'image
+            $photo = $_FILES["photo"];
+        } else {
+            // Le champ de fichier n'existe pas, attribuer la valeur NULL à $photo
+            $photo = null;
+        }
+
         $idContree = $_POST["idContree"];
 
         $name = NULL; // en cas d'erreur 
-        if ($_FILES["photo"]["error"] == UPLOAD_ERR_OK) { 
-        $tmp_name = $_FILES["photo"]["tmp_name"]; 
-        // basename() peut empêcher les attaques de traversée du system de fichier; 
-        $name = basename($_FILES["photo"]["name"]); 
-        //die(__DIR__ . "/../../Data/images/".$name); 
-        move_uploaded_file($tmp_name, __DIR__ . "/../../Data/images/".$name);
-        } 
+        if ($_FILES["photo"]["error"] == UPLOAD_ERR_OK) {
+            $tmp_name = $_FILES["photo"]["tmp_name"];
+            // basename() peut empêcher les attaques de traversée du system de fichier; 
+            $name = basename($_FILES["photo"]["name"]);
+            //die(__DIR__ . "/../../Data/images/".$name); 
+            move_uploaded_file($tmp_name, __DIR__ . "/../../Data/images/" . $name);
+        }
 
         // Enregistrer les données dans la base de données en utilisant la méthode appropriée du modèle
         Legende::create($titre, $contenu, $name, $idContree);
 
-    // Stockage d'un message de confirmation dans une variable de session
-    $_SESSION['message'] = "La légende a été ajoutée avec succès.";
+        // Stockage d'un message de confirmation dans une variable de session
+        $_SESSION['message'] = "La légende a été ajoutée avec succès.";
     } else {
-    // Stockage d'un message de confirmation dans une variable de session
-    $_SESSION['erreur'] = "La légende n'a pas été ajoutée.";
+        // Stockage d'un message de confirmation dans une variable de session
+        $_SESSION['erreur'] = "La légende n'a pas été ajoutée.";
     }
 }
 
