@@ -56,4 +56,6 @@ $legendes = $legendeModel->getAll();
 
 // Inclusion de la vue pour la gestion des légendes
 include_once('App/Views/viewGestionLegende.php');
+unset($_SESSION['message']);
+unset($_SESSION['erreur']);
 ?>

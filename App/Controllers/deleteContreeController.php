@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["idContree"])) {
 
     try {
         $contree = Contree::getById($idContree);
-        if($contree ['photo'] != NULL)
+        if ($contree['photo'] != NULL)
             unlink(__DIR__ . "/../../Data/images/" . $contree['photo']);
 
         // Supprimer la contrée en utilisant la méthode appropriée du modèle
@@ -30,4 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["idContree"])) {
 }
 // Inclusion de la vue pour la gestion des contrées
 include_once('App/Views/viewGestionContree.php');
+unset($_SESSION['message']);
+unset($_SESSION['erreur']);
 ?>

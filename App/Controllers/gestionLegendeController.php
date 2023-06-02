@@ -16,6 +16,7 @@ if (isset($_SESSION['admin'])) {
     // Inclusion de la vue pour la gestion des legendes
     include_once(__DIR__ . '/../Views/viewGestionLegende.php');
     unset($_SESSION['message']);
+    unset($_SESSION['erreur']);
 } else {
     // Redirection vers la page de connexion
     $erreur = "Vous devez être connecté pour accéder à la page d'administration.";
