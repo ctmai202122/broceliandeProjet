@@ -72,13 +72,12 @@ ul {
 }
 
 /* desktop */
-@media only screen and (min-width : 780px) {
+@media only screen and (min-width : 769px) {
 
     body {
         max-width: 1200px;
         /*si ecran(résolution) supérieur 1200px*/
         width: 100%;
-        /* min-height: 1200px; */
         margin: 0 auto;
         background-color: var(--fond-gris-foncee);
         background-size: cover;
@@ -87,8 +86,8 @@ ul {
 
     /* Logo BrocéLandes */
     .logo img {
-        width: 50%;
-        margin: 0;
+        max-width: 60%;
+        height: auto;
     }
 
     /* Menu nav */
@@ -102,6 +101,10 @@ ul {
         padding-right: 3.5rem;
         padding-left: 0.5rem;
     }
+    
+    .burger-menu {
+        display: none;
+      }
 
     /* bandeau navigation */
     #bandeau {
@@ -110,7 +113,6 @@ ul {
         justify-content: space-between;
         padding: 0;
         margin: 0;
-        min-width: 1200px;
     }
 
     /* image bandeau*/
@@ -121,7 +123,7 @@ ul {
     .bandeau-img img {
         display: block;
         width: 100%;
-        max-height: 50%;
+        height:auto;
         opacity: 0.4;
         margin: auto;
     }
@@ -130,11 +132,11 @@ ul {
     .texte-bandeau {
         position: absolute;
         left: 50%;
+        top: 50%;
         transform: translate(-50%, -50%);
         color: var(--doree);
         text-shadow: 1px 1px 5px rgb(11, 11, 11);
         text-align: center;
-        top: 15em;
     }
 
     .bandeau-img .texte-bandeau h1 {
@@ -538,7 +540,6 @@ ul {
     body {
         background-color: var(--fond-gris-foncee);
         font-family: 'roboto', Tahoma, sans-serif;
-        max-width: 750px;
         width: 100%;
         margin: 0 auto;
     }
@@ -574,7 +575,7 @@ ul {
     }
 
     .navbar {
-        max-width: 750px;
+        max-width: 100%;
         margin: 30px 50px;
     }
 
@@ -616,7 +617,7 @@ ul {
 
     /*bandeau image */
     #bandeau {
-        max-width: 750px;
+        max-width: 100%;
     }
 
     #bandeau img {

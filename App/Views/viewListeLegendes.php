@@ -6,14 +6,18 @@
          <div class='legendes'>
             <!-- div pour englober titre en image zoom au survol -->
             <div class="containerZoom">
-                  <a href='./?action=detailsLegende&id=<?= $legende["Id_legende"] ?>'>
+               <a href='./?action=detailsLegende&id=<?= $legende["Id_legende"] ?>'>
                   <h2><?= $legende["titre"] ?></h2>
-                  <img class="zoomImage" src='Data/images/<?= $legende["photo"] ?>' alt='<?= $legende["titre"] ?>'>
-               </div>
-            </a>
+                  <?php if (!empty($legende['photo']) && file_exists(__DIR__ . "/../../Data/images/" . $legende['photo'])) { ?>
+                     <img class="zoomImage" src='Data/images/<?= $legende["photo"] ?>' alt='<?= $legende["titre"] ?>'>
+                  <?php } ?>
+               </a>
+            </div>
          </div>
       <?php } ?>
    </div>
 </main>
 
-<?php include_once(__DIR__ . '/viewFooter.php'); ?>
+
+<?php include_once(__DIR__ . '/viewFooter.php'); 
+?>

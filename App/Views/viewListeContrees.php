@@ -8,12 +8,16 @@
                 <div class="containerZoom">
                 <a href='./?action=detailsContree&id=<?= $contree["Id_contree"] ?>'>
                         <h2><?= $contree["titre"]; ?></h2>
-                        <img class="zoomImage" src='./Data/images/<?= $contree["photo"]; ?>' alt='<?= $contree["titre"]; ?>'>
+                        <?php if (!empty($contree['photo']) && file_exists(__DIR__ . "/../../Data/images/" . $contree['photo'])) { ?>
+                            <img class="zoomImage" src='./Data/images/<?= $contree["photo"]; ?>' alt='<?= $contree["titre"]; ?>'>
+                        <?php } ?>
+                    </a>
                     </div>
-                </a>
             </div>
         <?php } ?>
     </div>
 </main>
 
-<?php include_once(__DIR__ . '/viewFooter.php'); ?>
+
+<?php include_once(__DIR__ . '/viewFooter.php'); 
+?>
