@@ -1,7 +1,7 @@
 <footer>
     <div class="container-fluid mt-5">
         <div class="row mt-5">
-            <div class="col-sm-6 mt-5 mb-3 text-center">
+            <div class="col-sm-6 mt-3 mb-3 text-center">
                 <h3>
                     <a href="?action=accueil">Broc&amp;Landes</a>
                 </h3>
