@@ -2,9 +2,9 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     // Récupérez les éléments de colonne par leur ID
-    const colDate = document.getElementById('col-date');
-    const colAuteur = document.getElementById('col-auteur');
-    const colContree = document.getElementById('col-contree');
+    const colDate = document.querySelector('#col-date');
+    const colAuteur = document.querySelector('#col-auteur');
+    const colContree = document.querySelector('#col-contree');
 
     // Ajoutez des écouteurs de clic aux colonnes pertinentes
     if (colDate) {
