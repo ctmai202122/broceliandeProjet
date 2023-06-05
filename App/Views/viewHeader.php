@@ -32,7 +32,7 @@
                     <img src="./Public/images/logo.png" alt="logo Broc&amp;Landes" class="img-fluid">
                 </a>
                 <!-- Le bouton burger principal qui permettra de déclencher le menu déroulant -->
-                <button id="burger" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+                <button id="burger" class="navbar-toggler d-md-none" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 

@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-dark justify-content-center">
+<nav class="navbar navbar-expand-md navbar-dark justify-content-center">
     <div class="navAdmin">
         <!-- Le bouton burger admin qui permettra de déclencher le menu déroulant -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuAdmin" aria-controls="menuAdmin" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler d-md-none" type="button" data-toggle="collapse" data-target="#menuAdmin" aria-controls="menuAdmin" aria-expanded="false" aria-label="Toggle navigation">
             <h4> Menu d'administration </h4>
             <span class="navbar-toggler-icon"></span>
         </button>
