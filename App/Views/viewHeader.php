@@ -40,8 +40,8 @@
             </div>
             <!-- La liste de liens du menu déroulant -->
             <div id="menu" class="collapse navbar-collapse">
-                <ul class="navbar-nav justify-content-center">
-                    <li class="nav-item d-flex justify-content-center active">
+                <ul class="navbar-nav justify-content-center text-center mx-auto px-auto">
+                    <li class="nav-item d-flex justify-content-center">
                         <a class="nav-link" href="?action=accueil">Accueil</a>
                     </li>
                     <li class="nav-item d-flex justify-content-center">
@@ -59,4 +59,5 @@
 
         <!-- Le script jQuery qui permet de faire fonctionner le menu déroulant -->
         <script src="Public/js/menuBurger.js"></script>
+        <script src="Public/js/pageActive.js"></script>
     </header>

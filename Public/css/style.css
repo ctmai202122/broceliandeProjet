@@ -98,14 +98,18 @@ ul {
     #menu ul li a {
         color: var(--doree);
         font-size: 1.5rem;
-        padding-right: 3.5rem;
-        padding-left: 0.5rem;
+margin: 0 1em;
     }
-    
+
     .burger-menu {
         display: none;
       }
-
+    /*onglet actif */
+    .nav-link.active {
+        background-color: var(--fond-gris-foncee);
+       border: var(--doree) 2px solid;
+       border-radius: 10px;
+    }
     /* bandeau navigation */
     #bandeau {
         display: flex;
