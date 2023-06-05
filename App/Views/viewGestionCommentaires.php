@@ -67,7 +67,9 @@ include_once(__DIR__ . '/viewMenuAdmin.php');
                     ?>
                 </tbody>
             </table>
+            <div class="btnValidate text-center">
             <input type="submit" class="btn" value="Valider">
+            </div>
         </form>
     </section>
 </div>
