@@ -23,7 +23,7 @@
             <div class="col-sm-12 mt-3">
                 <ul>
                     <li><a href="?action=mentionsLegales"> Mentions légales</a></li>
-                    <li><a href="?action=accueil"> &copy; Broc&amp;Landes 2023.</a></li>
+                    <li><a href="?action=accueil"> &copy; Broc&amp;Landes 2023</a></li>
                 </ul>
             </div>
             <div class="row text-center my-4 mx-auto">
