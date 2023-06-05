@@ -56,31 +56,11 @@ document.addEventListener('DOMContentLoaded', function () {
             // Obtenez la valeur de cellule pour la ligne b
             const bCellValue = b.cells[column].textContent.trim().toLowerCase();
 
-            let comparison = 0;
-
-            // Comparez les valeurs de cellule et affectez une valeur de comparaison
-            if (aCellValue > bCellValue) {
-                comparison = 1;
-            } else if (aCellValue < bCellValue) {
-                comparison = -1;
-            }
             // Appliquez la direction de tri à la comparaison
-            return currentSort.direction === 'asc' ? comparison : -comparison;
+            return currentSort.direction === 'asc' ? aCellValue.localeCompare(bCellValue) : bCellValue.localeCompare(aCellValue);
         });
 
         // Réorganisez les lignes dans le corps de la table
         rows.forEach(row => tbody.appendChild(row));
-
-        // Supprimez les icônes de tri de toutes les colonnes
-        const sortIcons = document.querySelectorAll('.sort-icon');
-        sortIcons.forEach(icon => {
-            icon.classList.remove('fa-sort-up', 'fa-sort-down');
-        });
-
-        // Ajoutez l'icône de tri à la colonne en cours si elle existe
-        const currentSortIcon = table.querySelector(`#col-${column} .sort-icon`);
-        if (currentSortIcon) {
-            currentSortIcon.classList.add(currentSort.direction === 'asc' ? 'fa-sort-up' : 'fa-sort-down');
-        }
     }
 });
