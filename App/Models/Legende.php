@@ -107,3 +107,4 @@ class Legende extends DbConnect
         }
     }
 }
+?>
